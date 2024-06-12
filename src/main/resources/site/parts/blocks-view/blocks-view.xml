@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<part xmlns="urn:enonic:xp:model:1.0">
+  <display-name i18n="blocksView.displayName">Blocks view</display-name>
+  <description i18n="blocksView.description">Renders blocks on a page</description>
+
+  <form>
+    <mixin name="blocks" />
+
+    <input name="blockTitle" type="TextLine">
+      <label i18n="common.title">Block title</label>
+    </input>
+
+    <input name="gapRow" type="ComboBox">
+      <label i18n="blocksView.gapRow">Vertical spacing</label>
+      <occurrences minimum="1" maximum="1"/>
+      <config>
+        <option value="lg">Large</option>
+        <option value="md">Medium</option>
+        <option value="sm">Small</option>
+        <option value="none">None</option>
+      </config>
+      <default>md</default>
+    </input>
+  </form>
+</part>

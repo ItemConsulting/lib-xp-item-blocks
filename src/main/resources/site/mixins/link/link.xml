@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<mixin xmlns="urn:enonic:xp:model:1.0">
+  <display-name i18n="linkMixin.displayName">Link</display-name>
+  <description i18n="linkMixin.description">Link to internal or external content</description>
+  <form>
+    <option-set name="link">
+      <occurrences minimum="1" maximum="1"/>
+      <options minimum="1" maximum="1">
+        <option name="internal">
+          <label i18n="linkMixin.internal">Internal</label>
+          <items>
+            <input type="contentSelector" name="internalLink">
+              <label i18n="linkMixin.internalLink">Internal link</label>
+              <occurrences minimum="1" maximum="1"/>
+            </input>
+          </items>
+          <default>true</default>
+        </option>
+
+        <option name="external">
+          <label i18n="linkMixin.external">External</label>
+          <items>
+            <input type="TextLine" name="externalLink">
+              <label i18n="linkMixin.externalLink">External link</label>
+              <occurrences minimum="1" maximum="1"/>
+            </input>
+          </items>
+        </option>
+      </options>
+    </option-set>
+  </form>
+</mixin>

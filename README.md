@@ -1,2 +1,7 @@
-# lib-xp-item-blocks
-Blockbased content for XP
+# Item Blocks
+
+## Config
+
+```
+defaultLocale=no
+```

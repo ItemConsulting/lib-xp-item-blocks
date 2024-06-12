@@ -1,0 +1,5 @@
+.blocks-quote {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-spacing-5)
+}

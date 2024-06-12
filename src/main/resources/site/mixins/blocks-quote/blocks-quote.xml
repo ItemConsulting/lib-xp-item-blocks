@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<mixin xmlns="urn:enonic:xp:model:1.0">
+  <display-name i18n="mixin.blocks.factbox.displayName">Factbox</display-name>
+
+  <form>
+    <input name="text" type="HtmlArea">
+      <label i18n="common.text">Text</label>
+      <occurrences minimum="1" maximum="1"/>
+      <config>
+        <exclude>*</exclude>
+        <include>Bold Italic Strike RemoveFormat | BulletedList NumberedList | Subscript Superscript | SpecialChar Link Unlink</include>
+      </config>
+    </input>
+
+    <input name="author" type="TextLine">
+      <label i18n="blocksMixin.author">Name of person quoted</label>
+      <occurrences minimum="0" maximum="1"/>
+    </input>
+
+    <input name="publicationTitle" type="TextLine">
+      <label i18n="blockMixin.publicationTitle">Title</label>
+      <occurrences minimum="0" maximum="1"/>
+    </input>
+
+    <input name="publicationUrl" type="TextLine">
+      <label i18n="blockMixin.publicationUrl">Url</label>
+      <occurrences minimum="0" maximum="1"/>
+      <config>
+        <regexp>https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()!@:%_\+.~#?&amp;\/\/=]*)</regexp>
+      </config>
+    </input>
+  </form>
+</mixin>

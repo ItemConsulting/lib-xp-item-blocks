@@ -1,0 +1,22 @@
+:root {
+  --ds-spacing-0: 0;
+  --ds-spacing-1: 0.25rem;
+  --ds-spacing-2: 0.5rem;
+  --ds-spacing-3: 0.75rem;
+  --ds-spacing-4: 1rem;
+  --ds-spacing-5: 1.25rem;
+  --ds-spacing-6: 1.5rem;
+  --ds-spacing-7: 1.75rem;
+  --ds-spacing-8: 2rem;
+  --ds-spacing-9: 2.25rem;
+  --ds-spacing-10: 2.5rem;
+  --ds-spacing-11: 2.75rem;
+  --ds-spacing-12: 3rem;
+  --ds-spacing-13: 3.25rem;
+  --ds-spacing-14: 3.5rem;
+  --ds-spacing-15: 3.75rem;
+  --ds-spacing-18: 4.5rem;
+  --ds-spacing-22: 5.5rem;
+  --ds-spacing-26: 6.5rem;
+  --ds-spacing-30: 7.5rem;
+}

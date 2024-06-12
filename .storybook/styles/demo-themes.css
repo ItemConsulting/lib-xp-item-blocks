@@ -1,0 +1,80 @@
+
+.theme-accent {
+  --blocks-color-theme-1: var(--blocks-color-accent-1);
+  --blocks-color-theme-2: var(--blocks-color-accent-2);
+  --blocks-color-theme-3: var(--blocks-color-accent-3);
+  --blocks-color-theme-4: var(--blocks-color-accent-4);
+  --blocks-color-theme-5: var(--blocks-color-accent-5);
+  --blocks-color-theme-6: var(--blocks-color-accent-6);
+  --blocks-color-theme-7: var(--blocks-color-accent-7);
+  --blocks-color-theme-8: var(--blocks-color-accent-8);
+  --blocks-color-theme-9: var(--blocks-color-accent-9);
+  --blocks-color-theme-10: var(--blocks-color-accent-10);
+  --blocks-color-theme-11: var(--blocks-color-accent-11);
+  --blocks-color-theme-12: var(--blocks-color-accent-12);
+  --blocks-color-theme-13: var(--blocks-color-accent-13);
+}
+
+.theme-neutral {
+  --blocks-color-theme-1: var(--blocks-color-neutral-1);
+  --blocks-color-theme-2: var(--blocks-color-neutral-2);
+  --blocks-color-theme-3: var(--blocks-color-neutral-3);
+  --blocks-color-theme-4: var(--blocks-color-neutral-4);
+  --blocks-color-theme-5: var(--blocks-color-neutral-5);
+  --blocks-color-theme-6: var(--blocks-color-neutral-6);
+  --blocks-color-theme-7: var(--blocks-color-neutral-7);
+  --blocks-color-theme-8: var(--blocks-color-neutral-8);
+  --blocks-color-theme-9: var(--blocks-color-neutral-9);
+  --blocks-color-theme-10: var(--blocks-color-neutral-10);
+  --blocks-color-theme-11: var(--blocks-color-neutral-11);
+  --blocks-color-theme-12: var(--blocks-color-neutral-12);
+  --blocks-color-theme-13: var(--blocks-color-neutral-13);
+}
+
+.theme-brand1 {
+  --blocks-color-theme-1: var(--blocks-color-brand1-1);
+  --blocks-color-theme-2: var(--blocks-color-brand1-2);
+  --blocks-color-theme-3: var(--blocks-color-brand1-3);
+  --blocks-color-theme-4: var(--blocks-color-brand1-4);
+  --blocks-color-theme-5: var(--blocks-color-brand1-5);
+  --blocks-color-theme-6: var(--blocks-color-brand1-6);
+  --blocks-color-theme-7: var(--blocks-color-brand1-7);
+  --blocks-color-theme-8: var(--blocks-color-brand1-8);
+  --blocks-color-theme-9: var(--blocks-color-brand1-9);
+  --blocks-color-theme-10: var(--blocks-color-brand1-10);
+  --blocks-color-theme-11: var(--blocks-color-brand1-11);
+  --blocks-color-theme-12: var(--blocks-color-brand1-12);
+  --blocks-color-theme-13: var(--blocks-color-brand1-13);
+}
+
+.theme-brand2 {
+  --blocks-color-theme-1: var(--blocks-color-brand2-1);
+  --blocks-color-theme-2: var(--blocks-color-brand2-2);
+  --blocks-color-theme-3: var(--blocks-color-brand2-3);
+  --blocks-color-theme-4: var(--blocks-color-brand2-4);
+  --blocks-color-theme-5: var(--blocks-color-brand2-5);
+  --blocks-color-theme-6: var(--blocks-color-brand2-6);
+  --blocks-color-theme-7: var(--blocks-color-brand2-7);
+  --blocks-color-theme-8: var(--blocks-color-brand2-8);
+  --blocks-color-theme-9: var(--blocks-color-brand2-9);
+  --blocks-color-theme-10: var(--blocks-color-brand2-10);
+  --blocks-color-theme-11: var(--blocks-color-brand2-11);
+  --blocks-color-theme-12: var(--blocks-color-brand2-12);
+  --blocks-color-theme-13: var(--blocks-color-brand2-13);
+}
+
+.theme-brand3 {
+  --blocks-color-theme-1: var(--blocks-color-brand3-1);
+  --blocks-color-theme-2: var(--blocks-color-brand3-2);
+  --blocks-color-theme-3: var(--blocks-color-brand3-3);
+  --blocks-color-theme-4: var(--blocks-color-brand3-4);
+  --blocks-color-theme-5: var(--blocks-color-brand3-5);
+  --blocks-color-theme-6: var(--blocks-color-brand3-6);
+  --blocks-color-theme-7: var(--blocks-color-brand3-7);
+  --blocks-color-theme-8: var(--blocks-color-brand3-8);
+  --blocks-color-theme-9: var(--blocks-color-brand3-9);
+  --blocks-color-theme-10: var(--blocks-color-brand3-10);
+  --blocks-color-theme-11: var(--blocks-color-brand3-11);
+  --blocks-color-theme-12: var(--blocks-color-brand3-12);
+  --blocks-color-theme-13: var(--blocks-color-brand3-13);
+}

@@ -1,0 +1,9 @@
+.html-area.flow {
+  h2 {
+    --flow-space: var(--ds-spacing-10);
+  }
+
+  p {
+    --flow-space: 1rlh;
+  }
+}

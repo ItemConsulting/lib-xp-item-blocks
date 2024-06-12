@@ -1,0 +1,15 @@
+import { processHtml } from "/lib/xp/portal";
+import { render } from "/lib/tineikt/freemarker";
+import type { BlocksQuote as RawBlocksQuote } from ".";
+import type { BlocksQuote } from "./blocks-quote.freemarker";
+
+const view = resolve("blocks-text.ftl");
+
+export function process(block: RawBlocksQuote): string {
+  return render<BlocksQuote>(view, {
+    text: processHtml({ value: block.text ?? "" }),
+    publicationTitle: block.publicationTitle,
+    author: block.author,
+    publicationUrl: block.publicationUrl,
+  });
+}

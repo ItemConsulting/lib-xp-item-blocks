@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<mixin xmlns="urn:enonic:xp:model:1.0">
+  <display-name i18n="mixin.blocks.displayName">Blocks</display-name>
+
+  <form>
+    <option-set name="blocks">
+      <label i18n="mixin.blocks.contentBlocks">Content blocks</label>
+      <help-text i18n="mixin.blocks.contentBlocksHelpText">An article is built up by blocks of content</help-text>
+      <occurrences minimum="0" maximum="0"/>
+
+      <options minimum="1" maximum="1">
+        <option name="text">
+          <label i18n="mixin.blocks.text.displayName">Text</label>
+          <help-text i18n="mixin.blocks.textHelpText">Block with title and text</help-text>
+          <items>
+            <mixin name="blocks-text" />
+          </items>
+        </option>
+
+        <option name="images">
+          <label i18n="mixin.blocks.images.displayName">Images</label>
+          <help-text i18n="mixin.blocks.imagesHelpText">Display an image or an image gallery</help-text>
+          <items>
+            <mixin name="blocks-images" />
+          </items>
+        </option>
+
+        <option name="factbox">
+          <label i18n="mixin.blocks.factbox.displayName">Factbox</label>
+          <help-text i18n="mixin.blocks.factboxHelpText">Block with factbox</help-text>
+          <items>
+            <mixin name="blocks-factbox" />
+          </items>
+        </option>
+
+        <option name="accordion">
+          <label i18n="mixin.blocks.accordion.displayName">Accordion</label>
+          <help-text i18n="mixin.blocks.accordionHelpText">Accordion</help-text>
+          <items>
+            <mixin name="blocks-accordion" />
+          </items>
+        </option>
+
+        <option name="cards">
+          <label i18n="mixin.blocks.cards.displayName">Cards</label>
+          <help-text i18n="mixin.blocks.cardsHelpText">Cards with title, text and image.</help-text>
+          <items>
+            <mixin name="blocks-cards" />
+          </items>
+        </option>
+      </options>
+    </option-set>
+  </form>
+</mixin>

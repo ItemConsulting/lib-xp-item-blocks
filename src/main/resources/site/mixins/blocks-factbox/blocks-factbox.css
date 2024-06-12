@@ -1,0 +1,10 @@
+.blocks-factbox {
+  --blocks-factbox--background-color: var(--blocks-color-theme-2);
+  --blocks-factbox--text-color: var(--blocks-color-theme-13);
+  --blocks-factbox--padding: var(--ds-spacing-22);
+
+  background-color: var(--blocks-factbox--background-color);
+  color: var(--blocks-factbox--text-color);
+  padding: var(--blocks-factbox--padding);
+}
+

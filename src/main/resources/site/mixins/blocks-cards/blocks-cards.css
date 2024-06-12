@@ -1,0 +1,43 @@
+.blocks-cards {
+  --blocks-cards-gap: var(--ds-spacing-6);
+  --blocks-cards--card-padding: var(--ds-spacing-6);
+  --blocks-cards--card-background-color: var(--blocks-color-theme-3);
+  --blocks-cards--card-background-color-hover: var(--blocks-color-theme-4);
+  --blocks-cards--card-text-color: var(--blocks-color-theme-13, currentColor);
+  --blocks-cards--card-kicker-color: var(--blocks-color-theme-12);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-spacing-6);
+
+  .blocks-cards--cards {
+    display: grid;
+    gap: var(--blocks-cards-gap);
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .blocks-cards--card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    padding: var(--blocks-cards--card-padding);
+    color: var(--blocks-cards--card-text-color);
+    background-color: var(--blocks-cards--card-background-color);
+
+    &:hover {
+      --blocks-cards--card-background-color: var(--blocks-cards--card-background-color-hover);
+
+      h3 {
+        text-decoration: 2px solid underline;
+      }
+    }
+  }
+
+  .blocks-cards--kicker {
+    color: var(--blocks-cards--card-kicker-color)
+  }
+
+  img {
+    width: 100%;
+  }
+}
