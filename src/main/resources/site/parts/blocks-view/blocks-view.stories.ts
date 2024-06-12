@@ -47,7 +47,7 @@ export default {
             [#-- Factbox --]
             [#assign title=factboxTitle /]
             [#assign text=factboxText /]
-            [#assign themeClass=factboxThemeClass /]
+            [#assign classes=factboxThemeClass /]
             [#include "${factboxId}"]
 
             [#--
@@ -102,7 +102,7 @@ export const blocksView: StoryObj = {
     cardsCards: cards.args?.cards,
     factboxTitle: factbox.args?.title,
     factboxText: factbox.args?.text,
-    factboxThemeClass: factbox.args?.themeClass,
+    factboxThemeClass: factbox.args?.classes,
     accordionItems: accordion.args?.items,
     accordionClasses: accordion.args?.classes,
   },
