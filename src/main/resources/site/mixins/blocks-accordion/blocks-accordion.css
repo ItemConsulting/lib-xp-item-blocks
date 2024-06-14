@@ -17,6 +17,10 @@
   display: flex;
   flex-direction: column;
 
+  details {
+    background-color: var(--blocks-accordion--background-color);
+  }
+
   summary {
     display: flex;
     list-style: none;
@@ -61,33 +65,5 @@
 
   .blocks-accordion--text {
     padding: var(--ds-spacing-4);
-  }
-
-  /* Animation */
-  .accordion-body {
-    display: grid;
-    grid-template-rows: 0fr;
-    overflow: hidden;
-    background-color: var(--blocks-accordion--background-color);
-    transition: grid-template-rows var(--blocks-accordion-transition-length) var(--blocks-accordion-transition-timing);
-  }
-
-  .accordion-transform {
-    transform: translateY(-100%);
-    transition: transform var(--blocks-accordion-transition-length) var(--blocks-accordion-transition-timing), visibility 0s var(--accordion-transition-length) var(--accordion-transition-timing);
-
-  }
-
-  [data-animate-open] .accordion-body {
-    grid-template-rows: 1fr;
-
-    .accordion-transform {
-      transform: translateY(0);
-      transition: transform var(--blocks-accordion-transition-length) var(--blocks-accordion-transition-timing), visibility 0s linear;
-    }
-  }
-
-  .accordion-animation {
-    min-height: 0;
   }
 }

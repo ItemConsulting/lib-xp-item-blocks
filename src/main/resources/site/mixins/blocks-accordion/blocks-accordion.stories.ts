@@ -1,7 +1,7 @@
 import id from "./blocks-accordion.ftl";
 import "./blocks-accordion.css";
 import { controlRadioTheme } from "../../storybook-utils";
-import DetailsAnimated from "../../../assets/scripts/details-animated";
+import DetailsAnimated from "@itemconsulting/details-animated";
 import type { BlocksAccordion } from "./blocks-accordion.freemarker";
 import type { Meta, StoryObj } from "@itemconsulting/xp-storybook-utils";
 

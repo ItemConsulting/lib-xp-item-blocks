@@ -84,5 +84,8 @@
     "storybook": "^8.0.10",
     "tsup": "^8",
     "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@itemconsulting/details-animated": "^0.0.2"
   }
 }
