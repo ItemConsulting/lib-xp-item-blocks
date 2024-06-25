@@ -1,31 +1,23 @@
+[#-- @ftlvariable name="id" type="String" --]
 [#-- @ftlvariable name="images" type="java.util.ArrayList" --]
 [#-- @ftlvariable name="locale" type="String" --]
 
-<div class="blocks-images blocks-images-size-${images?size}">
+<popover-gallery
+  class="blocks-images blocks-images-size-${images?size}"
+  data-popover-close-aria-label="[@localize key="blocksImages.close" locale=locale /]">
   [#list images![] as image ]
-    <figure>
+    <a
+      href="${image.fullSizeSrc}"
+      id="${id}-image-${image_index}"
+      class="blocks-images--expand-link"
+      target="_blank">
 
-      <div class="blocks-images--img-wrapper">
-        <img
-          srcset="${image.srcset}"
-          sizes="${image.sizes}"
-          src="${image.src}"
-          alt="${image.altText!""}">
-
-        <a
-          href="${image.fullSizeSrc}"
-          aria-label="[@localize key="blocksMixin.images.expand" locale=locale /]"
-          class="blocks-images--expand-link"
-          target="_blank">
-        </a>
-      </div>
-
-      [#if image.caption?has_content]
-        <figcaption>
-          ${image.caption}
-        </figcaption>
-      [/#if]
-    </figure>
+      <img
+        srcset="${image.srcset}"
+        sizes="${image.sizes}"
+        src="${image.src}"
+        alt="${image.altText!""}">
+    </a>
   [/#list]
-</div>
+</popover-gallery>
 

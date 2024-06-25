@@ -3,6 +3,7 @@ import textId from "../../mixins/blocks-text/blocks-text.ftl";
 import factboxId from "../../mixins/blocks-factbox/blocks-factbox.ftl";
 import cardsId from "../../mixins/blocks-cards/blocks-cards.ftl";
 import accordionId from "../../mixins/blocks-accordion/blocks-accordion.ftl";
+import imagesId from "../../mixins/blocks-images/blocks-images.ftl";
 import "./blocks-view.css";
 import "../../mixins/blocks-accordion/blocks-accordion.css";
 import "../../mixins/blocks-factbox/blocks-factbox.css";
@@ -13,6 +14,7 @@ import { factbox } from "../../mixins/blocks-factbox/blocks-factbox.stories";
 import { accordion } from "../../mixins/blocks-accordion/blocks-accordion.stories";
 import { text } from "../../mixins/blocks-text/blocks-text.stories";
 import { cards } from "../../mixins/blocks-cards/blocks-cards.stories";
+import { images } from "../../mixins/blocks-images/blocks-images.stories";
 import { controlRadioTheme } from "../../storybook-utils";
 
 export default {
@@ -67,6 +69,11 @@ export default {
             [#assign items=accordionItems /]
             [#assign classes=accordionClasses /]
             [#include "${accordionId}"]
+
+            [#-- Images --]
+            [#assign images=images /]
+            [#assign id="image-block-id" /]
+            [#include "${imagesId}"]
           [/#assign]
 
           [#assign classes=blockGap /]
@@ -79,6 +86,7 @@ export default {
 
 export const blocksView: StoryObj = {
   args: {
+    locale: "no",
     blockGap: "Medium",
     text1Title: "Welcome to my blog!",
     text1Text: `
@@ -105,5 +113,6 @@ export const blocksView: StoryObj = {
     factboxThemeClass: factbox.args?.classes,
     accordionItems: accordion.args?.items,
     accordionClasses: accordion.args?.classes,
+    images: images.args?.images,
   },
 };

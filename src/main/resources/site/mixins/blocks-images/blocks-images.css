@@ -1,0 +1,11 @@
+.blocks-images {
+  --block-images--gallery-gap: var(--ds-spacing-4, 1rem);
+
+  display: grid;
+  gap: var(--block-images--gallery-gap);
+  grid-template-columns: 1fr 1fr;
+}
+
+.popover-gallery--popover::backdrop {
+  background-color: rgba(0, 0, 0, 0.7);
+}

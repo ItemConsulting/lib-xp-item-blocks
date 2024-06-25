@@ -86,6 +86,7 @@
     "typescript": "^5.4.5"
   },
   "dependencies": {
-    "@itemconsulting/details-animated": "^0.0.2"
+    "@itemconsulting/details-animated": "^0.0.6",
+    "@itemconsulting/popover-gallery": "^0.0.2"
   }
 }
