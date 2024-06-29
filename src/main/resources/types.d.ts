@@ -18,3 +18,25 @@ declare const app: {
    */
   config: Record<string, string | undefined>;
 };
+
+declare const log: {
+  /**
+   * Log debug message.
+   */
+  debug: (...args: unknown[]) => void;
+
+  /**
+   * Log info message.
+   */
+  info: (...args: unknown[]) => void;
+
+  /**
+   * Log warning message.
+   */
+  warning: (...args: unknown[]) => void;
+
+  /**
+   * Log error message.
+   */
+  error: (...args: unknown[]) => void;
+};

@@ -2,7 +2,7 @@
 <mixin xmlns="urn:enonic:xp:model:1.0">
   <display-name i18n="mixin.blocks.theme.displayName">Theme</display-name>
   <form>
-    <input type="CustomController" name="theme">
+    <input type="CustomSelector" name="theme">
       <label i18n="mixin.blocks.theme.theme">Theme</label>
       <occurrences minimum="0" maximum="1"/>
       <config>

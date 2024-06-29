@@ -3,7 +3,7 @@ import { render } from "/lib/tineikt/freemarker";
 import type { BlocksQuote as RawBlocksQuote } from ".";
 import type { BlocksQuote } from "./blocks-quote.freemarker";
 
-const view = resolve("blocks-text.ftl");
+const view = resolve("blocks-quote.ftl");
 
 export function process(block: RawBlocksQuote): string {
   return render<BlocksQuote>(view, {

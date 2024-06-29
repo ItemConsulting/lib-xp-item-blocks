@@ -48,6 +48,14 @@
             <mixin name="blocks-cards" />
           </items>
         </option>
+
+        <option name="reuse">
+          <label i18n="mixin.blocks.reuse.displayName">Reuse</label>
+          <help-text i18n="mixin.reuse.cardsHelpText">Reuse blocks inside another content</help-text>
+          <items>
+            <mixin name="blocks-reuse" />
+          </items>
+        </option>
       </options>
     </option-set>
   </form>

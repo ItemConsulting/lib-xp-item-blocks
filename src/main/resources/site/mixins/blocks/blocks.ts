@@ -1,3 +1,4 @@
+import { get as getOne, type Content } from "/lib/xp/content";
 import { flatMap, forceArray } from "/lib/item-blocks/arrays";
 import { getComponent, getContent } from "/lib/xp/portal";
 import { render } from "/lib/tineikt/freemarker";
@@ -6,9 +7,9 @@ import { process as processBlocksText } from "/site/mixins/blocks-text/blocks-te
 import { process as processBlocksCards } from "/site/mixins/blocks-cards/blocks-cards";
 import { process as processBlocksFactbox } from "/site/mixins/blocks-factbox/blocks-factbox";
 import { process as processBlocksImages } from "/site/mixins/blocks-images/blocks-images";
-import { process as processBlocksReuse } from "/site/mixins/blocks-reuse/blocks-reuse";
 import type { Component } from "@enonic-types/core";
-import type { Blocks as RawBlocks } from ".";
+import type { Blocks as BlocksRaw } from ".";
+import type { BlocksReuse as BlocksReuseRaw } from "/site/mixins/blocks-reuse";
 import type { Blocks } from "/site/mixins/blocks/blocks.freemarker";
 
 export type BlockProcessor<Block> = (block: Block, params?: BlockProcessorParams) => string | string[];
@@ -29,7 +30,7 @@ const REGISTERED_BLOCK_PROCESSORS: Record<string, BlockProcessor<unknown>> = {
 
 const view = resolve("blocks.ftl");
 
-export function process(blocks: NonNullable<RawBlocks["blocks"]>, params?: BlockProcessorParams): string {
+export function process(blocks: NonNullable<BlocksRaw["blocks"]>, params?: BlockProcessorParams): string {
   const component = params?.component ?? getComponent();
   const locale = params?.locale ?? getContent()?.language ?? app.config.defaultLocale ?? "no";
 
@@ -42,7 +43,7 @@ export function process(blocks: NonNullable<RawBlocks["blocks"]>, params?: Block
   });
 }
 
-export function processBlocks(blocks: NonNullable<RawBlocks["blocks"]>, params: BlockProcessorParams): string[] {
+export function processBlocks(blocks: NonNullable<BlocksRaw["blocks"]>, params: BlockProcessorParams): string[] {
   return flatMap(forceArray(blocks), (block) => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
@@ -60,8 +61,14 @@ export function registerBlockProcessor<Block>(selected: string, processor: Block
   REGISTERED_BLOCK_PROCESSORS[selected] = processor as BlockProcessor<unknown>;
 }
 
-export function unregisterBlockProcessor<Block>(selected: string): void {
+export function unregisterBlockProcessor(selected: string): void {
   if (REGISTERED_BLOCK_PROCESSORS[selected]) {
     delete REGISTERED_BLOCK_PROCESSORS[selected];
   }
+}
+
+export function processBlocksReuse(block: BlocksReuseRaw, params: BlockProcessorParams): string[] {
+  const content = block.contentId ? getOne<Content<BlocksRaw>>({ key: block.contentId }) : undefined;
+
+  return processBlocks(forceArray(content?.data.blocks), params);
 }

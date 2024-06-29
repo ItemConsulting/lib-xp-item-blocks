@@ -3,7 +3,7 @@ import { render } from "/lib/tineikt/freemarker";
 import type { BlocksFactbox as RawBlocksFactbox } from ".";
 import type { BlocksFactbox } from "./blocks-factbox.freemarker";
 
-const view = resolve("blocks-text.ftl");
+const view = resolve("blocks-factbox.ftl");
 
 export function process(block: RawBlocksFactbox): string {
   return render<BlocksFactbox>(view, {

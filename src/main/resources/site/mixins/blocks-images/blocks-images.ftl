@@ -3,7 +3,7 @@
 [#-- @ftlvariable name="locale" type="String" --]
 
 <popover-gallery
-  class="blocks-images blocks-images-size-${images?size}"
+  class="blocks-images blocks-images-size-${(images![])?size}"
   data-popover-close-aria-label="[@localize key="blocksImages.close" locale=locale /]">
   [#list images![] as image ]
     <a
