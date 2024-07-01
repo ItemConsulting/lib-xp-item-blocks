@@ -1,10 +1,10 @@
 .blocks-cards {
   --blocks-cards--gap: var(--blocks-spacing-md);
   --blocks-cards--card-padding: var(--blocks-spacing-md);
-  --blocks-cards--card-background-color: var(--blocks-color-theme-3);
-  --blocks-cards--card-background-color-hover: var(--blocks-color-theme-4);
-  --blocks-cards--card-text-color: var(--blocks-color-theme-13, currentColor);
-  --blocks-cards--card-kicker-color: var(--blocks-color-theme-12);
+  --blocks-cards--card-background-color: var(--blocks-color-surface-default);
+  --blocks-cards--card-background-color-hover: var(--blocks-color-surface-hover);
+  --blocks-cards--card-text-color: var(--blocks-color-text-default, currentColor);
+  --blocks-cards--card-kicker-color: var(--blocks-color-text-subtle);
 
   display: flex;
   flex-direction: column;

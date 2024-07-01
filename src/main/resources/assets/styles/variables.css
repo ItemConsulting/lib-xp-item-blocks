@@ -1,4 +1,10 @@
 :root {
+  /* Containers */
+  --blocks-container-sm: 75ch;
+  --blocks-container-md: 778px;
+  --blocks-container-lg: 940px;
+
+  /* Spacing */
   --blocks-spacing-sm: 1rem;
   --blocks-spacing-md: 1.5rem;
   --blocks-spacing-lg: 2.5rem;
