@@ -1,6 +1,6 @@
 .html-area.flow {
   h2 {
-    --flow-space: var(--ds-spacing-10);
+    --flow-space: var(--blocks-spacing-lg);
   }
 
   p {

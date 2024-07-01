@@ -9,6 +9,13 @@ import type { ContentImage, ContentVector, Unarray } from "/lib/item-blocks/type
 const view = resolve("blocks-cards.ftl");
 
 export function process(block: RawBlocksCards): string {
+  /**
+   * Variants to check
+   * - Image only should cover the whole card
+   * - Image size should be configurable
+   * - Card with no link should be valid
+   */
+
   return render(view, {
     title: block.title,
     items: forceArray(block.items).map(processCard),

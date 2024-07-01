@@ -1,5 +1,5 @@
 .blocks-images {
-  --block-images--gallery-gap: var(--ds-spacing-4, 1rem);
+  --block-images--gallery-gap: var(--blocks-spacing-sm, 1rem);
 
   display: grid;
   gap: var(--block-images--gallery-gap);

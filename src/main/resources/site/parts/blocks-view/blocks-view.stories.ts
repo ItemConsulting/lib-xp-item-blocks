@@ -13,7 +13,7 @@ import type { StoryObj, Meta } from "@itemconsulting/xp-storybook-utils";
 import { factbox } from "../../mixins/blocks-factbox/blocks-factbox.stories";
 import { accordion } from "../../mixins/blocks-accordion/blocks-accordion.stories";
 import { text } from "../../mixins/blocks-text/blocks-text.stories";
-import { cards } from "../../mixins/blocks-cards/blocks-cards.stories";
+import { inArticle } from "../../mixins/blocks-cards/blocks-cards.stories";
 import { images } from "../../mixins/blocks-images/blocks-images.stories";
 import { controlRadioTheme } from "../../storybook-utils";
 
@@ -52,13 +52,12 @@ export default {
             [#assign classes=factboxThemeClass /]
             [#include "${factboxId}"]
 
-            [#--
+            [#-- Cards --]
             [#assign title=cardsTitle]
-            [#assign classes=cardsClasses]
+            [#assign classes="\${imageClass} \${themeClass}" /]
             [#assign cards=cardsCards]
             [#assign link=cardsLink]
             [#include "${cardsId}"]
-            --]
 
             [#-- Text --]
             [#assign title=text2Title /]
@@ -104,10 +103,11 @@ export const blocksView: StoryObj = {
     `,
     text2Title: text.args?.title,
     text2Text: text.args?.text,
-    cardsTitle: cards.args?.title,
-    cardsClasses: cards.args?.classes,
-    cardsLink: cards.args?.link,
-    cardsCards: cards.args?.cards,
+    cardsTitle: inArticle.args?.title,
+    imageClass: inArticle.args?.imageClass,
+    themeClass: inArticle.args?.themeClass,
+    cardsLink: inArticle.args?.link,
+    cardsCards: inArticle.args?.cards,
     factboxTitle: factbox.args?.title,
     factboxText: factbox.args?.text,
     factboxThemeClass: factbox.args?.classes,

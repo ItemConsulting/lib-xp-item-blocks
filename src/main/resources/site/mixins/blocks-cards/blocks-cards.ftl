@@ -30,11 +30,12 @@
     class="blocks-cards--card${card.classes?has_content?string(' ${card.classes!""}', "")}">
 
     [#if card.imageSrc?has_content]
-      <img
-        src="${card.imageSrc}"
-        alt=""
-        class="blocks-cards--image"
-      />
+      <figure class="blocks-cards--image">
+        <img
+          src="${card.imageSrc}"
+          alt=""
+        />
+      </figure>
     [/#if]
 
     <div class="blocks-cards--body">

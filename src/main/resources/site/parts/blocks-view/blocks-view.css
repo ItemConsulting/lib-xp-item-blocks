@@ -1,6 +1,6 @@
 .blocks-view {
-  --blocks-view--row-gap: var(--ds-spacing-5);
-  --padding-inline: var(--ds-spacing-4);
+  --blocks-view--row-gap: var(--blocks-spacing-md);
+  --padding-inline: var(--blocks-spacing-sm);
   --full: minmax(var(--padding-inline), 1fr);
   --content: min(var(--container-sm), 100% - var(--padding-inline) * 2);
   --breakout: minmax(0, calc((var(--container-md) - var(--container-sm)) ));
@@ -28,15 +28,15 @@
 }
 
 .blocks-view--gap-lg {
-  --blocks-view--row-gap: var(--ds-spacing-14);
+  --blocks-view--row-gap: var(--blocks-spacing-xl);
 }
 
 .blocks-view--gap-md {
-  --blocks-view--row-gap: var(--ds-spacing-10);
+  --blocks-view--row-gap: var(--blocks-spacing-lg);
 }
 
 .blocks-view--gap--sm {
-  --blocks-view--row-gap: var(--ds-spacing-6);
+  --blocks-view--row-gap: var(--blocks-spacing-md);
 }
 
 .blocks-view--gap--none {

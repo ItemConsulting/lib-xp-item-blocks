@@ -3,8 +3,8 @@
   --blocks-accordion--background-color-hover: var(--blocks-color-theme-4);
   --blocks-accordion--background-color-open: var(--blocks-color-theme-4);
   --blocks-accordion--text-color: var(--blocks-color-theme-13, currentColor);
-  --blocks-accordion--padding: var(--ds-spacing-4);
-  --blocks-accordion--flow-space: var(--ds-spacing-4, 1.5rem);
+  --blocks-accordion--padding: var(--blocks-spacing-sm);
+  --blocks-accordion--flow-space: var(--blocks-spacing-sm, 1.5rem);
 
   display: flex;
   flex-direction: column;
@@ -35,6 +35,6 @@
   }
 
   .blocks-accordion--text {
-    padding: var(--ds-spacing-4);
+    padding: var(--blocks-spacing-sm);
   }
 }

@@ -1,23 +1,53 @@
 import "./blocks-cards.css";
 import id from "./blocks-cards.ftl";
 import { controlRadioTheme } from "../../storybook-utils";
-import type { BlocksCard } from "./blocks-cards.freemarker";
 import type { Meta, StoryObj } from "@itemconsulting/xp-storybook-utils";
+
+type CardsStory = {
+  themeClass: string;
+  imageClass: string;
+};
 
 export default {
   title: "Blocks/Cards",
   argTypes: {
-    classes: controlRadioTheme,
+    themeClass: controlRadioTheme,
+    imageClass: {
+      options: [
+        "blocks-cards--image-left",
+        "blocks-cards--image-right",
+        "blocks-cards--image-top",
+        "blocks-cards--image-bottom",
+      ],
+      control: {
+        type: "inline-radio",
+        labels: {
+          "blocks-cards--image-left": "Left",
+          "blocks-cards--image-right": "Right",
+          "blocks-cards--image-top": "Top",
+          "blocks-cards--image-bottom": "Bottom",
+        },
+      },
+    },
   },
   parameters: {
-    server: { id },
+    server: {
+      id,
+      params: {
+        template: `
+          [#assign classes="\${imageClass} \${themeClass}" /]
+          [#include "${id}"]
+        `,
+      },
+    },
   },
-} satisfies Meta<BlocksCard>;
+} satisfies Meta<CardsStory>;
 
-export const cards: StoryObj<BlocksCard> = {
+export const inArticle: StoryObj = {
   args: {
     title: "Cards example",
-    classes: "theme-accent",
+    themeClass: "theme-accent",
+    imageClass: "blocks-cards--image-left",
     cards: [
       {
         kicker: "Blogpost",
@@ -29,7 +59,7 @@ export const cards: StoryObj<BlocksCard> = {
             <li>test2</li>
           </ul>`,
         url: "#",
-        imageSrc: "tomaj.jpeg",
+        imageSrc: "eggman-thumb.jpg",
       },
       {
         kicker: "Calendar",
@@ -41,6 +71,7 @@ export const cards: StoryObj<BlocksCard> = {
            <li>test2</li>
           </ul>`,
         url: "#",
+        imageSrc: "capman-thumb.jpg",
       },
     ],
     link: {

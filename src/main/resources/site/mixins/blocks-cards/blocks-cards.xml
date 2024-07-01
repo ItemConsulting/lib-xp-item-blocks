@@ -8,6 +8,20 @@
       <occurrences minimum="0" maximum="1"/>
     </input>
 
+    <mixin name="blocks-theme" />
+
+    <input name="imagePosition" type="ComboBox">
+      <label i18n="mixin.blocks.cards.imagePosition">Image placement</label>
+      <occurrences minimum="1" maximum="1"/>
+      <default>right</default>
+      <config>
+        <option value="top">Topp</option>
+        <option value="bottom">Bunn</option>
+        <option value="left">Venstre</option>
+        <option value="right">Høyre</option>
+      </config>
+    </input>
+
     <item-set name="items">
       <label i18n="mixin.blocks.cards.displayName">Cards</label>
       <occurrences minimum="1" maximum="0"/>
@@ -27,18 +41,6 @@
         <input name="imageId" type="ImageSelector">
           <label i18n="mixin.blocks.cards.image">Image</label>
           <occurrences minimum="0" maximum="1"/>
-        </input>
-
-        <input name="imagePosition" type="ComboBox">
-          <label i18n="mixin.blocks.cards.imagePosition">Image placement</label>
-          <occurrences minimum="1" maximum="1"/>
-          <default>right</default>
-          <config>
-            <option value="top">Topp</option>
-            <option value="bottom">Bunn</option>
-            <option value="left">Venstre</option>
-            <option value="right">Høyre</option>
-          </config>
         </input>
       </items>
     </item-set>
