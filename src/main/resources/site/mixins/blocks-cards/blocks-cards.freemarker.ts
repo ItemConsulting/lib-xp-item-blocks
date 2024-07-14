@@ -1,18 +1,11 @@
-export type BlocksCard = {
+import type { BlocksCard } from "../blocks-card/blocks-card.freemarker";
+
+export type BlocksCards = {
   title?: string;
-  cards: Card[];
+  cards: BlocksCard[];
   classes?: string;
   link?: {
     url: string;
     text: string;
   };
-};
-
-export type Card = {
-  url: string;
-  classes?: string;
-  imageSrc?: string;
-  kicker?: string;
-  title?: string;
-  text?: string;
 };

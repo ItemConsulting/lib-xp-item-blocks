@@ -79,7 +79,7 @@ export type Blocks = {
           /**
            * Theme
            */
-          theme?: unknown;
+          theme?: string;
         };
       }
     | {
@@ -129,6 +129,16 @@ export type Blocks = {
           title?: string;
 
           /**
+           * Theme
+           */
+          theme?: string;
+
+          /**
+           * Image placement
+           */
+          imagePosition: "top" | "bottom" | "left" | "right";
+
+          /**
            * Cards
            */
           items: Array<{
@@ -168,25 +178,41 @@ export type Blocks = {
                 };
 
             /**
+             * Kicker
+             */
+            kicker?: string;
+
+            /**
              * Overwrite title
              */
             title?: string;
 
             /**
-             * Intro
+             * Text
              */
-            intro?: string;
+            text?: string;
 
             /**
              * Image
              */
             imageId?: string;
-
-            /**
-             * Image placement
-             */
-            imagePosition: "top" | "bottom" | "left" | "right";
           }>;
+        };
+      }
+    | {
+        /**
+         * Selected
+         */
+        _selected: "reuse";
+
+        /**
+         * Reuse
+         */
+        reuse: {
+          /**
+           * Include blocks from this content
+           */
+          contentId: string;
         };
       }
   >;

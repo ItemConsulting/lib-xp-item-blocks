@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<mixin xmlns="urn:enonic:xp:model:1.0">
+  <display-name i18n="mixin.blocks.card.displayName">Card</display-name>
+
+  <form>
+    <mixin name="link" />
+
+    <input type="TextLine" name="kicker">
+      <label i18n="mixin.blocks.card.kicker">Kicker</label>
+      <occurrences minimum="0" maximum="1"/>
+    </input>
+
+    <input type="TextLine" name="title">
+      <label i18n="mixin.blocks.card.overwriteTitle">Overwrite title</label>
+      <occurrences minimum="0" maximum="1"/>
+    </input>
+
+    <input type="TextArea" name="text">
+      <label i18n="mixin.blocks.card.text">Text</label>
+      <occurrences minimum="0" maximum="1"/>
+    </input>
+
+    <input name="imageId" type="ImageSelector">
+      <label i18n="mixin.blocks.card.image">Image</label>
+      <occurrences minimum="0" maximum="1"/>
+    </input>
+  </form>
+</mixin>

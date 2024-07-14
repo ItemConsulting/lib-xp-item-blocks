@@ -4,10 +4,21 @@
   --blocks-container-md: 778px;
   --blocks-container-lg: 940px;
 
-  /* Spacing */
+  /* Spacing mobile */
   --blocks-spacing-sm: 1rem;
-  --blocks-spacing-md: 1.5rem;
-  --blocks-spacing-lg: 2.5rem;
-  --blocks-spacing-xl: 3.5rem;
-  --blocks-spacing-xxl: 5.5rem;
+  --blocks-spacing-md: 1rem;
+  --blocks-spacing-lg: 1.25rem;
+  --blocks-spacing-xl: 2rem;
+  --blocks-spacing-xxl: 3rem;
+}
+
+@media (width > 576px) {
+  :root {
+    /* Spacing desktop */
+    --blocks-spacing-sm: 1rem;
+    --blocks-spacing-md: 1.5rem;
+    --blocks-spacing-lg: 2.5rem;
+    --blocks-spacing-xl: 3.5rem;
+    --blocks-spacing-xxl: 5.5rem;
+  }
 }

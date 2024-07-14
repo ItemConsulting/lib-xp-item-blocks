@@ -3,5 +3,5 @@ export type BlocksTheme = {
   /**
    * Theme
    */
-  theme?: unknown;
+  theme?: string;
 }

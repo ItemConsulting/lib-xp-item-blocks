@@ -6,6 +6,16 @@ export type BlocksCards = {
   title?: string;
 
   /**
+   * Theme
+   */
+  theme?: string;
+
+  /**
+   * Image placement
+   */
+  imagePosition: "top" | "bottom" | "left" | "right";
+
+  /**
    * Cards
    */
   items: Array<{
@@ -45,23 +55,23 @@ export type BlocksCards = {
         };
 
     /**
+     * Kicker
+     */
+    kicker?: string;
+
+    /**
      * Overwrite title
      */
     title?: string;
 
     /**
-     * Intro
+     * Text
      */
-    intro?: string;
+    text?: string;
 
     /**
      * Image
      */
     imageId?: string;
-
-    /**
-     * Image placement
-     */
-    imagePosition: "top" | "bottom" | "left" | "right";
   }>;
 }

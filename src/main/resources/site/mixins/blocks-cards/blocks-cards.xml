@@ -26,22 +26,7 @@
       <label i18n="mixin.blocks.cards.displayName">Cards</label>
       <occurrences minimum="1" maximum="0"/>
       <items>
-        <mixin name="link" />
-
-        <input type="TextLine" name="title">
-          <label i18n="mixin.blocks.cards.overwriteTitle">Overwrite title</label>
-          <occurrences minimum="0" maximum="1"/>
-        </input>
-
-        <input type="TextArea" name="intro">
-          <label i18n="mixin.blocks.cards.intro">Intro</label>
-          <occurrences minimum="0" maximum="1"/>
-        </input>
-
-        <input name="imageId" type="ImageSelector">
-          <label i18n="mixin.blocks.cards.image">Image</label>
-          <occurrences minimum="0" maximum="1"/>
-        </input>
+        <mixin name="blocks-card" />
       </items>
     </item-set>
   </form>

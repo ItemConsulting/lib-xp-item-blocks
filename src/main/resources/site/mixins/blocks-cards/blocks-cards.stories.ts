@@ -1,4 +1,5 @@
 import "./blocks-cards.css";
+import "../blocks-card/blocks-card.css";
 import id from "./blocks-cards.ftl";
 import { controlRadioTheme } from "../../storybook-utils";
 import type { Meta, StoryObj } from "@itemconsulting/xp-storybook-utils";
@@ -14,18 +15,18 @@ export default {
     themeClass: controlRadioTheme,
     imageClass: {
       options: [
-        "blocks-cards--image-left",
-        "blocks-cards--image-right",
-        "blocks-cards--image-top",
-        "blocks-cards--image-bottom",
+        "blocks-card--image-left",
+        "blocks-card--image-right",
+        "blocks-card--image-top",
+        "blocks-card--image-bottom",
       ],
       control: {
         type: "inline-radio",
         labels: {
-          "blocks-cards--image-left": "Left",
-          "blocks-cards--image-right": "Right",
-          "blocks-cards--image-top": "Top",
-          "blocks-cards--image-bottom": "Bottom",
+          "blocks-card--image-left": "Left",
+          "blocks-card--image-right": "Right",
+          "blocks-card--image-top": "Top",
+          "blocks-card--image-bottom": "Bottom",
         },
       },
     },
@@ -47,7 +48,7 @@ export const inArticle: StoryObj = {
   args: {
     title: "Cards example",
     themeClass: "theme-accent",
-    imageClass: "blocks-cards--image-left",
+    imageClass: "blocks-card--image-left",
     cards: [
       {
         kicker: "Blogpost",

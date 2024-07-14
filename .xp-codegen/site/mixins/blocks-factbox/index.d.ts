@@ -13,5 +13,5 @@ export type BlocksFactbox = {
   /**
    * Theme
    */
-  theme?: unknown;
+  theme?: string;
 }

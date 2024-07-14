@@ -1,88 +1,13 @@
 .blocks-cards {
   --blocks-cards--gap: var(--blocks-spacing-md);
-  --blocks-cards--card-padding: var(--blocks-spacing-md);
-  --blocks-cards--card-background-color: var(--blocks-color-surface-default);
-  --blocks-cards--card-background-color-hover: var(--blocks-color-surface-hover);
-  --blocks-cards--card-text-color: var(--blocks-color-text-default, currentColor);
-  --blocks-cards--card-kicker-color: var(--blocks-color-text-subtle);
 
   display: flex;
   flex-direction: column;
   gap: var(--blocks-spacing-md);
 
-  &.blocks-cards--image-left {
-    --card-flex-direction: row-reverse;
-    --image-max-width: 200px;
-  }
-
-  &.blocks-cards--image-right {
-    --card-flex-direction: row;
-    --image-max-width: 200px;
-  }
-
-  &.blocks-cards--image-top {
-    --card-flex-direction: column-reverse;
-    --card-align-image: center;
-    --image-max-width: 256px;
-  }
-
-  &.blocks-cards--image-bottom {
-    --card-flex-direction: column;
-    --card-align-image: center;
-    --image-max-width: 256px;
-  }
-
-  &.blocks-cards--image-none {
-    --card-flex-direction: row;
-    --card-align-image: center;
-
-    /* Check if this is still correct */
-    & svg {
-      align-self: var(--card-align-image);
-    }
-  }
-
   .blocks-cards--cards {
     display: grid;
     gap: var(--blocks-cards--gap);
     grid-template-columns: repeat(3, 1fr);
-  }
-
-  .blocks-cards--card {
-    display: flex;
-    gap: var(--blocks-spacing-md);
-    flex-direction: var(--card-flex-direction, column);
-    text-decoration: none;
-    color: var(--blocks-cards--card-text-color);
-    background-color: var(--blocks-cards--card-background-color);
-
-    &:hover {
-      --blocks-cards--card-background-color: var(--blocks-cards--card-background-color-hover);
-
-      h3 {
-        text-decoration: 2px solid underline;
-      }
-    }
-
-    .blocks-cards--body {
-      flex: 0 50%;
-      padding: var(--blocks-cards--card-padding);
-    }
-  }
-
-  .blocks-cards--kicker {
-    color: var(--blocks-cards--card-kicker-color)
-  }
-
-  .blocks-cards--image {
-    flex: 0 50%;
-    margin-right: var(--image-margin-right, auto);
-    margin-left: var(--image-margin-left, auto);
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
   }
 }

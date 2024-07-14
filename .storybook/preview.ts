@@ -2,7 +2,7 @@ import type { Preview } from "@itemconsulting/xp-storybook-utils";
 
 import "./styles/reset.css";
 import "./styles/demo-styles.css";
-import "../src/main/resources/assets/styles/demo-themes.css";
+import "../src/main/resources/assets/styles/themes.stories.css";
 import "../src/main/resources/assets/styles/variables.css";
 import "../src/main/resources/assets/styles/flow.css";
 import "../src/main/resources/assets/styles/html-area.css";
