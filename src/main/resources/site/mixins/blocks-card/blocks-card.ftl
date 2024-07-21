@@ -13,9 +13,9 @@
       [#if card.kicker?has_content || card.title?has_content || card.text?has_content]
         <div class="blocks-card--body">
           [#if card.kicker?has_content]
-            <div class="blocks-card--kicker">
+            <small class="blocks-card--kicker">
               ${card.kicker}
-            </div>
+            </small>
           [/#if]
 
           [#if card.title?has_content]
