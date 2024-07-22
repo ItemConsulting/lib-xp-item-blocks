@@ -8,6 +8,7 @@ const view = resolve("blocks-accordion.ftl");
 
 export function process(block: RawBlocksAccordion): string {
   const model: BlocksAccordion = {
+    classes: block.theme ? `theme-${block.theme}` : undefined,
     items: forceArray(block.items).map((item) => ({
       title: item.title,
       text: processHtml({
