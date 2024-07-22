@@ -1,6 +1,6 @@
 [#-- @ftlvariable name="title" type="String" --]
 [#-- @ftlvariable name="classes" type="String" --]
-[#-- @ftlvariable name="cards" type="java.util.ArrayList" --]
+[#-- @ftlvariable name="items" type="java.util.ArrayList" --]
 [#-- @ftlvariable name="link" type="no.item.blocks.Link" --]
 
 [#import "../blocks-card/blocks-card.ftl" as Card]
@@ -11,8 +11,8 @@
   [/#if]
 
   <div class="blocks-cards--cards">
-    [#list cards as card]
-      [@Card.render card=card /]
+    [#list items as item]
+      [@Card.render card=item /]
     [/#list]
   </div>
 

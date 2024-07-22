@@ -1,6 +1,8 @@
 import { pageUrl } from "/lib/xp/portal";
 import type { Link } from ".";
 
+export const URL_CONTENT_NOT_FOUND = "_/error/404?message=Content+not+found";
+
 export function getUrl(link: Link["link"]): string {
   switch (link?._selected) {
     case "internal":
@@ -12,6 +14,6 @@ export function getUrl(link: Link["link"]): string {
       return link.external.externalLink;
 
     default:
-      return "_/error/404?message=Content+not+found";
+      return URL_CONTENT_NOT_FOUND;
   }
 }

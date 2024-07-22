@@ -12,7 +12,7 @@ import type { BlocksCard } from "/site/mixins/blocks-card/blocks-card.freemarker
  * - Card with no link should be valid
  */
 
-export function process(item: Unarray<RawBlocksCards["items"]>, classes: string): BlocksCard {
+export function process(item: Unarray<RawBlocksCards["items"]>): BlocksCard {
   const image = item.imageId
     ? getOne<ContentImage | ContentVector>({
         key: item.imageId,
@@ -32,6 +32,5 @@ export function process(item: Unarray<RawBlocksCards["items"]>, classes: string)
           format: image?.type === "media:image" ? "jpg" : undefined,
         })
       : undefined,
-    classes,
   };
 }

@@ -26,6 +26,10 @@
             </input>
           </items>
         </option>
+
+        <option name="none">
+          <label i18n="linkMixin.none">None</label>
+        </option>
       </options>
     </option-set>
   </form>

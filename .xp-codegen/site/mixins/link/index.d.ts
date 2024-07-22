@@ -33,5 +33,16 @@ export type Link = {
            */
           externalLink: string;
         };
+      }
+    | {
+        /**
+         * Selected
+         */
+        _selected: "none";
+
+        /**
+         * None
+         */
+        none: Record<string, unknown>;
       };
 }

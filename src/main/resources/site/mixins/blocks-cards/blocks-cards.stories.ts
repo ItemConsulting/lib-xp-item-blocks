@@ -56,7 +56,7 @@ export default {
     template: `
       [#assign classes="\${imageClass} \${themeClass} \${columnsClass}" /]
 
-      [#assign cards=cards?chunk(count)[0] /]
+      [#assign items=items?chunk(count)[0] /]
 
       <div class="blocks-card-story--extra-large">
         [#include "${id}"]
@@ -75,7 +75,7 @@ export const Cards: StoryObj = {
     imageClass: "blocks-card--image-left",
     count: 5,
     columnsClass: "blocks-card--cols-3",
-    cards: [
+    items: [
       {
         kicker: "Blogpost",
         title: "Overskrift 1",

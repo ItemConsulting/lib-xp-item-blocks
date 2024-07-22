@@ -9,5 +9,6 @@ export function process(block: RawBlocksFactbox): string {
   return render<BlocksFactbox>(view, {
     title: block.title,
     text: processHtml({ value: block.text ?? "" }),
+    classes: block.theme ? `theme-${block.theme}` : undefined,
   });
 }

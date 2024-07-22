@@ -124,7 +124,7 @@ export type Blocks = {
          */
         cards: {
           /**
-           * Image
+           * Title
            */
           title?: string;
 
@@ -136,12 +136,22 @@ export type Blocks = {
           /**
            * Image placement
            */
-          imagePosition: "top" | "bottom" | "left" | "right";
+          imageClass: "blocks-card--image-left" | "blocks-card--image-right" | "blocks-card--image-top" | "blocks-card--image-bottom";
+
+          /**
+           * Column count
+           */
+          columnsClass: "blocks-card--cols-1" | "blocks-card--cols-2" | "blocks-card--cols-3";
 
           /**
            * Cards
            */
           items: Array<{
+            /**
+             * Title
+             */
+            title?: string;
+
 
             link:
               | {
@@ -175,17 +185,23 @@ export type Blocks = {
                      */
                     externalLink: string;
                   };
+                }
+              | {
+                  /**
+                   * Selected
+                   */
+                  _selected: "none";
+
+                  /**
+                   * None
+                   */
+                  none: Record<string, unknown>;
                 };
 
             /**
              * Kicker
              */
             kicker?: string;
-
-            /**
-             * Overwrite title
-             */
-            title?: string;
 
             /**
              * Text

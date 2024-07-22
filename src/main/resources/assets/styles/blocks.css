@@ -1,7 +1,7 @@
-@import url("./variables.css");
 @import url("./flow.css");
 @import url("./html-area.css");
 @import url("../../site/mixins/blocks-accordion/blocks-accordion.css");
+@import url("../../site/mixins/blocks-card/blocks-card.css");
 @import url("../../site/mixins/blocks-cards/blocks-cards.css");
 @import url("../../site/mixins/blocks-factbox/blocks-factbox.css");
 @import url("../../site/mixins/blocks-images/blocks-images.css");
