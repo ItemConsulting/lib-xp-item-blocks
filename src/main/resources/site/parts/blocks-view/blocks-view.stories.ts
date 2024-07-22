@@ -36,6 +36,7 @@ export default {
     },
   },
   parameters: {
+    layout: "fullscreen",
     server: {
       id,
       params: {

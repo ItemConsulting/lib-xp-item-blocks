@@ -1,6 +1,6 @@
 .blocks-view {
   --blocks-view--row-gap: var(--blocks-spacing-md);
-  --padding-inline: var(--blocks-spacing-sm);
+  --padding-inline: var(--blocks-spacing-md);
   --full: minmax(var(--padding-inline), 1fr);
   --content: min(var(--blocks-container-sm), 100% - var(--padding-inline) * 2);
   --breakout: minmax(0, calc((var(--blocks-container-md) - var(--blocks-container-sm)) ));
@@ -22,9 +22,11 @@
   grid-column: content;
 }
 
-.blocks-view > .blocks-factbox {
-  grid-column: breakout;
-  --blocks-factbox--padding: calc((var(--blocks-container-md) - var(--blocks-container-sm)));
+@media (width > 620px) {
+  .blocks-view > .blocks-factbox {
+    grid-column: breakout;
+    --blocks-factbox--padding: calc((var(--blocks-container-md) - var(--blocks-container-sm)));
+  }
 }
 
 .blocks-view--gap-lg {

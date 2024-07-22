@@ -15,6 +15,7 @@
     text-decoration: none;
     color: var(--blocks-card--text-color);
     background-color: var(--blocks-card--background-color);
+    height: 100%;
   }
 
   a.blocks-card--card:hover {

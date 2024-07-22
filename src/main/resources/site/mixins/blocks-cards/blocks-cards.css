@@ -16,7 +16,7 @@
     }
   }
 
-  @media (width > 576px) {
+  @media (width > 620px) {
     &.blocks-card--cols-2 {
       --blocks-cards--card-grid-column: span 3;
     }

@@ -5,20 +5,20 @@
   --blocks-container-lg: 940px;
 
   /* Spacing mobile */
-  --blocks-spacing-sm: 1rem;
-  --blocks-spacing-md: 1rem;
-  --blocks-spacing-lg: 1.25rem;
-  --blocks-spacing-xl: 2rem;
-  --blocks-spacing-xxl: 3rem;
+  --blocks-spacing-sm: 10px;
+  --blocks-spacing-md: 10px;
+  --blocks-spacing-lg: 20px;
+  --blocks-spacing-xl: 40px;
+  --blocks-spacing-xxl: 40px;
 }
 
-@media (width > 576px) {
+@media (width > 620px) {
   :root {
     /* Spacing desktop */
-    --blocks-spacing-sm: 1rem;
-    --blocks-spacing-md: 1.5rem;
-    --blocks-spacing-lg: 2.5rem;
-    --blocks-spacing-xl: 3.5rem;
-    --blocks-spacing-xxl: 5.5rem;
+    --blocks-spacing-sm: 10px;
+    --blocks-spacing-md: 20px;
+    --blocks-spacing-lg: 40px;
+    --blocks-spacing-xl: 60px;
+    --blocks-spacing-xxl: 80px;
   }
 }
