@@ -1,16 +1,14 @@
-import type { ContentImage, ContentVector, Unarray } from "/lib/item-blocks/types";
-import type { BlocksCards as RawBlocksCards } from "/site/mixins/blocks-cards";
 import { get as getOne } from "/lib/xp/content";
 import { getUrl } from "/site/mixins/link/link";
-import { imageUrl, type ImageUrlParams } from "/lib/xp/portal";
+import { isEmptyOrUndefined } from "/lib/item-blocks/utils";
+import type { ContentImage, ContentVector, Unarray } from "/lib/item-blocks/types";
+import type { BlocksCards as RawBlocksCards } from "/site/mixins/blocks-cards";
 import type { BlocksCard } from "/site/mixins/blocks-card/blocks-card.freemarker";
+import { getImageConfig, ImageConfig } from "/lib/item-blocks/images";
 
-/**
- * Variants to check
- * - Image only should cover the whole card
- * - Image size should be configurable
- * - Card with no link should be valid
- */
+const WIDTH_CONTAINER = 676; // At 620 multi column layouts will become single column
+const WIDTH_LARGEST_IN_CARD = 431; // Largest common width in multi column layouts
+const IMAGE_PROPORTION_16_9 = 9 / 16;
 
 export function process(item: Unarray<RawBlocksCards["items"]>): BlocksCard {
   const image = item.imageId
@@ -19,18 +17,35 @@ export function process(item: Unarray<RawBlocksCards["items"]>): BlocksCard {
       }) ?? undefined
     : undefined;
 
+  const url = getUrl(item.link);
+  const imageOnly = item.imageId !== undefined && [url, item.kicker, item.title, item.text].every(isEmptyOrUndefined);
+
   return {
-    url: getUrl(item.link),
+    url,
     kicker: item.kicker,
     title: item.title,
     text: item.text,
-    // TODO If no title, intro or text or kicker, the image should we twice the size
-    imageSrc: image
-      ? imageUrl({
-          path: image._path,
-          scale: (app.config.cardImageScale as ImageUrlParams["scale"]) ?? "block(471, 265)",
-          format: image?.type === "media:image" ? "jpg" : undefined,
+    image: image
+      ? getImage({
+          imageContent: image,
+          imageOnly,
         })
       : undefined,
   };
 }
+
+function getImage({ imageContent, imageOnly }: GetImageSrcParams): ImageConfig {
+  const width = imageOnly ? WIDTH_CONTAINER : WIDTH_LARGEST_IN_CARD;
+  const height = Math.round(width * IMAGE_PROPORTION_16_9);
+
+  return getImageConfig({
+    imageContent,
+    width,
+    height,
+  });
+}
+
+type GetImageSrcParams = {
+  imageContent: ContentImage | ContentVector;
+  imageOnly: boolean;
+};

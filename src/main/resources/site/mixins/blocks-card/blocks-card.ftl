@@ -1,11 +1,13 @@
 [#macro render card]
   <div class="blocks-card">
-    [@linkOrDiv href=card.url class="blocks-card--card ${card.classes!''}"]
-      [#if card.imageSrc?has_content]
+    [@linkOrDiv href=card.url!"" class="blocks-card--card ${card.classes!''}"]
+      [#if card.image?has_content]
         <figure class="blocks-card--image">
           <img
-            src="${card.imageSrc}"
-            alt=""
+            src="${card.image.src}"
+            alt="${card.image.altText!""}"
+            [#if card.image.width?has_content]width="${card.image.width}"[/#if]
+            [#if card.image.height?has_content]height="${card.image.height}"[/#if]
           />
         </figure>
       [/#if]

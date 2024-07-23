@@ -59,11 +59,11 @@ export default {
           [#import "${id}" as Card]
           <div class="\${imageClass!''} \${themeClass!''} \${sizeClass!''}">
             [@Card.render card={
-              "kicker": kicker,
-              "title": title,
-              "text": text,
-              "url": url,
-              "imageSrc": imageSrc
+              "kicker": kicker!"",
+              "title": title!"",
+              "text": text!"",
+              "url": url!"",
+              "image": image!""
             } /]
           </div>
         `,
@@ -86,7 +86,9 @@ export const small: StoryObj = {
             <li>test2</li>
           </ul>`,
     url: "#",
-    imageSrc: "eggman-thumb.jpg",
+    image: {
+      src: "eggman-thumb.jpg",
+    },
   },
 };
 
@@ -104,7 +106,9 @@ export const medium: StoryObj = {
             <li>test2</li>
           </ul>`,
     url: "#",
-    imageSrc: "eggman-thumb.jpg",
+    image: {
+      src: "eggman-thumb.jpg",
+    },
   },
 };
 
@@ -122,7 +126,9 @@ export const large: StoryObj = {
             <li>test2</li>
           </ul>`,
     url: "#",
-    imageSrc: "eggman-thumb.jpg",
+    image: {
+      src: "eggman-thumb.jpg",
+    },
   },
 };
 
@@ -140,6 +146,36 @@ export const extraLarge: StoryObj = {
             <li>test2</li>
           </ul>`,
     url: "#",
-    imageSrc: "eggman-thumb.jpg",
+    image: {
+      src: "eggman-thumb.jpg",
+    },
+  },
+};
+
+export const imageOnly: StoryObj = {
+  args: {
+    sizeClass: "blocks-card-story--large",
+    themeClass: "theme-accent",
+    imageClass: "blocks-card--image-left",
+    image: {
+      src: "eggman-thumb.jpg",
+    },
+  },
+};
+
+export const textOnly: StoryObj = {
+  args: {
+    sizeClass: "blocks-card-story--extra-large",
+    themeClass: "theme-accent",
+    imageClass: "blocks-card--image-left",
+    kicker: "Blogpost",
+    title: "Overskrift 1",
+    text: `
+          <p>Dette er noe riktekst</p>
+          <ul>
+            <li>test</li>
+            <li>test2</li>
+          </ul>`,
+    url: "#",
   },
 };

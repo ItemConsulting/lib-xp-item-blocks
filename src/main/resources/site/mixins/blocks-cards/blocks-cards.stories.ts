@@ -86,7 +86,9 @@ export const Cards: StoryObj = {
             <li>test2</li>
           </ul>`,
         url: "#",
-        imageSrc: "eggman-thumb.jpg",
+        image: {
+          src: "eggman-thumb.jpg",
+        },
       },
       {
         kicker: "Calendar",
@@ -98,11 +100,13 @@ export const Cards: StoryObj = {
            <li>test2</li>
           </ul>`,
         url: "#",
-        imageSrc: "capman-thumb.jpg",
+        image: {
+          src: "capman-thumb.jpg",
+        },
       },
       {
         kicker: "Calendar",
-        title: "Overskrift 2",
+        title: "Overskrift 3",
         text: `
           <p>Dette er noe riktekst</p>
           <ul>
@@ -110,11 +114,13 @@ export const Cards: StoryObj = {
            <li>test2</li>
           </ul>`,
         url: "#",
-        imageSrc: "capman-thumb.jpg",
+        image: {
+          src: "capman-thumb.jpg",
+        },
       },
       {
         kicker: "Calendar",
-        title: "Overskrift 2",
+        title: "Overskrift 4",
         text: `
           <p>Dette er noe riktekst</p>
           <ul>
@@ -122,11 +128,13 @@ export const Cards: StoryObj = {
            <li>test2</li>
           </ul>`,
         url: "#",
-        imageSrc: "capman-thumb.jpg",
+        image: {
+          src: "capman-thumb.jpg",
+        },
       },
       {
         kicker: "Calendar",
-        title: "Overskrift 2",
+        title: "Overskrift 5",
         text: `
           <p>Dette er noe riktekst</p>
           <ul>
@@ -134,7 +142,9 @@ export const Cards: StoryObj = {
            <li>test2</li>
           </ul>`,
         url: "#",
-        imageSrc: "capman-thumb.jpg",
+        image: {
+          src: "capman-thumb.jpg",
+        },
       },
     ],
     link: {
