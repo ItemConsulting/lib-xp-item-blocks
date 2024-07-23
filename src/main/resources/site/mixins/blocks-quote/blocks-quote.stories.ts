@@ -18,5 +18,10 @@ export const quote: StoryObj<BlocksQuote> = {
     author: "Tom Arild Jakobsen",
     publicationTitle: "Aftenposten 12.04.24",
     publicationUrl: "https://www.aftenposten.no/",
+    image: {
+      src: "tomaj.jpeg",
+      width: 200,
+      height: 200,
+    },
   },
 };

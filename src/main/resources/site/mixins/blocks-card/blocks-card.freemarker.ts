@@ -1,8 +1,8 @@
-import type { ImageConfig } from "/lib/item-blocks/images";
+import type { ImageParams } from "/lib/item-blocks/images";
 
 export type BlocksCard = {
   url?: string;
-  image?: ImageConfig;
+  image?: ImageParams;
   kicker?: string;
   title?: string;
   text?: string;

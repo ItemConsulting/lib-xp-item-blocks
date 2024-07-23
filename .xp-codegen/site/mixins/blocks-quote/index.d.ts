@@ -11,6 +11,11 @@ export type BlocksQuote = {
   author?: string;
 
   /**
+   * Author Image
+   */
+  imageId?: string;
+
+  /**
    * Title
    */
   publicationTitle?: string;

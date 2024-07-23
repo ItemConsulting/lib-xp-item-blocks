@@ -1,10 +1,10 @@
 import { get as getOne } from "/lib/xp/content";
 import { getUrl } from "/site/mixins/link/link";
 import { isEmptyOrUndefined } from "/lib/item-blocks/utils";
+import { getImageParams, type ImageParams } from "/lib/item-blocks/images";
 import type { ContentImage, ContentVector, Unarray } from "/lib/item-blocks/types";
 import type { BlocksCards as RawBlocksCards } from "/site/mixins/blocks-cards";
 import type { BlocksCard } from "/site/mixins/blocks-card/blocks-card.freemarker";
-import { getImageConfig, ImageConfig } from "/lib/item-blocks/images";
 
 const WIDTH_CONTAINER = 676; // At 620 multi column layouts will become single column
 const WIDTH_LARGEST_IN_CARD = 431; // Largest common width in multi column layouts
@@ -34,11 +34,11 @@ export function process(item: Unarray<RawBlocksCards["items"]>): BlocksCard {
   };
 }
 
-function getImage({ imageContent, imageOnly }: GetImageSrcParams): ImageConfig {
+function getImage({ imageContent, imageOnly }: GetImageSrcParams): ImageParams {
   const width = imageOnly ? WIDTH_CONTAINER : WIDTH_LARGEST_IN_CARD;
   const height = Math.round(width * IMAGE_PROPORTION_16_9);
 
-  return getImageConfig({
+  return getImageParams({
     imageContent,
     width,
     height,

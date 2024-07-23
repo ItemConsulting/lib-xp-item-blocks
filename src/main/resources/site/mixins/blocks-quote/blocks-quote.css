@@ -1,5 +1,9 @@
 .blocks-quote {
   display: flex;
   align-items: center;
-  gap: var(--blocks-spacing-md)
+  gap: var(--blocks-spacing-md);
+
+  .blocks-quote--image {
+    height: 100%;
+  }
 }

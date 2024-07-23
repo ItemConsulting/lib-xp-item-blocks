@@ -17,6 +17,11 @@
       <occurrences minimum="0" maximum="1"/>
     </input>
 
+    <input name="imageId" type="ImageSelector">
+      <label i18n="mixin.blocks.quote.image">Author Image</label>
+      <occurrences minimum="0" maximum="1"/>
+    </input>
+
     <input name="publicationTitle" type="TextLine">
       <label i18n="blockMixin.publicationTitle">Title</label>
       <occurrences minimum="0" maximum="1"/>

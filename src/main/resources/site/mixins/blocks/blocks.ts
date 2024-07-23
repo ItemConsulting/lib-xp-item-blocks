@@ -7,6 +7,7 @@ import { process as processBlocksText } from "/site/mixins/blocks-text/blocks-te
 import { process as processBlocksCards } from "/site/mixins/blocks-cards/blocks-cards";
 import { process as processBlocksFactbox } from "/site/mixins/blocks-factbox/blocks-factbox";
 import { process as processBlocksImages } from "/site/mixins/blocks-images/blocks-images";
+import { process as processBlocksQuote } from "/site/mixins/blocks-quote/blocks-quote";
 import type { Component } from "@enonic-types/core";
 import type { Blocks as BlocksRaw } from ".";
 import type { BlocksReuse as BlocksReuseRaw } from "/site/mixins/blocks-reuse";
@@ -26,6 +27,7 @@ const REGISTERED_BLOCK_PROCESSORS: Record<string, BlockProcessor<unknown>> = {
   factbox: processBlocksFactbox as BlockProcessor<unknown>,
   cards: processBlocksCards as BlockProcessor<unknown>,
   reuse: processBlocksReuse as BlockProcessor<unknown>,
+  quote: processBlocksQuote as BlockProcessor<unknown>,
 };
 
 const view = resolve("blocks.ftl");

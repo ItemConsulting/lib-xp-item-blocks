@@ -49,6 +49,14 @@
           </items>
         </option>
 
+        <option name="quote">
+          <label i18n="mixin.blocks.quote.displayName">Quote</label>
+          <help-text i18n="mixin.blocks.cardsHelpText">A quote form a person.</help-text>
+          <items>
+            <mixin name="blocks-quote" />
+          </items>
+        </option>
+
         <option name="reuse">
           <label i18n="mixin.blocks.reuse.displayName">Reuse</label>
           <help-text i18n="mixin.reuse.cardsHelpText">Reuse blocks inside another content</help-text>

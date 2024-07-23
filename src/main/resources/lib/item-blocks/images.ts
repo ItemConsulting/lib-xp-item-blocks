@@ -1,13 +1,42 @@
-import type { ContentImage, ContentVector } from "./types";
+import { get as getOne } from "/lib/xp/content";
 import { imageUrl } from "/lib/xp/portal";
+import type { ContentImage, ContentVector } from "./types";
 
-export function getImageConfig({ imageContent, width, height }: GetImageConfigParams): ImageConfig {
+export function getImageParamsById({
+  key,
+  width,
+  height,
+  format,
+  filter,
+}: GetImageParamsByIdParams): ImageParams | undefined {
+  const imageContent = key ? getOne<ContentImage | ContentVector>({ key }) : undefined;
+  return imageContent
+    ? getImageParams({
+        imageContent,
+        width,
+        height,
+        format,
+        filter,
+      })
+    : undefined;
+}
+
+export type GetImageParamsByIdParams = {
+  key?: string;
+  width: number;
+  height: number;
+  format?: string;
+  filter?: string;
+};
+
+export function getImageParams({ imageContent, width, height, format, filter }: GetImageParamsParams): ImageParams {
   return {
     src: imageUrl({
       path: imageContent._path,
       scale: `block(${width},${height})`,
-      format: imageContent.type === "media:image" ? "jpg" : undefined,
+      format: format ?? (imageContent.type === "media:image" ? "jpg" : undefined),
       quality: 75,
+      filter,
     }),
     width,
     height,
@@ -17,13 +46,15 @@ export function getImageConfig({ imageContent, width, height }: GetImageConfigPa
   };
 }
 
-export type GetImageConfigParams = {
+export type GetImageParamsParams = {
   imageContent: ContentImage | ContentVector;
   width: number;
   height: number;
+  format?: string;
+  filter?: string;
 };
 
-export type ImageConfig = {
+export type ImageParams = {
   src: string;
   width: number;
   height: number;
