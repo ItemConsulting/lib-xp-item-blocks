@@ -8,7 +8,7 @@ import type { Blocks as BlocksMixin } from "/site/mixins/blocks";
 import type { PartComponent } from "@enonic-types/core";
 import type { FreemarkerParams } from "/site/parts/blocks-view/blocks-view.freemarker";
 
-export type BlocksViewPart = PartComponent<`${typeof app.name}:blocks-view`, BlocksView>;
+export type BlocksViewPart = PartComponent<`${string}:blocks-view`, BlocksView>;
 
 const view = resolve("blocks-view.ftl");
 
