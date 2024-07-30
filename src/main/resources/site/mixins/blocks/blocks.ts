@@ -32,7 +32,7 @@ const REGISTERED_BLOCK_PROCESSORS: Record<string, BlockProcessor<unknown>> = {
 
 const view = resolve("blocks.ftl");
 
-export function process(blocks: NonNullable<BlocksRaw["blocks"]>, params?: BlockProcessorParams): string {
+export function process(config: BlocksRaw, params?: BlockProcessorParams): string {
   const component = params?.component ?? getComponent();
   const locale = params?.locale ?? getContent()?.language ?? app.config.defaultLocale ?? "no";
 
@@ -41,7 +41,8 @@ export function process(blocks: NonNullable<BlocksRaw["blocks"]>, params?: Block
   }
 
   return render<Blocks>(view, {
-    blocks: processBlocks(blocks, { component, locale }),
+    classes: `blocks--gap-${config.gapRow ?? "md"},`,
+    blocks: processBlocks(config.blocks ?? [], { component, locale }),
   });
 }
 

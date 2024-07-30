@@ -9,7 +9,7 @@
       <occurrences minimum="0" maximum="1"/>
     </input>
 
-    <mixin name="link" />
+    <mixin name="blocks-link" />
 
     <input type="TextLine" name="kicker">
       <label i18n="mixin.blocks.card.kicker">Kicker</label>

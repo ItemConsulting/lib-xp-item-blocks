@@ -1,8 +1,8 @@
 .blocks-card {
   --blocks-card--background-color: var(--blocks-color-surface-default);
   --blocks-card--background-color-hover: var(--blocks-color-surface-hover);
+  --blocks-card--background-color-active: var(--blocks-color-surface-active);
   --blocks-card--text-color: var(--blocks-color-text-default, currentColor);
-  --blocks-card--kicker-color: var(--blocks-color-text-subtle);
   --blocks-card--padding: var(--blocks-spacing-md);
   --blocks-card--image-flex: 0 var(--blocks-card--image-flex-basis, 50%);
   --blocks-card--gap: 0;
@@ -27,13 +27,13 @@
     }
   }
 
+  a.blocks-card--card:active {
+    --blocks-card--background-color: var(--blocks-card--background-color-active);
+  }
+
   .blocks-card--body {
     flex: 0 var(--blocks-card--body-flex-basis, 50%);
     padding: var(--blocks-card--padding);
-  }
-
-  .blocks-card--kicker {
-    color: var(--blocks-card--kicker-color)
   }
 
   .blocks-card--image {

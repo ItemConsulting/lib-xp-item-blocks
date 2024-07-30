@@ -1,9 +1,9 @@
 import { pageUrl } from "/lib/xp/portal";
-import type { Link } from ".";
+import type { BlocksLink } from ".";
 
 export const URL_CONTENT_NOT_FOUND = "_/error/404?message=Content+not+found";
 
-export function getUrl(link: Link["link"]): string | undefined {
+export function getUrl(link: BlocksLink["link"]): string | undefined {
   switch (link?._selected) {
     case "internal":
       return pageUrl({

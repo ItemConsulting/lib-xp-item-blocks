@@ -1,5 +1,7 @@
 [#-- @ftlvariable name="blocks" type="java.util.ArrayList" --]
-
-[#list blocks as block]
-  ${block}
-[/#list]
+[#-- @ftlvariable name="classes" type="String" --]
+<div class="blocks ${classes!""}">
+  [#list blocks![] as block]
+    ${block}
+  [/#list]
+</div>

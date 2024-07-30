@@ -66,5 +66,19 @@
         </option>
       </options>
     </option-set>
+
+    <input name="gapRow" type="ComboBox">
+      <label i18n="blocksView.gapRow">Vertical spacing</label>
+      <occurrences minimum="1" maximum="1"/>
+      <config>
+        <option value="sm">Small</option>
+        <option value="md">Medium</option>
+        <option value="lg">Large</option>
+        <option value="xl">XL</option>
+        <option value="xxl">XXL</option>
+        <option value="none">None</option>
+      </config>
+      <default>md</default>
+    </input>
   </form>
 </mixin>

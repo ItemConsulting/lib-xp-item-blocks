@@ -273,4 +273,9 @@ export type Blocks = {
         };
       }
   >;
+
+  /**
+   * Vertical spacing
+   */
+  gapRow: "sm" | "md" | "lg" | "xl" | "xxl" | "none";
 }
