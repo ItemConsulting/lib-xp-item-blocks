@@ -16,6 +16,7 @@
   summary {
     padding: var(--blocks-accordion--padding);
     background-color: var(--blocks-accordion--background-color);
+    transition: 0.1s background-color;
 
     &:hover {
       --blocks-accordion--background-color: var(--blocks-accordion--background-color-hover);
