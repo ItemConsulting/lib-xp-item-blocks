@@ -12,9 +12,9 @@ const IMAGE_PROPORTION_16_9 = 9 / 16;
 
 export function process(item: Unarray<RawBlocksCards["items"]>): BlocksCard {
   const image = item.imageId
-    ? getOne<ContentImage | ContentVector>({
+    ? (getOne<ContentImage | ContentVector>({
         key: item.imageId,
-      }) ?? undefined
+      }) ?? undefined)
     : undefined;
 
   const link = processLink(item.link);

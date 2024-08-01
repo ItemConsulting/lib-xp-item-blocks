@@ -27,7 +27,7 @@ node {
 
 	// Version of node to download and install (only used if download is true)
 	// It will be unpacked in the workDir
-	version = '20.12.2'
+  version = '20.13.1'
 }
 
 tasks.withType(Copy).configureEach {
