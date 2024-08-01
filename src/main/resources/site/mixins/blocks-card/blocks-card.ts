@@ -1,5 +1,5 @@
 import { get as getOne } from "/lib/xp/content";
-import { getUrl } from "/site/mixins/link/link";
+import { process as processLink } from "/site/mixins/blocks-link/blocks-link";
 import { isEmptyOrUndefined } from "/lib/item-blocks/utils";
 import { getImageParams, type ImageParams } from "/lib/item-blocks/images";
 import type { ContentImage, ContentVector, Unarray } from "/lib/item-blocks/types";
@@ -17,11 +17,13 @@ export function process(item: Unarray<RawBlocksCards["items"]>): BlocksCard {
       }) ?? undefined
     : undefined;
 
-  const url = getUrl(item.link);
-  const imageOnly = item.imageId !== undefined && [url, item.kicker, item.title, item.text].every(isEmptyOrUndefined);
+  const link = processLink(item.link);
+  const imageOnly =
+    item.imageId !== undefined && [link?.url, item.kicker, item.title, item.text].every(isEmptyOrUndefined);
 
   return {
-    url,
+    url: link?.url,
+    classes: link?.type ? `blocks-card--link-${link.type}` : undefined,
     kicker: item.kicker,
     title: item.title,
     text: item.text,

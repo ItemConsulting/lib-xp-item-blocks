@@ -2,6 +2,7 @@ import type { ImageParams } from "/lib/item-blocks/images";
 
 export type BlocksCard = {
   url?: string;
+  classes?: string;
   image?: ImageParams;
   kicker?: string;
   title?: string;
