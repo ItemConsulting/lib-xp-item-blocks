@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <mixin xmlns="urn:enonic:xp:model:1.0">
-  <display-name i18n="linkMixin.displayName">Link</display-name>
-  <description i18n="linkMixin.description">Link to internal or external content</description>
+  <display-name i18n="mixin.blocks-link.displayName">Link</display-name>
+  <description i18n="mixin.blocks-link.description">Link to internal or external content</description>
   <form>
     <option-set name="link">
       <occurrences minimum="1" maximum="1"/>
       <options minimum="1" maximum="1">
         <option name="internal">
-          <label i18n="linkMixin.internal">Internal</label>
+          <label i18n="mixin.blocks-link.internal">Internal</label>
           <items>
             <input type="contentSelector" name="internalLink">
-              <label i18n="linkMixin.internalLink">Internal link</label>
+              <label i18n="mixin.blocks-link.internalLink">Internal link</label>
               <occurrences minimum="1" maximum="1"/>
             </input>
           </items>
@@ -18,17 +18,17 @@
         </option>
 
         <option name="external">
-          <label i18n="linkMixin.external">External</label>
+          <label i18n="mixin.blocks-link.external">External</label>
           <items>
             <input type="TextLine" name="externalLink">
-              <label i18n="linkMixin.externalLink">External link</label>
+              <label i18n="mixin.blocks-link.externalLink">External link</label>
               <occurrences minimum="1" maximum="1"/>
             </input>
           </items>
         </option>
 
         <option name="none">
-          <label i18n="linkMixin.none">None</label>
+          <label i18n="mixin.blocks-link.none">None</label>
         </option>
       </options>
     </option-set>

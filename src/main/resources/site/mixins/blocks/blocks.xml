@@ -4,62 +4,62 @@
 
   <form>
     <option-set name="blocks">
-      <label i18n="mixin.blocks.contentBlocks">Content blocks</label>
-      <help-text i18n="mixin.blocks.contentBlocksHelpText">An article is built up by blocks of content</help-text>
+      <label i18n="mixin.blocks.blocks">Content blocks</label>
+      <help-text i18n="mixin.blocks.blocks.helpText">Your page content is build by a sequence of blocks.</help-text>
       <occurrences minimum="0" maximum="0"/>
 
       <options minimum="1" maximum="1">
         <option name="text">
-          <label i18n="mixin.blocks.text.displayName">Text</label>
-          <help-text i18n="mixin.blocks.textHelpText">Block with title and text</help-text>
+          <label i18n="mixin.blocks-text.displayName">Text</label>
+          <help-text i18n="mixin.blocks-text.description">Rich text field that can contain lists and tables</help-text>
           <items>
             <mixin name="blocks-text" />
           </items>
         </option>
 
         <option name="images">
-          <label i18n="mixin.blocks.images.displayName">Images</label>
-          <help-text i18n="mixin.blocks.imagesHelpText">Display an image or an image gallery</help-text>
+          <label i18n="mixin.blocks-images.displayName">Images</label>
+          <help-text i18n="mixin.blocks-images.description">An image gallery or an image that can be expanded</help-text>
           <items>
             <mixin name="blocks-images" />
           </items>
         </option>
 
         <option name="factbox">
-          <label i18n="mixin.blocks.factbox.displayName">Factbox</label>
-          <help-text i18n="mixin.blocks.factboxHelpText">Block with factbox</help-text>
+          <label i18n="mixin.blocks-factbox.displayName">Factbox</label>
+          <help-text i18n="mixin.blocks-factbox.description">A box containing text that can have different background colors</help-text>
           <items>
             <mixin name="blocks-factbox" />
           </items>
         </option>
 
         <option name="accordion">
-          <label i18n="mixin.blocks.accordion.displayName">Accordion</label>
-          <help-text i18n="mixin.blocks.accordionHelpText">Accordion</help-text>
+          <label i18n="mixin.blocks-accordion.displayName">Accordion</label>
+          <help-text i18n="mixin.blocks-accordion.description">A list of expandable sections</help-text>
           <items>
             <mixin name="blocks-accordion" />
           </items>
         </option>
 
         <option name="cards">
-          <label i18n="mixin.blocks.cards.displayName">Cards</label>
-          <help-text i18n="mixin.blocks.cardsHelpText">Cards with title, text and image.</help-text>
+          <label i18n="mixin.blocks-cards.displayName">Cards</label>
+          <help-text i18n="mixin.blocks-cards.description">Cards can have a title, text, image and can link to content</help-text>
           <items>
             <mixin name="blocks-cards" />
           </items>
         </option>
 
         <option name="quote">
-          <label i18n="mixin.blocks.quote.displayName">Quote</label>
-          <help-text i18n="mixin.blocks.cardsHelpText">A quote form a person.</help-text>
+          <label i18n="mixin.blocks-quote.displayName">Quote</label>
+          <help-text i18n="mixin.blocks-quote.description">A stylized quote with the image of the author</help-text>
           <items>
             <mixin name="blocks-quote" />
           </items>
         </option>
 
         <option name="reuse">
-          <label i18n="mixin.blocks.reuse.displayName">Reuse</label>
-          <help-text i18n="mixin.reuse.cardsHelpText">Reuse blocks inside another content</help-text>
+          <label i18n="mixin.blocks-reuse.displayName">Reuse</label>
+          <help-text i18n="mixin.blocks-reuse.description">Reuse all blocks inside another content</help-text>
           <items>
             <mixin name="blocks-reuse" />
           </items>
@@ -68,7 +68,7 @@
     </option-set>
 
     <input name="gapRow" type="ComboBox">
-      <label i18n="blocksView.gapRow">Vertical spacing</label>
+      <label i18n="mixin.blocks.gapRow">Vertical spacing</label>
       <occurrences minimum="1" maximum="1"/>
       <config>
         <option value="sm">Small</option>

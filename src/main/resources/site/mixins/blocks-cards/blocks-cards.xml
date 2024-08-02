@@ -1,29 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <mixin xmlns="urn:enonic:xp:model:1.0">
-  <display-name i18n="mixin.blocks.cards.displayName">Cards</display-name>
+  <display-name i18n="mixin.blocks-cards.displayName">Cards</display-name>
+  <description i18n="mixin.blocks-cards.description">Cards can have a title, text, image and can link to content</description>
 
   <form>
     <input name="title" type="TextLine">
-      <label i18n="mixin.blocks.cards.title">Title</label>
+      <label i18n="mixin.blocks-cards.title">Title</label>
       <occurrences minimum="0" maximum="1"/>
     </input>
 
     <mixin name="blocks-theme" />
 
     <input name="imageClass" type="RadioButton">
-      <label i18n="mixin.blocks.cards.imageClass">Image placement</label>
+      <label i18n="mixin.blocks-cards.imageClass">Image placement</label>
       <occurrences minimum="1" maximum="1"/>
       <default>blocks-card--image-left</default>
       <config>
-        <option value="blocks-card--image-left" i18n="mixin.blocks.cards.imageClass.left">Left</option>
-        <option value="blocks-card--image-right" i18n="mixin.blocks.cards.imageClass.right">Right</option>
-        <option value="blocks-card--image-top" i18n="mixin.blocks.cards.imageClass.top">Top</option>
-        <option value="blocks-card--image-bottom" i18n="mixin.blocks.cards.imageClass.bottom">Bottom</option>
+        <option value="blocks-card--image-left" i18n="mixin.blocks-cards.imageClass.left">Left</option>
+        <option value="blocks-card--image-right" i18n="mixin.blocks-cards.imageClass.right">Right</option>
+        <option value="blocks-card--image-top" i18n="mixin.blocks-cards.imageClass.top">Top</option>
+        <option value="blocks-card--image-bottom" i18n="mixin.blocks-cards.imageClass.bottom">Bottom</option>
       </config>
     </input>
 
     <input name="columnsClass" type="RadioButton">
-      <label i18n="mixin.blocks.cards.columnsClass">Column count</label>
+      <label i18n="mixin.blocks-cards.columnsClass">Column count</label>
       <occurrences minimum="1" maximum="1"/>
       <default>blocks-card--cols-3</default>
       <config>
@@ -34,7 +35,7 @@
     </input>
 
     <item-set name="items">
-      <label i18n="mixin.blocks.cards.displayName">Cards</label>
+      <label i18n="mixin.blocks-cards.cards">Cards</label>
       <occurrences minimum="1" maximum="0"/>
       <items>
         <mixin name="blocks-card" />
