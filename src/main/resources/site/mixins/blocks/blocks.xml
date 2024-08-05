@@ -9,7 +9,7 @@
       <occurrences minimum="0" maximum="0"/>
 
       <options minimum="1" maximum="1">
-        <option name="text">
+        <option name="blocks-text">
           <label i18n="mixin.blocks-text.displayName">Text</label>
           <help-text i18n="mixin.blocks-text.description">Rich text field that can contain lists and tables</help-text>
           <items>
@@ -17,7 +17,7 @@
           </items>
         </option>
 
-        <option name="images">
+        <option name="blocks-images">
           <label i18n="mixin.blocks-images.displayName">Images</label>
           <help-text i18n="mixin.blocks-images.description">An image gallery or an image that can be expanded</help-text>
           <items>
@@ -25,7 +25,7 @@
           </items>
         </option>
 
-        <option name="factbox">
+        <option name="blocks-factbox">
           <label i18n="mixin.blocks-factbox.displayName">Factbox</label>
           <help-text i18n="mixin.blocks-factbox.description">A box containing text that can have different background colors</help-text>
           <items>
@@ -33,7 +33,7 @@
           </items>
         </option>
 
-        <option name="accordion">
+        <option name="blocks-accordion">
           <label i18n="mixin.blocks-accordion.displayName">Accordion</label>
           <help-text i18n="mixin.blocks-accordion.description">A list of expandable sections</help-text>
           <items>
@@ -41,7 +41,7 @@
           </items>
         </option>
 
-        <option name="cards">
+        <option name="blocks-cards">
           <label i18n="mixin.blocks-cards.displayName">Cards</label>
           <help-text i18n="mixin.blocks-cards.description">Cards can have a title, text, image and can link to content</help-text>
           <items>
@@ -49,7 +49,7 @@
           </items>
         </option>
 
-        <option name="quote">
+        <option name="blocks-quote">
           <label i18n="mixin.blocks-quote.displayName">Quote</label>
           <help-text i18n="mixin.blocks-quote.description">A stylized quote with the image of the author</help-text>
           <items>
@@ -57,7 +57,7 @@
           </items>
         </option>
 
-        <option name="reuse">
+        <option name="blocks-reuse">
           <label i18n="mixin.blocks-reuse.displayName">Reuse</label>
           <help-text i18n="mixin.blocks-reuse.description">Reuse all blocks inside another content</help-text>
           <items>

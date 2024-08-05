@@ -12,6 +12,7 @@ import type { Component } from "@enonic-types/core";
 import type { Blocks as BlocksRaw } from ".";
 import type { BlocksReuse as BlocksReuseRaw } from "/site/mixins/blocks-reuse";
 import type { Blocks } from "/site/mixins/blocks/blocks.freemarker";
+import { Unarray } from "/lib/item-blocks/types";
 
 export type BlockProcessor<Block> = (block: Block, params?: BlockProcessorParams) => string | string[];
 
@@ -20,14 +21,20 @@ export type BlockProcessorParams = {
   locale: string;
 };
 
+type BlocksName = Unarray<NonNullable<BlocksRaw["blocks"]>>["_selected"];
+
+const BLOCK_PROCESSORS_BUILT_IN: Record<BlocksName, BlockProcessor<unknown>> = {
+  "blocks-accordion": processBlocksAccordion as BlockProcessor<unknown>,
+  "blocks-text": processBlocksText as BlockProcessor<unknown>,
+  "blocks-images": processBlocksImages as BlockProcessor<unknown>,
+  "blocks-factbox": processBlocksFactbox as BlockProcessor<unknown>,
+  "blocks-cards": processBlocksCards as BlockProcessor<unknown>,
+  "blocks-reuse": processBlocksReuse as BlockProcessor<unknown>,
+  "blocks-quote": processBlocksQuote as BlockProcessor<unknown>,
+};
+
 const REGISTERED_BLOCK_PROCESSORS: Record<string, BlockProcessor<unknown>> = {
-  accordion: processBlocksAccordion as BlockProcessor<unknown>,
-  text: processBlocksText as BlockProcessor<unknown>,
-  images: processBlocksImages as BlockProcessor<unknown>,
-  factbox: processBlocksFactbox as BlockProcessor<unknown>,
-  cards: processBlocksCards as BlockProcessor<unknown>,
-  reuse: processBlocksReuse as BlockProcessor<unknown>,
-  quote: processBlocksQuote as BlockProcessor<unknown>,
+  ...BLOCK_PROCESSORS_BUILT_IN,
 };
 
 const view = resolve("blocks.ftl");

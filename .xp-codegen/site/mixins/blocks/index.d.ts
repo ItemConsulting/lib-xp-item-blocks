@@ -8,12 +8,12 @@ export type Blocks = {
         /**
          * Selected
          */
-        _selected: "text";
+        _selected: "blocks-text";
 
         /**
          * Text
          */
-        text: {
+        "blocks-text": {
           /**
            * Title
            */
@@ -29,12 +29,12 @@ export type Blocks = {
         /**
          * Selected
          */
-        _selected: "images";
+        _selected: "blocks-images";
 
         /**
          * Images
          */
-        images: {
+        "blocks-images": {
           /**
            * Image
            */
@@ -60,12 +60,12 @@ export type Blocks = {
         /**
          * Selected
          */
-        _selected: "factbox";
+        _selected: "blocks-factbox";
 
         /**
          * Factbox
          */
-        factbox: {
+        "blocks-factbox": {
           /**
            * Title
            */
@@ -86,12 +86,12 @@ export type Blocks = {
         /**
          * Selected
          */
-        _selected: "accordion";
+        _selected: "blocks-accordion";
 
         /**
          * Accordion
          */
-        accordion: {
+        "blocks-accordion": {
           /**
            * Title
            */
@@ -122,12 +122,12 @@ export type Blocks = {
         /**
          * Selected
          */
-        _selected: "cards";
+        _selected: "blocks-cards";
 
         /**
          * Cards
          */
-        cards: {
+        "blocks-cards": {
           /**
            * Title
            */
@@ -226,12 +226,12 @@ export type Blocks = {
         /**
          * Selected
          */
-        _selected: "quote";
+        _selected: "blocks-quote";
 
         /**
          * Quote
          */
-        quote: {
+        "blocks-quote": {
           /**
            * Text
            */
@@ -262,12 +262,12 @@ export type Blocks = {
         /**
          * Selected
          */
-        _selected: "reuse";
+        _selected: "blocks-reuse";
 
         /**
          * Reuse
          */
-        reuse: {
+        "blocks-reuse": {
           /**
            * Include blocks from this content
            */
