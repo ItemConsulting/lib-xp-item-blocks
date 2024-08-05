@@ -157,7 +157,9 @@ export type Blocks = {
              */
             title?: string;
 
-
+            /**
+             * Link
+             */
             link:
               | {
                   /**
@@ -278,4 +280,4 @@ export type Blocks = {
    * Vertical spacing
    */
   gapRow: "sm" | "md" | "lg" | "xl" | "xxl" | "none";
-}
+};

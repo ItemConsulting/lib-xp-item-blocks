@@ -19,4 +19,4 @@ export type BlocksImages = {
      */
     caption?: string;
   }>;
-}
+};

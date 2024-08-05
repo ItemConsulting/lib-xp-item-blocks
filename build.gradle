@@ -1,21 +1,21 @@
 plugins {
-	id 'java'
-  id 'maven-publish'
-  id 'com.enonic.xp.base' version '3.4.0'
-	id 'com.github.node-gradle.node' version '7.0.2'
-  id 'no.item.xp.codegen' version '2.4.1'
+	id "java"
+  id "maven-publish"
+  id "com.enonic.xp.base" version "3.4.0"
+	id "com.github.node-gradle.node" version "7.0.2"
+  id "no.item.xp.codegen" version "2.6.0"
 }
 
 dependencies {
   implementation "com.enonic.xp:script-api:${xpVersion}"
-  implementation 'com.github.tineikt:xp-lib-freemarker:2.0.3'
+  implementation "com.github.tineikt:xp-lib-freemarker:2.0.3"
 }
 
 repositories {
 	mavenLocal()
 	mavenCentral()
 	xp.enonicRepo()
-  maven { url 'https://jitpack.io' }
+  maven { url "https://jitpack.io" }
 }
 
 node {
@@ -27,63 +27,63 @@ node {
 
 	// Version of node to download and install (only used if download is true)
 	// It will be unpacked in the workDir
-  version = '20.13.1'
+  version = "20.13.1"
 }
 
 tasks.withType(Copy).configureEach {
 	includeEmptyDirs = false
 }
 
-tasks.register('dev', NpmTask) {
+tasks.register("dev", NpmTask) {
 	args = [
-		'run',
-		'watch'
+		"run",
+		"watch"
 	]
 	dependsOn npmInstall
 	environment = [
-		'FORCE_COLOR': 'true',
+		"FORCE_COLOR": "true",
 	]
 }
 
-tasks.register('npmCheck', NpmTask) {
+tasks.register("npmCheck", NpmTask) {
 	dependsOn npmInstall
 	args = [
-		'run',
-		'check'
+		"run",
+		"check"
 	]
 	environment = [
-		'FORCE_COLOR': 'true',
+		"FORCE_COLOR": "true",
 	]
 }
 
-// If you ALWAYS want to SKIP `test` and `check` tasks on development build, wrap this inside an 'if...'
-// if (!(project.hasProperty('dev') || project.hasProperty('development'))) {
+// If you ALWAYS want to SKIP `test` and `check` tasks on development build, wrap this inside an "if..."
+// if (!(project.hasProperty("dev") || project.hasProperty("development"))) {
 check.dependsOn npmCheck
 // }
 
-tasks.register('npmBuild', NpmTask) {
+tasks.register("npmBuild", NpmTask) {
 	args = [
-		'run',
-		'--silent',
-		project.hasProperty('dev') || project.hasProperty('development') ? 'build' : 'minify'
+		"run",
+		"--silent",
+		project.hasProperty("dev") || project.hasProperty("development") ? "build" : "minify"
 	]
 	dependsOn npmInstall
 	environment = [
-		'FORCE_COLOR': 'true',
-		'LOG_LEVEL_FROM_GRADLE': gradle.startParameter.logLevel.toString(),
-		'NODE_ENV': project.hasProperty('dev') || project.hasProperty('development') ? 'development' : 'production'
+		"FORCE_COLOR": "true",
+		"LOG_LEVEL_FROM_GRADLE": gradle.startParameter.logLevel.toString(),
+		"NODE_ENV": project.hasProperty("dev") || project.hasProperty("development") ? "development" : "production"
 	]
-	inputs.dir 'src/main/resources'
-	outputs.dir 'build/resources/main'
+	inputs.dir "src/main/resources"
+	outputs.dir "build/resources/main"
 }
 
 jar.dependsOn npmBuild
 
 processResources {
-	exclude '**/.gitkeep'
-	exclude '**/*.json'
-	exclude '**/*.png'
-	exclude '**/*.ts'
+	exclude "**/.gitkeep"
+	exclude "**/*.json"
+	exclude "**/*.png"
+	exclude "**/*.ts"
 }
 
 publishing {

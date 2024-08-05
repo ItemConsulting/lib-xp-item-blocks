@@ -24,4 +24,4 @@ export type BlocksQuote = {
    * Url
    */
   publicationUrl?: string;
-}
+};

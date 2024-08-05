@@ -5,7 +5,9 @@ export type BlocksCard = {
    */
   title?: string;
 
-
+  /**
+   * Link
+   */
   link:
     | {
         /**
@@ -65,4 +67,4 @@ export type BlocksCard = {
    * Image
    */
   imageId?: string;
-}
+};

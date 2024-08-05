@@ -9,4 +9,4 @@ export type BlocksText = {
    * Text
    */
   text?: string;
-}
+};

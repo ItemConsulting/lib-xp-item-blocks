@@ -29,7 +29,9 @@ export type BlocksCards = {
      */
     title?: string;
 
-
+    /**
+     * Link
+     */
     link:
       | {
           /**
@@ -90,4 +92,4 @@ export type BlocksCards = {
      */
     imageId?: string;
   }>;
-}
+};
