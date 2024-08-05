@@ -34,7 +34,8 @@ build/
 
 # Node
 node_modules/
-
+dist/
+*.tgz
 # Ignore Gradle GUI config
 gradle-app.setting
 

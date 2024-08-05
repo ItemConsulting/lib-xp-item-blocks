@@ -1,5 +1,5 @@
 import id from "./blocks-factbox.ftl";
-import "./blocks-factbox.css";
+import "../../../assets/styles/blocks/blocks-factbox.css";
 import { controlRadioTheme } from "../../storybook-utils";
 import type { StoryObj, Meta } from "@itemconsulting/xp-storybook-utils";
 import type { BlocksFactbox } from "./blocks-factbox.freemarker";

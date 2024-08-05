@@ -6,6 +6,33 @@
 defaultLocale=no
 ```
 
+## Add types to tsconfig.json
+
+```json
+{
+  "compilerOptions": {
+    "paths": {
+      "/*": [
+        "./src/main/resources/*",
+        "./.xp-codegen/*",
+        "./node_modules/@itemconsulting/lib-item-blocks/dist/*"
+      ]
+    }
+  }
+}
+```
+
+This will allow you to use functions deployed in the jar-file. 
+
+Example of how to register a new block processor in _main.ts_.
+
+```typescript
+import { registerBlockProcessor } from "/site/mixins/blocks/blocks";
+import { blockProcessor } from "/site/mixins/my-block/my-block"
+
+registerBlockProcessor("my-block", blockProcessor)
+```
+
 ## CSS custom properties
 
 This library expects some custom properties to be present, so that the blocks can be configured to fit in your 

@@ -4,10 +4,10 @@ import factboxId from "../blocks-factbox/blocks-factbox.ftl";
 import cardsId from "../blocks-cards/blocks-cards.ftl";
 import accordionId from "../blocks-accordion/blocks-accordion.ftl";
 import imagesId from "../blocks-images/blocks-images.ftl";
-import "./blocks.css";
-import "../blocks-accordion/blocks-accordion.css";
-import "../blocks-factbox/blocks-factbox.css";
-import "../blocks-cards/blocks-cards.css";
+import "../../../assets/styles/blocks/blocks.css";
+import "../../../assets/styles/blocks/blocks-accordion.css";
+import "../../../assets/styles/blocks/blocks-factbox.css";
+import "../../../assets/styles/blocks/blocks-cards.css";
 import type { StoryObj, Meta } from "@itemconsulting/xp-storybook-utils";
 
 import { factbox } from "../blocks-factbox/blocks-factbox.stories";

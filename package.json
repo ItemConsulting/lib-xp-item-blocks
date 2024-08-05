@@ -1,25 +1,33 @@
 {
-  "description": "Item starter",
-  "version": "1.0.0",
-  "homepage": "https://github.com/ItemConsulting/starter-item",
+  "name": "lib-item-blocks",
+  "description": "Item Blocks",
+  "version": "0.0.1-BETA3",
+  "homepage": "https://github.com/ItemConsulting/lib-xp-item-blocks",
   "license": "MIT",
-  "private": true,
+  "files": [
+    "dist/site/mixins/**/*.d.ts",
+    "dist/*.css",
+    "tsconfig.json"
+  ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ItemConsulting/starter-item"
+    "url": "git+https://github.com/ItemConsulting/lib-xp-item-blocks.git"
   },
   "scripts": {
     "clean": "rimraf build",
     "build": "concurrently -c auto -g --timings npm:build:*",
     "minify": "concurrently -c auto -g --timings 'npm:build:browser -- --minify' npm:build:sass 'npm:build:server -- --minify' 'npm:build:static -- --minify'",
     "build:asset": "npx tsup -d build/resources/main/assets",
-    "build:postcss": "npx postcss src/main/resources/assets/styles/blocks.css -o src/main/resources/assets/styles/blocks.min.css && mv src/main/resources/assets/styles/blocks.min.css build/resources/main/assets/styles/blocks.min.css",
+    "build:postcss": "npx postcss src/main/resources/assets/styles/blocks-all.css -o src/main/resources/assets/styles/blocks-all.min.css && mv src/main/resources/assets/styles/blocks-all.min.css build/resources/main/assets/styles/blocks-all.min.css",
     "build:server": "npx tsup -d build/resources/main",
     "check": "concurrently -c auto -g --timings npm:lint npm:check:types",
     "check:types": "concurrently -g -r --timings npm:check:types:*",
     "check:types:asset": "npx tsc --noEmit -p src/main/resources/assets/tsconfig.json",
     "check:types:server": "npx tsc --noEmit",
     "lint": "eslint --cache 'src/main/resources/**/*.ts'",
+    "prepublishOnly": "concurrently -c auto -g --timings npm:prepublish:*",
+    "prepublish:types": "tsc --declaration true --emitDeclarationOnly true --declarationDir build/types && cp -r build/types/src/main/resources dist",
+    "prepublish:styles": "cp src/main/resources/assets/styles/blocks/*.css dist",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },

@@ -1,4 +1,4 @@
-import "./blocks-card.css";
+import "../../../assets/styles/blocks/blocks-card.css";
 import "./blocks-card.stories.css";
 import id from "./blocks-card.ftl";
 import { controlRadioTheme } from "../../storybook-utils";

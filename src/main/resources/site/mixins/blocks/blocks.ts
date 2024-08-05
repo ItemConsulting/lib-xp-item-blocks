@@ -21,6 +21,16 @@ export type BlockProcessorParams = {
   locale: string;
 };
 
+export type ProcessParams = {
+  blocks?: ProcessableBlock[];
+  gapRow?: string;
+};
+
+export type ProcessableBlock = {
+  _selected: string;
+  [name: string]: unknown;
+};
+
 type BlocksName = Unarray<NonNullable<BlocksRaw["blocks"]>>["_selected"];
 
 const BLOCK_PROCESSORS_BUILT_IN: Record<BlocksName, BlockProcessor<unknown>> = {
@@ -39,7 +49,7 @@ const REGISTERED_BLOCK_PROCESSORS: Record<string, BlockProcessor<unknown>> = {
 
 const view = resolve("blocks.ftl");
 
-export function process(config: BlocksRaw, params?: BlockProcessorParams): string {
+export function process(config: ProcessParams, params?: BlockProcessorParams): string {
   const component = params?.component ?? getComponent();
   const locale = params?.locale ?? getContent()?.language ?? app.config.defaultLocale ?? "no";
 
@@ -53,10 +63,8 @@ export function process(config: BlocksRaw, params?: BlockProcessorParams): strin
   });
 }
 
-export function processBlocks(blocks: NonNullable<BlocksRaw["blocks"]>, params: BlockProcessorParams): string[] {
+function processBlocks(blocks: ProcessableBlock[], params: BlockProcessorParams): string[] {
   return flatMap(forceArray(blocks), (block) => {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
     const value = block[block._selected];
     return value ? processBlock(block._selected, value, params) : [];
   });

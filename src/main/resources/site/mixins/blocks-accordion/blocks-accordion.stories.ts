@@ -1,5 +1,5 @@
 import id from "./blocks-accordion.ftl";
-import "./blocks-accordion.css";
+import "../../../assets/styles/blocks/blocks-accordion.css";
 import { controlRadioTheme } from "../../storybook-utils";
 import DetailsAnimated from "@itemconsulting/details-animated";
 import type { BlocksAccordion } from "./blocks-accordion.freemarker";
