@@ -1,3 +1,24 @@
 :root {
   font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
+
+body {
+  background-color: var(--blocks-color-neutral-background-default);
+  color: var(--blocks-color-neutral-text-default);
+}
+
+a {
+  --link-color: var(--blocks-color-accent-text-subtle);
+  --link-background-color: transparent;
+  color: var(--link-color);
+  background-color: var(--link-background-color);
+
+  &:hover {
+    --link-color: var(--blocks-color-accent-text-default);
+  }
+
+  &:active {
+    --link-color: var(--blocks-color-accent-text-default);
+    --link-background-color: var(--blocks-color-accent-surface-default);
+  }
+}

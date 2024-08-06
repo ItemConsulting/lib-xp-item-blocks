@@ -17,11 +17,13 @@
   </div>
 
   [#if link?has_content]
-    <a
-      href="${link.url}"
-      class="blocks-cards--link">
+    <div class="blocks-cards--actions">
+      <a
+        href="${link.url}"
+        class="blocks-cards--link">
 
-      ${link.text}
-    </a>
+        ${link.text}
+      </a>
+    </div>
   [/#if]
 </div>

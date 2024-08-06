@@ -4,11 +4,11 @@ import "./styles/reset.css";
 import "./styles/demo-styles.css";
 import "../src/main/resources/assets/styles/themes.stories.css";
 import "../src/main/resources/assets/styles/variables.stories.css";
-import "../src/main/resources/assets/styles/flow.css";
-import "../src/main/resources/assets/styles/html-area.css";
+import "../src/main/resources/assets/styles/blocks/flow.css";
+import "../src/main/resources/assets/styles/blocks/html-area.css";
 
-if(!process.env.STORYBOOK_SERVER_URL) {
-  throw Error(`You need to create a file named ".env" with "STORYBOOK_SERVER_URL" in it. Then restart storybook.`)
+if (!process.env.STORYBOOK_SERVER_URL) {
+  throw Error(`You need to create a file named ".env" with "STORYBOOK_SERVER_URL" in it. Then restart storybook.`);
 }
 
 const preview: Preview = {

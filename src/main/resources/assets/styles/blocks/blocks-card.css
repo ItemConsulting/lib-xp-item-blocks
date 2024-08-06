@@ -1,8 +1,10 @@
 .blocks-card {
-  --blocks-card--background-color: var(--blocks-color-surface-default);
-  --blocks-card--background-color-hover: var(--blocks-color-surface-hover);
-  --blocks-card--background-color-active: var(--blocks-color-surface-active);
-  --blocks-card--text-color: var(--blocks-color-text-default, currentColor);
+  --blocks-card--background-color: var(--blocks-color-theme-surface-default);
+  --blocks-card--background-color-hover: var(--blocks-color-theme-surface-hover);
+  --blocks-card--background-color-active: var(--blocks-color-theme-surface-active);
+  --blocks-card--text-color: var(--blocks-color-theme-text-default, currentColor);
+  --blocks-card--heading-color: var(--blocks-color-neutral-text-default, currentColor);
+  --blocks-card--kicker-color: var(--blocks-color-accent-text-default, currentColor);
   --blocks-card--padding: var(--blocks-spacing-md);
   --blocks-card--image-flex: 0 var(--blocks-card--image-flex-basis, 50%);
   --blocks-card--gap: 0;
@@ -18,6 +20,14 @@
     background-color: var(--blocks-card--background-color);
     height: 100%;
     transition: 0.1s background-color;
+  }
+
+  small {
+    color: var(--blocks-card--kicker-color);
+  }
+
+  h3 {
+    color: var(--blocks-card--heading-color);
   }
 
   a.blocks-card--card:hover {

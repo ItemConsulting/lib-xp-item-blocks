@@ -7,7 +7,6 @@ plugins {
 }
 
 dependencies {
-  implementation "com.enonic.xp:script-api:${xpVersion}"
   implementation "com.github.tineikt:xp-lib-freemarker:2.0.3"
 }
 
@@ -84,6 +83,13 @@ processResources {
 	exclude "**/*.json"
 	exclude "**/*.png"
 	exclude "**/*.ts"
+}
+
+jar {
+  exclude "**/*.freemarker.js"
+  exclude "**/*.stories.css"
+  exclude "assets/styles/blocks"
+  exclude "site/storybook-utils.js"
 }
 
 publishing {
