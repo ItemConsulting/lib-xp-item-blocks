@@ -1,11 +1,12 @@
 .blocks-card {
-  --blocks-card--background-color: var(--blocks-color-theme-surface-default);
-  --blocks-card--background-color-hover: var(--blocks-color-theme-surface-hover);
-  --blocks-card--background-color-active: var(--blocks-color-theme-surface-active);
-  --blocks-card--text-color: var(--blocks-color-theme-text-default, currentColor);
-  --blocks-card--heading-color: var(--blocks-color-neutral-text-default, currentColor);
-  --blocks-card--kicker-color: var(--blocks-color-accent-text-default, currentColor);
-  --blocks-card--padding: var(--blocks-spacing-md);
+  --blocks-card--background-color: var(--blocks--theme-background-color, var(--color-theme-surface-default));
+  --blocks-card--background-color-hover: var(--blocks--theme-background-color-hover, var(--color-theme-surface-hover));
+  --blocks-card--background-color-active: var(--blocks--theme-background-color-active, var(--color-theme-surface-active));
+  --blocks-card--text-color: var(--blocks--theme-text-color, var(--color-theme-text-default, currentColor));
+  --blocks-card--heading-color: var(--blocks--theme-heading-color, var(--color-neutral-text-default, currentColor));
+  --blocks-card--kicker-color: var(--blocks--theme-kicker-color, var(--color-accent-text-default, currentColor));
+  --blocks-card--card-padding: 0;
+  --blocks-card--body-padding: var(--blocks-spacing-md);
   --blocks-card--image-flex: 0 var(--blocks-card--image-flex-basis, 50%);
   --blocks-card--gap: 0;
 
@@ -14,6 +15,7 @@
   .blocks-card--card {
     display: flex;
     gap: var(--blocks-card--gap);
+    padding: var(--blocks-card--card-padding);
     flex-direction: var(--blocks-card--flex-direction, column);
     text-decoration: none;
     color: var(--blocks-card--text-color);
@@ -44,7 +46,8 @@
 
   .blocks-card--body {
     flex: 0 var(--blocks-card--body-flex-basis, 50%);
-    padding: var(--blocks-card--padding);
+    align-content: space-around;
+    padding: var(--blocks-card--body-padding);
   }
 
   .blocks-card--image {
@@ -58,8 +61,10 @@
   }
 
   @supports selector(:has(+ *)) {
+    /* If this is an image only card */
     .blocks-card--card:not(:has(.blocks-card--body)) {
       --blocks-card--image-flex: 1;
+      --blocks-card--card-padding: 0;
     }
   }
 }

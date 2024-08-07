@@ -12,7 +12,6 @@
 
     [#if author?has_content || publicationTitle?has_content]
       <footer>
-        &mdash;
         [#if author?has_content]
           ${author}
         [/#if]

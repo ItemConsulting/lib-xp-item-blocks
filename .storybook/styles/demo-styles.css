@@ -3,22 +3,22 @@
 }
 
 body {
-  background-color: var(--blocks-color-neutral-background-default);
-  color: var(--blocks-color-neutral-text-default);
+  background-color: var(--color-neutral-background-default);
+  color: var(--color-neutral-text-default);
 }
 
 a {
-  --link-color: var(--blocks-color-accent-text-subtle);
+  --link-color: var(--color-accent-text-subtle);
   --link-background-color: transparent;
   color: var(--link-color);
   background-color: var(--link-background-color);
 
   &:hover {
-    --link-color: var(--blocks-color-accent-text-default);
+    --link-color: var(--color-accent-text-default);
   }
 
   &:active {
-    --link-color: var(--blocks-color-accent-text-default);
-    --link-background-color: var(--blocks-color-accent-surface-default);
+    --link-color: var(--color-accent-text-default);
+    --link-background-color: var(--color-accent-surface-default);
   }
 }

@@ -6,4 +6,8 @@
   .blocks-quote--image {
     height: 100%;
   }
+
+  footer::before {
+    content: "\2014";
+  }
 }

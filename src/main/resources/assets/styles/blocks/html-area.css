@@ -6,4 +6,21 @@
   p {
     --flow-space: 1rlh;
   }
+
+  a {
+    --link-color: var(--color-accent-text-subtle);
+    --link-background-color: transparent;
+
+    color: var(--link-color);
+    background-color: var(--link-background-color);
+
+    &:hover {
+      --link-color: var(--color-accent-text-default);
+    }
+
+    &:active {
+      --link-color: var(--color-accent-text-default);
+      --link-background-color: var(--color-accent-surface-default);
+    }
+  }
 }
