@@ -1,8 +1,8 @@
 .blocks-accordion {
-  --blocks-accordion--background-color: var(--blocks--theme-background-color, var(--color-theme-surface-default));
-  --blocks-accordion--background-color-hover: var(--blocks--theme-background-color-hover, var(--color-theme-surface-hover));
-  --blocks-accordion--background-color-open: var(--blocks--theme-background-color-hover, var(--color-theme-surface-hover));
-  --blocks-accordion--text-color: var(--blocks--theme-text-color, var(--color-neutral-text-default));
+  --blocks-accordion--background-color: var(--blocks-color-theme-surface-default);
+  --blocks-accordion--background-color-hover: var(--blocks-color-theme-surface-hover);
+  --blocks-accordion--background-color-open: var(--blocks-color-theme-surface-hover);
+  --blocks-accordion--text-color: var(--blocks-color-neutral-text-default);
   --blocks-accordion--padding: var(--blocks-spacing-sm) var(--blocks-spacing-md);
   --blocks-accordion--flow-space: var(--blocks-spacing-md);
 

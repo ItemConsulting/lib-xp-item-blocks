@@ -1,10 +1,10 @@
 .blocks-card {
-  --blocks-card--background-color: var(--blocks--theme-background-color, var(--color-theme-surface-default));
-  --blocks-card--background-color-hover: var(--blocks--theme-background-color-hover, var(--color-theme-surface-hover));
-  --blocks-card--background-color-active: var(--blocks--theme-background-color-active, var(--color-theme-surface-active));
-  --blocks-card--text-color: var(--blocks--theme-text-color, var(--color-theme-text-default, currentColor));
-  --blocks-card--heading-color: var(--blocks--theme-heading-color, var(--color-neutral-text-default, currentColor));
-  --blocks-card--kicker-color: var(--blocks--theme-kicker-color, var(--color-accent-text-default, currentColor));
+  --blocks-card--background-color: var(--blocks-color-theme-surface-default);
+  --blocks-card--background-color-hover: var(--blocks-color-theme-surface-hover);
+  --blocks-card--background-color-active: var(--blocks-color-theme-surface-active);
+  --blocks-card--text-color: var(--blocks-color-theme-text-default, currentColor);
+  --blocks-card--heading-color: var(--blocks-color-neutral-text-default, currentColor);
+  --blocks-card--kicker-color: var(--blocks-color-accent-text-default, currentColor);
   --blocks-card--card-padding: 0;
   --blocks-card--body-padding: var(--blocks-spacing-md);
   --blocks-card--image-flex: 0 var(--blocks-card--image-flex-basis, 50%);
