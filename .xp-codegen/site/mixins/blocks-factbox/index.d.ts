@@ -9,9 +9,4 @@ export type BlocksFactbox = {
    * Text
    */
   text: string;
-
-  /**
-   * Theme
-   */
-  theme?: string;
 };

@@ -18,7 +18,5 @@
         <allowHeadings>h3</allowHeadings>
       </config>
     </input>
-
-    <mixin name="blocks-theme" />
   </form>
 </mixin>

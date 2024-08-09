@@ -4,5 +4,5 @@
 <div class="blocks-factbox html-area flow ${classes!""}">
   <h2>${title}</h2>
 
-  [@processHtml value=text /]
+  ${text}
 </div>

@@ -30,6 +30,7 @@
           <help-text i18n="mixin.blocks-factbox.description">A box containing text that can have different background colors</help-text>
           <items>
             <mixin name="blocks-factbox" />
+            <mixin name="blocks-theme" />
           </items>
         </option>
 
@@ -38,6 +39,7 @@
           <help-text i18n="mixin.blocks-accordion.description">A list of expandable sections</help-text>
           <items>
             <mixin name="blocks-accordion" />
+            <mixin name="blocks-theme" />
           </items>
         </option>
 

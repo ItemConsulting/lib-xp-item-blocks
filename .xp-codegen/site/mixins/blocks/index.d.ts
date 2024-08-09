@@ -98,11 +98,6 @@ export type Blocks = {
           title?: string;
 
           /**
-           * Theme
-           */
-          theme?: string;
-
-          /**
            * Accordion element
            */
           items: Array<{
@@ -116,6 +111,11 @@ export type Blocks = {
              */
             text: string;
           }>;
+
+          /**
+           * Theme
+           */
+          theme?: string;
         };
       }
     | {

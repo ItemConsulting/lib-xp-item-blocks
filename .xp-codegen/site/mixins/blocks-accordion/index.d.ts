@@ -6,11 +6,6 @@ export type BlocksAccordion = {
   title?: string;
 
   /**
-   * Theme
-   */
-  theme?: string;
-
-  /**
    * Accordion element
    */
   items: Array<{
