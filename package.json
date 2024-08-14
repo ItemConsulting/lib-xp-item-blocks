@@ -1,9 +1,12 @@
 {
-  "name": "lib-item-blocks",
+  "name": "@item-enonic-types/lib-blocks",
   "description": "Item Blocks",
   "version": "0.0.1-BETA11",
   "homepage": "https://github.com/ItemConsulting/lib-xp-item-blocks",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "files": [
     "dist/site/mixins/**/*.d.ts",
     "dist/*.css",

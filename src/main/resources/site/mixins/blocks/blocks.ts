@@ -58,7 +58,7 @@ export function process(config: ProcessParams, params?: BlockProcessorParams): s
   }
 
   return render<Blocks>(view, {
-    classes: `blocks--gap-${config.gapRow ?? "md"},`,
+    classes: `blocks--gap-${config.gapRow ?? "md"}`,
     blocks: processBlocks(config.blocks ?? [], { component, locale }),
   });
 }
