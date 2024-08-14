@@ -1,7 +1,7 @@
 .blocks-factbox {
   --blocks-factbox--background-color: var(--color-theme-background-subtle);
   --blocks-factbox--text-color: var(--color-neutral-text-default);
-  --blocks-factbox--padding: var(--blocks-spacing-xxl);
+  --blocks-factbox--padding: var(--blocks-spacing-xl) 0;
 
   background-color: var(--blocks-factbox--background-color);
   color: var(--blocks-factbox--text-color);

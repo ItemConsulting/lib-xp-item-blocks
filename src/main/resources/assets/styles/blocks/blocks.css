@@ -22,10 +22,20 @@
   grid-column: content;
 }
 
-@media (width > 620px) {
+.blocks-factbox {
+  display: grid;
+  grid-column: breakout;
+  grid-template-columns: subgrid;
+
+  > * {
+    grid-column: content;
+  }
+}
+
+@media only screen and (width < 840px) {
+
   .blocks > .blocks-factbox {
-    grid-column: breakout;
-    --blocks-factbox--padding: calc((var(--blocks-container-md) - var(--blocks-container-sm)));
+    grid-column: full;
   }
 }
 
