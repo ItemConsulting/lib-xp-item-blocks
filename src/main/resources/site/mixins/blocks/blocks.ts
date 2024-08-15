@@ -23,7 +23,6 @@ export type BlockProcessorParams = {
 
 export type ProcessParams = {
   blocks?: ProcessableBlock[];
-  gapRow?: string;
 };
 
 export type ProcessableBlock = {
@@ -58,7 +57,6 @@ export function process(config: ProcessParams, params?: BlockProcessorParams): s
   }
 
   return render<Blocks>(view, {
-    classes: `blocks--gap-${config.gapRow ?? "md"}`,
     blocks: processBlocks(config.blocks ?? [], { component, locale }),
   });
 }

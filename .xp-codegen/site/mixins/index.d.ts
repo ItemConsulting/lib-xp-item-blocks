@@ -3,6 +3,7 @@ export type Blocks = import("./blocks").Blocks;
 export type BlocksAccordion = import("./blocks-accordion").BlocksAccordion;
 export type BlocksCard = import("./blocks-card").BlocksCard;
 export type BlocksCards = import("./blocks-cards").BlocksCards;
+export type BlocksConfig = import("./blocks-config").BlocksConfig;
 export type BlocksFactbox = import("./blocks-factbox").BlocksFactbox;
 export type BlocksImages = import("./blocks-images").BlocksImages;
 export type BlocksLink = import("./blocks-link").BlocksLink;

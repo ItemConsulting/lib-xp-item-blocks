@@ -1,0 +1,33 @@
+.blocks--default-grid-column-content {
+  --blocks--default-grid-column: content;
+  --blocks--default-grid-column-factbox: breakout;
+}
+
+.blocks--default-grid-column-wide {
+  --blocks--default-grid-column: wide;
+  --blocks--default-grid-column-factbox: full;
+}
+
+.blocks--gap-none {
+  --blocks--row-gap: 0;
+}
+
+.blocks--gap-sm {
+  --blocks--row-gap: var(--blocks-spacing-sm);
+}
+
+.blocks--gap-md {
+  --blocks--row-gap: var(--blocks-spacing-md);
+}
+
+.blocks--gap-lg {
+  --blocks--row-gap: var(--blocks-spacing-lg);
+}
+
+.blocks--gap-xl {
+  --blocks--row-gap: var(--blocks-spacing-xl);
+}
+
+.blocks--gap-xxl {
+  --blocks--row-gap: var(--blocks-spacing-xxl);
+}
