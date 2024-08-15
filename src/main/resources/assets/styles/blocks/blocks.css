@@ -3,7 +3,7 @@
   --padding-inline: var(--blocks-spacing-md);
   --full: minmax(var(--padding-inline), 1fr);
   --content: min(var(--blocks-container-sm), 100% - var(--padding-inline) * 2);
-  --breakout: minmax(0, calc((var(--blocks-container-md) - var(--blocks-container-sm)) ));
+  --breakout: minmax(0, calc((var(--blocks-container-md) - var(--blocks-container-sm)) / 2));
   --feature: minmax(0, calc((var(--blocks-container-lg) - var(--blocks-container-md)) / 2));
 
   display: grid;

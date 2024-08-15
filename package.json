@@ -1,7 +1,7 @@
 {
   "name": "@item-enonic-types/lib-blocks",
   "description": "Item Blocks",
-  "version": "0.0.1-BETA12",
+  "version": "0.0.1-BETA16",
   "homepage": "https://github.com/ItemConsulting/lib-xp-item-blocks",
   "license": "MIT",
   "publishConfig": {
@@ -29,7 +29,7 @@
     "check:types:server": "npx tsc --noEmit",
     "lint": "eslint --cache 'src/main/resources/**/*.ts'",
     "prepublishOnly": "concurrently -c auto -g --timings npm:prepublish:*",
-    "prepublish:types": "tsc --declaration true --emitDeclarationOnly true --declarationDir build/types && cp -r build/types/src/main/resources dist",
+    "prepublish:types": "tsc --declaration true --emitDeclarationOnly true --declarationDir build/types && cp -r build/types/src/main/resources/site dist",
     "prepublish:styles": "mkdir -p dist && cp src/main/resources/assets/styles/blocks/*.css dist",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
