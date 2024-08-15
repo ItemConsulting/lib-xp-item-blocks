@@ -1,34 +1,34 @@
 .blocks {
   --blocks--row-gap: var(--blocks-spacing-md);
-  --padding-inline: var(--blocks-spacing-md);
-  --full: minmax(var(--padding-inline), 1fr);
-  --content: min(var(--blocks-container-sm), 100% - var(--padding-inline) * 2);
-  --breakout: minmax(0, calc((var(--blocks-container-md) - var(--blocks-container-sm)) / 2));
-  --feature: minmax(0, calc((var(--blocks-container-lg) - var(--blocks-container-md)) / 2));
+  --blocks--padding-inline: var(--blocks-spacing-md);
+  --blocks--full: minmax(var(--blocks--padding-inline), 1fr);
+  --blocks--content: min(var(--blocks-container-sm), 100% - var(--blocks--padding-inline) * 2);
+  --blocks--breakout: minmax(0, calc((var(--blocks-container-md) - var(--blocks-container-sm)) / 2));
+  --blocks--feature: minmax(0, calc((var(--blocks-container-lg) - var(--blocks-container-md)) / 2));
 
   display: grid;
   grid-template-columns:
-    [full-start] var(--full)
-    [feature-start] var(--feature)
-    [breakout-start] var(--breakout)
-    [content-start] var(--content) [content-end]
-    var(--breakout) [breakout-end]
-    var(--feature) [feature-end]
-    var(--full) [full-end];
+    [full-start] var(--blocks--full)
+    [feature-start] var(--blocks--feature)
+    [breakout-start] var(--blocks--breakout)
+    [content-start] var(--blocks--content) [content-end]
+    var(--blocks--breakout) [breakout-end]
+    var(--blocks--feature) [feature-end]
+    var(--blocks--full) [full-end];
   row-gap: var(--blocks--row-gap);
 }
 
 .blocks > * {
-  grid-column: content;
+  grid-column: var(--blocks--default-grid-column, content);
 }
 
 .blocks-factbox {
   display: grid;
-  grid-column: breakout;
+  grid-column: var(--blocks--default-grid-column-factbox, breakout);
   grid-template-columns: subgrid;
 
   > * {
-    grid-column: content;
+    grid-column: var(--blocks--default-grid-column, content);
   }
 }
 
