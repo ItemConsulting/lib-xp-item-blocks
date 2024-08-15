@@ -179,3 +179,34 @@ export const textOnly: StoryObj = {
     url: "#",
   },
 };
+
+export const withSVGImage: StoryObj = {
+  args: {
+    sizeClass: "blocks-card-story--medium",
+    themeClass: "theme-accent",
+    imageClass: "blocks-card--image-left",
+    kicker: "Blogpost",
+    title: "Overskrift 1",
+    text: `
+          <p>Dette er noe riktekst</p>
+          <ul>
+            <li>test</li>
+            <li>test2</li>
+          </ul>`,
+    url: "#",
+    image: {
+      src: "profile.svg",
+    },
+  },
+};
+
+export const withSVGImageOnly: StoryObj = {
+  args: {
+    sizeClass: "blocks-card-story--large",
+    themeClass: "theme-accent",
+    imageClass: "blocks-card--image-left",
+    image: {
+      src: "profile.svg",
+    },
+  },
+};
