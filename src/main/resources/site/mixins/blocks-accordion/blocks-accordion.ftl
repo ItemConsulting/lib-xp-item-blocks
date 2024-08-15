@@ -9,7 +9,7 @@
           <h3>${item.title}</h3>
         </summary>
 
-        <div class="blocks-accordion--text html-area">
+        <div class="blocks-accordion--text flow html-area">
           ${item.text}
         </div>
       </details>
