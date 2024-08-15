@@ -7,7 +7,9 @@
   --blocks-card--kicker-color: var(--color-accent-text-default, currentColor);
   --blocks-card--card-padding: 0;
   --blocks-card--body-padding: var(--blocks-spacing-md);
-  --blocks-card--image-flex: 0 var(--blocks-card--image-flex-basis, 50%);
+  --blocks-card--body-flex: 1 1 100%;
+  --blocks-card--image-flex: 0 0 auto;
+  --blocks-card--image-aspect-ratio: 16 / 9;
   --blocks-card--gap: 0;
 
   container-type: inline-size;
@@ -45,7 +47,7 @@
   }
 
   .blocks-card--body {
-    flex: 0 var(--blocks-card--body-flex-basis, 50%);
+    flex: var(--blocks-card--body-flex);
     align-content: space-around;
     padding: var(--blocks-card--body-padding);
   }
@@ -57,6 +59,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      aspect-ratio: var(--blocks-card--image-aspect-ratio);
     }
   }
 
@@ -82,25 +85,28 @@
 
 /* Image positions for medium cards */
 @container (min-width: 420px) {
-  .blocks-card--card {
-    --blocks-card--body-flex-basis: 66.666%;
-    --blocks-card--image-flex-basis: 33.333%;
-  }
-
   .blocks-card--image-right .blocks-card--card {
     --blocks-card--flex-direction: row-reverse;
+    --blocks-card--image-aspect-ratio: 3 / 2;
+    --blocks-card--image-flex: 0 0 33.333%;
   }
 
   .blocks-card--image-left .blocks-card--card {
     --blocks-card--flex-direction: row;
+    --blocks-card--image-aspect-ratio: 3 / 2;
+    --blocks-card--image-flex: 0 0 33.333%;
   }
 
   .blocks-card--image-top .blocks-card--card {
     --blocks-card--flex-direction: column;
+    --blocks-card--image-aspect-ratio: 16 / 9;
+    --blocks-card--image-flex: 0 0 auto;
   }
 
   .blocks-card--image-bottom .blocks-card--card {
     --blocks-card--flex-direction: column-reverse;
+    --blocks-card--image-aspect-ratio: 16 / 9;
+    --blocks-card--image-flex: 0 0 auto;
   }
 }
 
@@ -109,10 +115,14 @@
   .blocks-card--image-bottom .blocks-card--card,
   .blocks-card--image-right .blocks-card--card {
     --blocks-card--flex-direction: row-reverse;
+    --blocks-card--image-flex: 0 0 300px;
+    --blocks-card--image-aspect-ratio: 3 / 2;
   }
 
   .blocks-card--image-top .blocks-card--card,
   .blocks-card--image-left .blocks-card--card {
     --blocks-card--flex-direction: row;
+    --blocks-card--image-flex: 0 0 300px;
+    --blocks-card--image-aspect-ratio: 3 / 2;
   }
 }
