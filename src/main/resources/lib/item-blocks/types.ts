@@ -2,6 +2,8 @@ import type { Content } from "/lib/xp/content";
 
 export type Unarray<T> = T extends Array<infer U> ? U : T extends ReadonlyArray<infer U> ? U : T;
 
+export type Optional<T, K extends keyof T> = Pick<Partial<T>, K> & Omit<T, K>;
+
 export type PickSelected<OPTION_SET extends { _selected: string }, SELECTED extends string> = Extract<
   OPTION_SET,
   { _selected: SELECTED }

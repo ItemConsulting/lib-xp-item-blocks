@@ -8,20 +8,24 @@ import { process as processBlocksCards } from "/site/mixins/blocks-cards/blocks-
 import { process as processBlocksFactbox } from "/site/mixins/blocks-factbox/blocks-factbox";
 import { process as processBlocksImages } from "/site/mixins/blocks-images/blocks-images";
 import { process as processBlocksQuote } from "/site/mixins/blocks-quote/blocks-quote";
+import type { Request } from "@item-enonic-types/global/controller";
 import type { Component } from "@enonic-types/core";
 import type { Blocks as BlocksRaw } from ".";
 import type { BlocksReuse as BlocksReuseRaw } from "/site/mixins/blocks-reuse";
 import type { Blocks } from "/site/mixins/blocks/blocks.freemarker";
-import { Unarray } from "/lib/item-blocks/types";
+import { Optional, Unarray } from "/lib/item-blocks/types";
 
-export type BlockProcessor<Block> = (block: Block, params?: BlockProcessorParams) => string | string[];
+export type BlockProcessor<Block> = (block: Block, params: BlockProcessorParams) => string | string[];
 
 export type BlockProcessorParams = {
+  content: Content<unknown>;
   component: Component;
   locale: string;
+  req: Request;
+  classes: string;
 };
 
-export type ProcessParams = {
+export type BlocksParams = {
   blocks?: ProcessableBlock[];
 };
 
@@ -48,16 +52,29 @@ const REGISTERED_BLOCK_PROCESSORS: Record<string, BlockProcessor<unknown>> = {
 
 const view = resolve("blocks.ftl");
 
-export function process(config: ProcessParams, params?: BlockProcessorParams): string {
-  const component = params?.component ?? getComponent();
-  const locale = params?.locale ?? getContent()?.language ?? app.config.defaultLocale ?? "no";
+export function process(
+  config: BlocksParams,
+  params: Optional<BlockProcessorParams, "content" | "component" | "locale" | "classes">,
+): string {
+  const component = params.component ?? getComponent();
+  const content = params.content ?? getContent();
+  const locale = params.locale ?? content?.language ?? app.config.defaultLocale ?? "no";
 
+  if (!content) {
+    throw new Error("Content not found in scope");
+  }
   if (!component) {
     throw new Error("Component not found in scope");
   }
 
   return render<Blocks>(view, {
-    blocks: processBlocks(config.blocks ?? [], { component, locale }),
+    blocks: processBlocks(config.blocks ?? [], {
+      content,
+      component,
+      locale,
+      classes: params.classes ?? "",
+      req: params.req,
+    }),
   });
 }
 
