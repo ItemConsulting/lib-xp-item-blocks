@@ -1,6 +1,8 @@
 export type BlocksAccordion = {
-  items: Disclosure[];
+  id?: string;
+  title?: string;
   classes?: string;
+  items: Disclosure[];
 };
 
 export type Disclosure = {

@@ -5,7 +5,7 @@
 [#-- @ftlvariable name="image" type="java.util.HashMap" --]
 
 <div class="blocks-quote">
-  <blockquote${publicationUrl?has_content?string(' cite="${publicationUrl}"', '')}>
+  <blockquote${(publicationUrl)?has_content?string(' cite="${publicationUrl!""}"', '')}>
     <div class="blocks-quote--text">
       ${text}
     </div>

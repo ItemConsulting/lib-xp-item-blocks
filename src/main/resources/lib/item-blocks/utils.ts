@@ -31,3 +31,14 @@ export function assertIsDefined<T>(value: T, name?: string): asserts value is No
 export function objectKeys<Obj extends object>(obj: Obj): (keyof Obj)[] {
   return Object.keys(obj) as (keyof Obj)[];
 }
+
+export function toSnakeCase(nonSnake?: string): string | undefined {
+  if (notEmptyOrUndefined(nonSnake)) {
+    return nonSnake
+      .match(/[A-Z]{2,}(?=[A-Z][a-z]+[0-9]*|\b)|[A-Z]?[a-z]+[0-9]*|[A-Z]|[0-9]+/g)
+      ?.map((x) => x.toLowerCase())
+      .join("_");
+  }
+
+  return;
+}

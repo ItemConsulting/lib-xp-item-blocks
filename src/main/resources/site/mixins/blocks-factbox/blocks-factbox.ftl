@@ -1,8 +1,10 @@
 [#-- @ftlvariable name="title" type="String" --]
 [#-- @ftlvariable name="text" type="String" --]
 [#-- @ftlvariable name="classes" type="String" --]
-<div class="blocks-factbox html-area flow ${classes!""}">
-  <h2>${title}</h2>
+<aside class="blocks-factbox html-area flow ${classes!""}">
+  [#if title?has_content]
+    <h2>${title}</h2>
+  [/#if]
 
   ${text}
-</div>
+</aside>
