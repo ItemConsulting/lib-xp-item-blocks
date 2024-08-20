@@ -18,12 +18,12 @@
       <default>md</default>
     </input>
 
-    <input name="blockWidth" type="RadioButton">
-      <label i18n="mixin.blocks-config.blockWidth">Block Width</label>
+    <input name="blockLayout" type="RadioButton">
+      <label i18n="mixin.blocks-config.blockLayout">Block layout</label>
       <occurrences minimum="0" maximum="1"/>
       <config>
-        <option value="content" i18n="mixin.blocks-config.blockWidth.content">Content</option>
-        <option value="wide" i18n="mixin.blocks-config.blockWidth.wide">Wide</option>
+        <option value="normal" i18n="mixin.blocks-config.blockLayout.normal">Normal</option>
+        <option value="frontpage" i18n="mixin.blocks-config.blockLayout.frontpage">Frontpage</option>
       </config>
       <default>content</default>
     </input>

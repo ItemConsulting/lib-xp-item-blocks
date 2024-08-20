@@ -4,7 +4,7 @@ import factboxId from "../blocks-factbox/blocks-factbox.ftl";
 import cardsId from "../blocks-cards/blocks-cards.ftl";
 import accordionId from "../blocks-accordion/blocks-accordion.ftl";
 import imagesId from "../blocks-images/blocks-images.ftl";
-import "../../../assets/styles/blocks/blocks.css";
+import "../../../assets/styles/blocks/blocks-content-grid.css";
 import "../../../assets/styles/blocks/blocks-accordion.css";
 import "../../../assets/styles/blocks/blocks-factbox.css";
 import "../../../assets/styles/blocks/blocks-cards.css";

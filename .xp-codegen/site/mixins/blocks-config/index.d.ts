@@ -6,7 +6,7 @@ export type BlocksConfig = {
   gapRow?: "sm" | "md" | "lg" | "xl" | "xxl" | "none";
 
   /**
-   * Block Width
+   * Block layout
    */
-  blockWidth?: "content" | "wide";
+  blockLayout?: "normal" | "frontpage";
 };

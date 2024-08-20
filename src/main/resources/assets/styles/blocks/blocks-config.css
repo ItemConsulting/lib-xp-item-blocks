@@ -1,13 +1,3 @@
-.blocks--default-grid-column-content {
-  --blocks--default-grid-column: content;
-  --blocks--default-grid-column-factbox: breakout;
-}
-
-.blocks--default-grid-column-wide {
-  --blocks--default-grid-column: wide;
-  --blocks--default-grid-column-factbox: full;
-}
-
 .blocks--gap-none {
   --blocks--row-gap: 0;
 }

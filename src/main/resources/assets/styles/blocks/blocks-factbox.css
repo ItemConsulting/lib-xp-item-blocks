@@ -6,5 +6,19 @@
   background-color: var(--blocks-factbox--background-color);
   color: var(--blocks-factbox--text-color);
   padding: var(--blocks-factbox--padding);
+
+  &.content-grid--breakout {
+    display: grid;
+    grid-template-columns: subgrid;
+
+    > * {
+      grid-column: content;
+    }
+  }
 }
 
+@media only screen and (width < 840px) {
+  .blocks-factbox.content-grid--breakout {
+    grid-column: full;
+  }
+}
