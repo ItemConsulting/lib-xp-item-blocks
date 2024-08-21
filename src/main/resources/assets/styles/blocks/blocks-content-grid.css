@@ -14,7 +14,7 @@
     var(--content-grid--breakout) [breakout-end]
     var(--content-grid--wide) [wide-end]
     var(--content-grid--full) [full-end];
-  row-gap: var(--blocks--row-gap, var(--blocks-spacing-md));
+  row-gap: var(--content-grid--row-gap, var(--blocks-spacing-md));
 
   /* Don't double padding on nested content grids */
   .content-grid {
@@ -24,6 +24,10 @@
 
 .content-grid > * {
   grid-column: var(--content-grid-grid-column, content);
+}
+
+.content-grid--content {
+  --content-grid-grid-column: content;
 }
 
 .content-grid--breakout {
