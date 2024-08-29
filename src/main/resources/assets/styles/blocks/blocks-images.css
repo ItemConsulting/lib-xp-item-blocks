@@ -1,4 +1,5 @@
 .blocks-images {
+  --block-images--figcaption-color: white;
   --block-images--gallery-gap: var(--blocks-spacing-md, 1rem);
 
   display: grid;
@@ -6,6 +7,17 @@
   grid-template-columns: 1fr 1fr;
 }
 
-.popover-gallery--popover::backdrop {
-  background-color: rgba(0, 0, 0, 0.7);
+.popover-gallery--button img {
+  width: 100%;
+}
+
+.popover-gallery--popover {
+  &::backdrop {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+
+  figure figcaption {
+    background-color: transparent;
+    color: var(--block-images--figcaption-color);
+  }
 }

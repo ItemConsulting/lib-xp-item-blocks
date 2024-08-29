@@ -12,11 +12,22 @@
       class="blocks-images--expand-link"
       target="_blank">
 
-      <img
-        srcset="${image.srcset}"
-        sizes="${image.sizes}"
-        src="${image.src}"
-        alt="${image.altText!""}">
+      [#if image.caption?has_content]
+      <figure>
+        <img
+          srcset="${image.srcset}"
+          sizes="${image.sizes}"
+          src="${image.src}"
+          alt="${image.altText!""}">
+        <figcaption>${image.caption}</figcaption>
+      </figure>
+      [#else]
+        <img
+          srcset="${image.srcset}"
+          sizes="${image.sizes}"
+          src="${image.src}"
+          alt="${image.altText!""}">
+      [/#if]
     </a>
   [/#list]
 </popover-gallery>

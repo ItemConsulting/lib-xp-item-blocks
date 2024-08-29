@@ -25,6 +25,7 @@ export function process(block: RawBlocksImages, { component, locale }: BlockProc
         sizes: "",
         srcset: "",
         altText: item.altText,
+        caption: item.caption,
       };
     }),
   });

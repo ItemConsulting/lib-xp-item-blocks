@@ -8,6 +8,7 @@ export type GalleryImage = {
   src: string;
   fullSizeSrc: string;
   altText?: string;
+  caption?: string;
   sizes: string;
   srcset: string;
 };

@@ -30,6 +30,7 @@ export const images: StoryObj<Images> = {
         fullSizeSrc: "eggman.jpg",
         sizes: "",
         srcset: "",
+        caption: "Eggman",
       },
       {
         src: "legoman-thumb.jpg",
@@ -37,6 +38,7 @@ export const images: StoryObj<Images> = {
         fullSizeSrc: "legoman.jpg",
         sizes: "",
         srcset: "",
+        caption: "Legoman",
       },
       {
         src: "capman-thumb.jpg",
