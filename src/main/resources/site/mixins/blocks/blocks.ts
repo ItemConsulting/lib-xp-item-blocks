@@ -23,6 +23,7 @@ export type BlockProcessorParams = {
   locale: string;
   req: Request;
   classes: string;
+  blockIndex: number;
 };
 
 export type BlocksParams = {
@@ -54,7 +55,7 @@ const view = resolve("blocks.ftl");
 
 export function process(
   config: BlocksParams,
-  params: Optional<BlockProcessorParams, "content" | "component" | "locale" | "classes">,
+  params: Optional<BlockProcessorParams, "content" | "component" | "locale" | "classes" | "blockIndex">,
 ): string {
   const component = params.component ?? getComponent();
   const content = params.content ?? getContent();
@@ -78,10 +79,15 @@ export function process(
   });
 }
 
-function processBlocks(blocks: ProcessableBlock[], params: BlockProcessorParams): string[] {
-  return flatMap(forceArray(blocks), (block) => {
+function processBlocks(blocks: ProcessableBlock[], params: Optional<BlockProcessorParams, "blockIndex">): string[] {
+  return flatMap(forceArray(blocks), (block, blockIndex) => {
     const value = block[block._selected];
-    return value ? processBlock(block._selected, value, params) : [];
+    return value
+      ? processBlock(block._selected, value, {
+          ...params,
+          blockIndex,
+        })
+      : [];
   });
 }
 

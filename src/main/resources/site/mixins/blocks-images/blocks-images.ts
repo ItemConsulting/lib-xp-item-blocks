@@ -8,15 +8,15 @@ import type { BlockProcessorParams } from "/site/mixins/blocks/blocks";
 
 const view = resolve("blocks-images.ftl");
 
-export function process(block: RawBlocksImages, { component, locale }: BlockProcessorParams): string {
+export function process(block: RawBlocksImages, { component, locale, blockIndex }: BlockProcessorParams): string {
   return render<Images>(view, {
-    id: partPathToId(component.path),
+    id: `${partPathToId(component.path)}-${blockIndex}`,
     locale: locale,
     images: forceArray(block.items).map((item) => {
       return {
         src: imageUrl({
           id: item.imageId,
-          scale: "width(400)",
+          scale: "block(400, 240)",
         }),
         fullSizeSrc: imageUrl({
           id: item.imageId,

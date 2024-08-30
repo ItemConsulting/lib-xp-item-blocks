@@ -12,8 +12,8 @@ export function flatten<A>(items: Array<Array<A>>): Array<A> {
   return items.reduce((res, item) => [...res, ...item], []);
 }
 
-export function flatMap<A, B>(arr: A[], f: (val: A) => B[]): B[] {
-  return arr.reduce<B[]>((res, val) => res.concat(f(val)), []);
+export function flatMap<A, B>(arr: A[], f: (val: A, index: number) => B[]): B[] {
+  return arr.reduce<B[]>((res, val, index) => res.concat(f(val, index)), []);
 }
 
 export function unique(items: string[]): string[] {
