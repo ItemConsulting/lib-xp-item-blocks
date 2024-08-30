@@ -3,18 +3,18 @@
   --content-grid--full: minmax(var(--content-grid--padding-inline), 1fr);
   --content-grid--content: min(var(--blocks-container-sm), 100% - var(--content-grid--padding-inline) * 2);
   --content-grid--breakout: minmax(0, calc((var(--blocks-container-md) - var(--blocks-container-sm)) / 2));
-  --content-grid--wide: minmax(0, calc((var(--blocks-container-lg) - var(--blocks-container-md)) / 2));
+  --content-grid--feature: minmax(0, calc((var(--blocks-container-lg) - var(--blocks-container-md)) / 2));
 
   display: grid;
   grid-template-columns:
     [full-start] var(--content-grid--full)
-    [wide-start] var(--content-grid--wide)
+    [feature-start] var(--content-grid--feature)
     [breakout-start] var(--content-grid--breakout)
     [content-start] var(--content-grid--content) [content-end]
     var(--content-grid--breakout) [breakout-end]
-    var(--content-grid--wide) [wide-end]
+    var(--content-grid--feature) [feature-end]
     var(--content-grid--full) [full-end];
-  row-gap: var(--content-grid--row-gap, var(--blocks-spacing-md));
+  row-gap: var(--content-grid--row-gap, var(--blocks-spacing-lg));
 
   /* Don't double padding on nested content grids */
   .content-grid {
@@ -34,8 +34,8 @@
   --content-grid-grid-column: breakout;
 }
 
-.content-grid--wide {
-  --content-grid-grid-column: wide;
+.content-grid--feature {
+  --content-grid-grid-column: feature;
 }
 
 .content-grid--full {

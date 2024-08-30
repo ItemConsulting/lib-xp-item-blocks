@@ -4,28 +4,14 @@
   <description i18n="mixin.blocks-config.description">Configurations for blocks that should be added to a page component</description>
 
   <form>
-    <input name="gapRow" type="ComboBox">
-      <label i18n="mixin.blocks-config.gapRow">Vertical spacing</label>
-      <occurrences minimum="0" maximum="1"/>
-      <config>
-        <option value="sm" i18n="mixin.blocks-config.gapRow.sm">Small</option>
-        <option value="md" i18n="mixin.blocks-config.gapRow.md">Medium</option>
-        <option value="lg" i18n="mixin.blocks-config.gapRow.lg">Large</option>
-        <option value="xl" i18n="mixin.blocks-config.gapRow.xl">XL</option>
-        <option value="xxl" i18n="mixin.blocks-config.gapRow.xxl">XXL</option>
-        <option value="none" i18n="mixin.blocks-config.gapRow.none">None</option>
-      </config>
-      <default>md</default>
-    </input>
-
     <input name="blockLayout" type="RadioButton">
       <label i18n="mixin.blocks-config.blockLayout">Block layout</label>
       <occurrences minimum="0" maximum="1"/>
       <config>
-        <option value="normal" i18n="mixin.blocks-config.blockLayout.normal">Normal</option>
-        <option value="frontpage" i18n="mixin.blocks-config.blockLayout.frontpage">Frontpage</option>
+        <option value="narrow" i18n="mixin.blocks-config.blockLayout.narrow">Narrow</option>
+        <option value="wide" i18n="mixin.blocks-config.blockLayout.wide">Wide</option>
       </config>
-      <default>content</default>
+      <default>narrow</default>
     </input>
   </form>
 </mixin>

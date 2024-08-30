@@ -1,8 +1,9 @@
 import { BlocksConfig } from "/site/mixins";
 
-export function getBlocksConfigClasses(blocksConfig?: BlocksConfig): string {
-  return [
-    `content-grid--layout-${blocksConfig?.blockLayout ?? "normal"}`,
-    `content-grid--gap-${blocksConfig?.gapRow ?? "md"}`,
-  ].join(" ");
+type BlockLayout = NonNullable<BlocksConfig["blockLayout"]>;
+
+type BlocksConfigClasses = `content-grid--layout-${BlockLayout}`;
+
+export function getBlocksConfigClasses(blocksConfig?: BlocksConfig): BlocksConfigClasses {
+  return `content-grid--layout-${blocksConfig?.blockLayout ?? "narrow"}`;
 }
