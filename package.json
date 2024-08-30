@@ -1,7 +1,7 @@
 {
   "name": "@item-enonic-types/lib-blocks",
   "description": "Item Blocks",
-  "version": "0.0.1-BETA41",
+  "version": "0.0.1",
   "homepage": "https://github.com/ItemConsulting/lib-xp-item-blocks",
   "license": "MIT",
   "publishConfig": {
@@ -69,12 +69,12 @@
     "@storybook/server": "^8.2.9",
     "@storybook/server-webpack5": "^8.2.9",
     "@storybook/test": "^8.2.9",
-    "@swc/core": "^1.7.14",
+    "@swc/core": "^1.7.22",
     "autoprefixer": "^10.4.20",
     "concurrently": "^8",
     "cssnano": "^7.0.5",
     "esbuild-plugin-globals": "^0.2.0",
-    "eslint": "^9.9.0",
+    "eslint": "^9.9.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
     "glob": "^11.0.0",
@@ -93,7 +93,7 @@
     "storybook": "^8.2.9",
     "tsup": "^8.2.4",
     "typescript": "^5.5.4",
-    "typescript-eslint": "^8.2.0"
+    "typescript-eslint": "^8.3.0"
   },
   "dependencies": {
     "@itemconsulting/details-animated": "^0.0.6",
