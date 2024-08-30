@@ -4,7 +4,7 @@
 
 <popover-gallery
   class="blocks-images blocks-images-size-${(images![])?size}"
-  data-popover-close-aria-label="[@localize key="blocksImages.close" locale=locale /]">
+  data-popover-close-aria-label="[@localize key="mixin.blocks-images.close" locale=locale /]">
   [#list images![] as image ]
     <a
       href="${image.fullSizeSrc}"
@@ -14,19 +14,23 @@
 
       [#if image.caption?has_content]
       <figure>
-        <img
-          srcset="${image.srcset}"
-          sizes="${image.sizes}"
-          src="${image.src}"
-          alt="${image.altText!""}">
+        <picture>
+          <img
+            srcset="${image.srcset}"
+            sizes="${image.sizes}"
+            src="${image.src}"
+            alt="${image.altText!""}">
+        </picture>
         <figcaption>${image.caption}</figcaption>
       </figure>
       [#else]
-        <img
-          srcset="${image.srcset}"
-          sizes="${image.sizes}"
-          src="${image.src}"
-          alt="${image.altText!""}">
+        <picture>
+          <img
+            srcset="${image.srcset}"
+            sizes="${image.sizes}"
+            src="${image.src}"
+            alt="${image.altText!""}">
+        </picture>
       [/#if]
     </a>
   [/#list]
