@@ -1,6 +1,6 @@
 [#macro render card]
-  <div class="blocks-card">
-    [@linkOrDiv href=card.url!"" class="blocks-card--card ${card.classes!''}"]
+  <div class="blocks-card ${card.classes!''}">
+    [@linkOrDiv href=card.url!"" class="blocks-card--card"]
       [#if card.image?has_content]
         <figure class="blocks-card--image">
           <img
