@@ -5,6 +5,7 @@ import { getImageParams, type ImageParams } from "/lib/item-blocks/images";
 import type { ContentImage, ContentVector, Unarray } from "/lib/item-blocks/types";
 import type { BlocksCards as RawBlocksCards } from "/site/mixins/blocks-cards";
 import type { BlocksCard } from "/site/mixins/blocks-card/blocks-card.freemarker";
+import { processHtml } from "/lib/xp/portal";
 
 const WIDTH_CONTAINER = 676; // At 620 multi column layouts will become single column
 const WIDTH_LARGEST_IN_CARD = 431; // Largest common width in multi column layouts
@@ -28,7 +29,7 @@ export function process(item: Unarray<RawBlocksCards["items"]>): BlocksCard {
       .join(" "),
     kicker: item.kicker,
     title: item.title,
-    text: item.text,
+    text: processHtml({ value: item.text ?? "" }),
     image: image
       ? getImage({
           imageContent: image,

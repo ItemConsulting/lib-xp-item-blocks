@@ -13,7 +13,7 @@
       [/#if]
 
       [#if card.kicker?has_content || card.title?has_content || card.text?has_content]
-        <div class="blocks-card--body">
+        <div class="blocks-card--body html-area">
           [#if card.kicker?has_content]
             <small class="blocks-card--kicker">
               ${card.kicker}
@@ -27,7 +27,7 @@
           [/#if]
 
           [#if card.text?has_content]
-            <div class="blocks-card--text">
+            <div class="blocks-card--text flow">
               ${card.text}
             </div>
           [/#if]
