@@ -9,17 +9,7 @@
       <occurrences minimum="0" maximum="1"/>
     </input>
 
-    <input name="imageClass" type="RadioButton">
-      <label i18n="mixin.blocks-cards.imageClass">Image placement</label>
-      <occurrences minimum="1" maximum="1"/>
-      <default>blocks-card--image-left</default>
-      <config>
-        <option value="blocks-card--image-left" i18n="mixin.blocks-cards.imageClass.left">Left</option>
-        <option value="blocks-card--image-right" i18n="mixin.blocks-cards.imageClass.right">Right</option>
-        <option value="blocks-card--image-top" i18n="mixin.blocks-cards.imageClass.top">Top</option>
-        <option value="blocks-card--image-bottom" i18n="mixin.blocks-cards.imageClass.bottom">Bottom</option>
-      </config>
-    </input>
+    <mixin name="blocks-image-placement" />
 
     <input name="columnsClass" type="RadioButton">
       <label i18n="mixin.blocks-cards.columnsClass">Column count</label>

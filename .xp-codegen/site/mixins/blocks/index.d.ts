@@ -134,11 +134,6 @@ export type Blocks = {
           title?: string;
 
           /**
-           * Theme
-           */
-          theme?: string;
-
-          /**
            * Image placement
            */
           imageClass: "blocks-card--image-left" | "blocks-card--image-right" | "blocks-card--image-top" | "blocks-card--image-bottom";
@@ -219,6 +214,11 @@ export type Blocks = {
              * Image
              */
             imageId?: string;
+
+            /**
+             * Theme
+             */
+            theme?: string;
           }>;
         };
       }

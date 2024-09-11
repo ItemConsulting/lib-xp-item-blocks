@@ -2,17 +2,22 @@ import { render } from "/lib/tineikt/freemarker";
 import { forceArray } from "/lib/item-blocks/arrays";
 import { notNullOrUndefined } from "/lib/item-blocks/utils";
 import { process as processCard } from "/site/mixins/blocks-card/blocks-card";
-import type { BlocksCards as RawBlocksCards } from ".";
+import { process as processImagePlacement } from "/site/mixins/blocks-image-placement/blocks-image-placement";
+import type { BlocksCards as BlocksCardsRaw } from ".";
 import type { BlocksCards } from "./blocks-cards.freemarker";
+
+type BlocksCardsRawWithOptionalFields = BlocksCardsRaw & {
+  theme?: string;
+};
 
 const view = resolve("blocks-cards.ftl");
 
-export function process(block: RawBlocksCards & { theme?: string }): string {
+export function process(block: BlocksCardsRawWithOptionalFields): string {
   return render<BlocksCards>(view, {
     title: block.title,
     classes: [
       block.columnsClass ?? "blocks-card--cols-3",
-      block.imageClass ?? "blocks-card--image-left",
+      processImagePlacement(block),
       block.theme ? `theme-${block.theme}` : undefined,
     ]
       .filter(notNullOrUndefined)

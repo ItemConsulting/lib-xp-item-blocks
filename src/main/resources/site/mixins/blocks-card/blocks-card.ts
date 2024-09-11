@@ -4,9 +4,18 @@ import { process as processLink } from "/site/mixins/blocks-link/blocks-link";
 import { isEmptyOrUndefined, notNullOrUndefined } from "/lib/item-blocks/utils";
 import { getImageParams, type ImageParams } from "/lib/item-blocks/images";
 import { render } from "/lib/tineikt/freemarker";
-import type { ContentImage, ContentVector, Unarray } from "/lib/item-blocks/types";
-import type { BlocksCards as RawBlocksCards } from "/site/mixins/blocks-cards";
+import type { ContentImage, ContentVector } from "/lib/item-blocks/types";
+import type { BlocksCard as BlocksCardRaw } from ".";
 import type { BlocksCard } from "/site/mixins/blocks-card/blocks-card.freemarker";
+import {
+  isBlocksImagePlacement,
+  process as processImagePlacement,
+} from "/site/mixins/blocks-image-placement/blocks-image-placement";
+
+type BlocksCardRawWithOptionalFields = BlocksCardRaw & {
+  theme?: string;
+  imageClass?: string;
+};
 
 const WIDTH_CONTAINER = 676; // At 620 multi column layouts will become single column
 const WIDTH_LARGEST_IN_CARD = 431; // Largest common width in multi column layouts
@@ -14,25 +23,29 @@ const IMAGE_PROPORTION_16_9 = 9 / 16;
 
 const view = resolve("blocks-card.ftl");
 
-export function process(item: Unarray<RawBlocksCards["items"]>): string {
-  const image = item.imageId
+export function process(block: BlocksCardRawWithOptionalFields): string {
+  const image = block.imageId
     ? (getOne<ContentImage | ContentVector>({
-        key: item.imageId,
+        key: block.imageId,
       }) ?? undefined)
     : undefined;
 
-  const link = item.link ? processLink(item.link) : undefined;
+  const link = block.link ? processLink(block.link) : undefined;
   const imageOnly =
-    item.imageId !== undefined && [link?.url, item.kicker, item.title, item.text].every(isEmptyOrUndefined);
+    block.imageId !== undefined && [link?.url, block.kicker, block.title, block.text].every(isEmptyOrUndefined);
 
   return render<BlocksCard>(view, {
     url: link?.url,
-    classes: [item.theme ? `theme-${item.theme}` : undefined, `blocks-card--link-${link?.type ?? "none"}`]
+    classes: [
+      block.theme ? `theme-${block.theme}` : undefined,
+      `blocks-card--link-${link?.type ?? "none"}`,
+      isBlocksImagePlacement(block) ? processImagePlacement(block) : undefined,
+    ]
       .filter(notNullOrUndefined)
       .join(" "),
-    kicker: item.kicker,
-    title: item.title,
-    text: processHtml({ value: item.text ?? "" }),
+    kicker: block.kicker,
+    title: block.title,
+    text: processHtml({ value: block.text ?? "" }),
     image: image
       ? getImage({
           imageContent: image,
