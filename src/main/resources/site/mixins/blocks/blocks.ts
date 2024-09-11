@@ -4,6 +4,7 @@ import { getComponent, getContent } from "/lib/xp/portal";
 import { render } from "/lib/tineikt/freemarker";
 import { process as processBlocksAccordion } from "/site/mixins/blocks-accordion/blocks-accordion";
 import { process as processBlocksText } from "/site/mixins/blocks-text/blocks-text";
+import { process as processBlocksCard } from "/site/mixins/blocks-card/blocks-card";
 import { process as processBlocksCards } from "/site/mixins/blocks-cards/blocks-cards";
 import { process as processBlocksFactbox } from "/site/mixins/blocks-factbox/blocks-factbox";
 import { process as processBlocksImages } from "/site/mixins/blocks-images/blocks-images";
@@ -42,6 +43,7 @@ const BLOCK_PROCESSORS_BUILT_IN: Record<BlocksName, BlockProcessor<unknown>> = {
   "blocks-text": processBlocksText as BlockProcessor<unknown>,
   "blocks-images": processBlocksImages as BlockProcessor<unknown>,
   "blocks-factbox": processBlocksFactbox as BlockProcessor<unknown>,
+  "blocks-card": processBlocksCard as BlockProcessor<unknown>,
   "blocks-cards": processBlocksCards as BlockProcessor<unknown>,
   "blocks-reuse": processBlocksReuse as BlockProcessor<unknown>,
   "blocks-quote": processBlocksQuote as BlockProcessor<unknown>,
