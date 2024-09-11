@@ -56,15 +56,9 @@ export default {
       id,
       params: {
         template: `
-          [#import "${id}" as Card]
-          <div class="\${imageClass!''} \${themeClass!''} \${sizeClass!''}">
-            [@Card.render card={
-              "kicker": kicker!"",
-              "title": title!"",
-              "text": text!"",
-              "url": url!"",
-              "image": image!""
-            } /]
+          <div class="\${sizeClass!''}">
+            [#assign classes="\${imageClass!''} \${themeClass!''}"]
+            [#include "${id}"]
           </div>
         `,
       },

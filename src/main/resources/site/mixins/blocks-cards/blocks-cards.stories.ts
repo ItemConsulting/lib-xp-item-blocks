@@ -1,6 +1,7 @@
 import "../../../assets/styles/blocks/blocks-cards.css";
 import "../../../assets/styles/blocks/blocks-card.css";
 import id from "./blocks-cards.ftl";
+import cardId from "../blocks-card/blocks-card.ftl";
 import { controlRadioTheme } from "../../storybook-utils";
 import { renderOnServer, type Meta, type StoryObj } from "@itemconsulting/xp-storybook-utils";
 
@@ -55,10 +56,13 @@ export default {
     id,
     template: `
       [#assign classes="\${imageClass} \${themeClass} \${columnsClass}" /]
-
-      [#assign items=items?chunk(count)[0] /]
+      [#assign card]
+        [#include "${cardId}"]
+      [/#assign]
+      [#assign items=[card, card, card, card, card]?chunk(count)[0] /]
 
       <div class="blocks-card-story--extra-large">
+        [#assign title="Cards example"]
         [#include "${id}"]
       </div>
     `,
@@ -70,83 +74,22 @@ export default {
 
 export const Cards: StoryObj = {
   args: {
-    title: "Cards example",
     themeClass: "theme-accent",
     imageClass: "blocks-card--image-left",
     count: 5,
     columnsClass: "blocks-card--cols-3",
-    items: [
-      {
-        kicker: "Blogpost",
-        title: "Overskrift 1",
-        text: `
+    kicker: "Blogpost",
+    title: "Overskrift 1",
+    text: `
           <p>Dette er noe riktekst</p>
           <ul>
             <li>test</li>
             <li>test2</li>
           </ul>`,
-        url: "#",
-        image: {
-          src: "eggman-thumb.jpg",
-        },
-      },
-      {
-        kicker: "Calendar",
-        title: "Overskrift 2",
-        text: `
-          <p>Dette er noe riktekst</p>
-          <ul>
-           <li>test</li>
-           <li>test2</li>
-          </ul>`,
-        url: "#",
-        image: {
-          src: "capman-thumb.jpg",
-        },
-      },
-      {
-        kicker: "Calendar",
-        title: "Overskrift 3",
-        text: `
-          <p>Dette er noe riktekst</p>
-          <ul>
-           <li>test</li>
-           <li>test2</li>
-          </ul>`,
-        url: "#",
-        image: {
-          src: "capman-thumb.jpg",
-        },
-      },
-      {
-        kicker: "Calendar",
-        title: "Overskrift 4",
-        text: `
-          <p>Dette er noe riktekst</p>
-          <ul>
-           <li>test</li>
-           <li>test2</li>
-          </ul>`,
-        url: "#",
-        image: {
-          src: "capman-thumb.jpg",
-        },
-      },
-      {
-        kicker: "Calendar",
-        title: "Overskrift 5",
-        text: `
-          <p>Dette er noe riktekst</p>
-          <ul>
-           <li>test</li>
-           <li>test2</li>
-          </ul>`,
-        url: "#",
-        image: {
-          src: "capman-thumb.jpg",
-        },
-      },
-    ],
+    url: "#",
+    image: {
+      src: "eggman-thumb.jpg",
+    },
     link: {
       url: "#",
       text: "See all",

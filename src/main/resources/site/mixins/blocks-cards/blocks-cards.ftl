@@ -1,9 +1,7 @@
 [#-- @ftlvariable name="title" type="String" --]
 [#-- @ftlvariable name="classes" type="String" --]
-[#-- @ftlvariable name="items" type="java.util.ArrayList" --]
+[#-- @ftlvariable name="items" type="java.util.ArrayList<String>" --]
 [#-- @ftlvariable name="link" type="no.item.blocks.Link" --]
-
-[#import "../blocks-card/blocks-card.ftl" as Card]
 
 <div class="blocks-cards${classes?has_content?string(' ${classes!""}', "")}">
   [#if title?has_content]
@@ -12,7 +10,7 @@
 
   <div class="blocks-cards--cards">
     [#list items as item]
-      [@Card.render card=item /]
+      ${item}
     [/#list]
   </div>
 

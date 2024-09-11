@@ -1,41 +1,51 @@
-[#macro render card]
-  <div class="blocks-card ${card.classes!''}">
-    [@linkOrDiv href=card.url!"" class="blocks-card--card"]
-      [#if card.image?has_content]
-        <figure class="blocks-card--image">
-          <img
-            src="${card.image.src}"
-            alt="${card.image.altText!""}"
-            [#if card.image.width?has_content]width="${card.image.width}"[/#if]
-            [#if card.image.height?has_content]height="${card.image.height}"[/#if]
-          />
-        </figure>
-      [/#if]
+[#-- @ftlvariable name="classes" type="String" --]
+[#-- @ftlvariable name="url" type="String" --]
+[#-- @ftlvariable name="image" type="Object" --]
+[#-- @ftlvariable name="image.src" type="String" --]
+[#-- @ftlvariable name="image.altText" type="String" --]
+[#-- @ftlvariable name="image.width" type="String" --]
+[#-- @ftlvariable name="image.height" type="String" --]
+[#-- @ftlvariable name="kicker" type="String" --]
+[#-- @ftlvariable name="title" type="String" --]
+[#-- @ftlvariable name="text" type="String" --]
 
-      [#if card.kicker?has_content || card.title?has_content || card.text?has_content]
-        <div class="blocks-card--body html-area">
-          [#if card.kicker?has_content]
-            <small class="blocks-card--kicker">
-              ${card.kicker}
-            </small>
-          [/#if]
 
-          [#if card.title?has_content]
-            <h3 class="blocks-card--title">
-              ${card.title}
-            </h3>
-          [/#if]
+<div class="blocks-card ${classes!''}">
+  [@linkOrDiv href=url!"" class="blocks-card--card"]
+    [#if image?has_content]
+      <figure class="blocks-card--image">
+        <img
+          src="${image.src}"
+          alt="${image.altText!""}"
+          [#if image.width?has_content]width="${image.width}"[/#if]
+          [#if image.height?has_content]height="${image.height}"[/#if]
+        />
+      </figure>
+    [/#if]
 
-          [#if card.text?has_content]
-            <div class="blocks-card--text flow">
-              ${card.text}
-            </div>
-          [/#if]
-        </div>
-      [/#if]
-    [/@linkOrDiv]
-  </div>
-[/#macro]
+    [#if kicker?has_content || title?has_content || text?has_content]
+      <div class="blocks-card--body html-area">
+        [#if kicker?has_content]
+          <small class="blocks-card--kicker">
+            ${kicker}
+          </small>
+        [/#if]
+
+        [#if title?has_content]
+          <h3 class="blocks-card--title">
+            ${title}
+          </h3>
+        [/#if]
+
+        [#if text?has_content]
+          <div class="blocks-card--text flow">
+            ${text}
+          </div>
+        [/#if]
+      </div>
+    [/#if]
+  [/@linkOrDiv]
+</div>
 
 [#macro linkOrDiv href class]
   [#if href?has_content]

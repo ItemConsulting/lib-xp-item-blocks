@@ -1,17 +1,20 @@
 import { get as getOne } from "/lib/xp/content";
+import { processHtml } from "/lib/xp/portal";
 import { process as processLink } from "/site/mixins/blocks-link/blocks-link";
 import { isEmptyOrUndefined, notNullOrUndefined } from "/lib/item-blocks/utils";
 import { getImageParams, type ImageParams } from "/lib/item-blocks/images";
+import { render } from "/lib/tineikt/freemarker";
 import type { ContentImage, ContentVector, Unarray } from "/lib/item-blocks/types";
 import type { BlocksCards as RawBlocksCards } from "/site/mixins/blocks-cards";
 import type { BlocksCard } from "/site/mixins/blocks-card/blocks-card.freemarker";
-import { processHtml } from "/lib/xp/portal";
 
 const WIDTH_CONTAINER = 676; // At 620 multi column layouts will become single column
 const WIDTH_LARGEST_IN_CARD = 431; // Largest common width in multi column layouts
 const IMAGE_PROPORTION_16_9 = 9 / 16;
 
-export function process(item: Unarray<RawBlocksCards["items"]>): BlocksCard {
+const view = resolve("blocks-card.ftl");
+
+export function process(item: Unarray<RawBlocksCards["items"]>): string {
   const image = item.imageId
     ? (getOne<ContentImage | ContentVector>({
         key: item.imageId,
@@ -22,7 +25,7 @@ export function process(item: Unarray<RawBlocksCards["items"]>): BlocksCard {
   const imageOnly =
     item.imageId !== undefined && [link?.url, item.kicker, item.title, item.text].every(isEmptyOrUndefined);
 
-  return {
+  return render<BlocksCard>(view, {
     url: link?.url,
     classes: [item.theme ? `theme-${item.theme}` : undefined, `blocks-card--link-${link?.type ?? "none"}`]
       .filter(notNullOrUndefined)
@@ -36,7 +39,7 @@ export function process(item: Unarray<RawBlocksCards["items"]>): BlocksCard {
           imageOnly,
         })
       : undefined,
-  };
+  });
 }
 
 function getImage({ imageContent, imageOnly }: GetImageSrcParams): ImageParams {
