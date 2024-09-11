@@ -36,7 +36,7 @@ export type ProcessableBlock = {
   [name: string]: unknown;
 };
 
-type BlocksName = Unarray<NonNullable<BlocksRaw["blocks"]>>["_selected"];
+type BlocksName = Unarray<NonNullable<BlocksRaw["blocks"]>>["_selected"] & "blocks-card";
 
 const BLOCK_PROCESSORS_BUILT_IN: Record<BlocksName, BlockProcessor<unknown>> = {
   "blocks-accordion": processBlocksAccordion as BlockProcessor<unknown>,

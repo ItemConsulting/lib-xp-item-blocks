@@ -21,7 +21,7 @@ export function process(item: Unarray<RawBlocksCards["items"]>): string {
       }) ?? undefined)
     : undefined;
 
-  const link = processLink(item.link);
+  const link = item.link ? processLink(item.link) : undefined;
   const imageOnly =
     item.imageId !== undefined && [link?.url, item.kicker, item.title, item.text].every(isEmptyOrUndefined);
 
