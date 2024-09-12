@@ -56,7 +56,7 @@ export function process(block: BlocksCardRawWithOptionalFields): string {
 }
 
 function getImage({ imageContent, imageOnly }: GetImageSrcParams): ImageParams {
-  const width = imageOnly ? WIDTH_CONTAINER : WIDTH_LARGEST_IN_CARD;
+  const width = imageOnly ? WIDTH_CONTAINER : getImageMaxWidth();
   const height = Math.round(width * IMAGE_PROPORTION_16_9);
 
   return getImageParams({
@@ -64,6 +64,16 @@ function getImage({ imageContent, imageOnly }: GetImageSrcParams): ImageParams {
     width,
     height,
   });
+}
+
+function getImageMaxWidth(): number {
+  try {
+    return app.config.cardImageMaxWidth ? parseInt(app.config.cardImageMaxWidth) : WIDTH_LARGEST_IN_CARD;
+  } catch {
+    log.error(`"cardImageMaxWidth" in configuration does not contain a valid value`);
+  }
+
+  return WIDTH_LARGEST_IN_CARD;
 }
 
 type GetImageSrcParams = {
