@@ -17,6 +17,7 @@
   row-gap: var(--content-grid--row-gap, var(--blocks-spacing-lg));
 
   /* Don't double padding on nested content grids */
+
   .content-grid {
     --content-grid--padding-inline: 0;
   }

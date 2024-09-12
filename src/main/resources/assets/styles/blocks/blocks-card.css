@@ -18,14 +18,14 @@
 
   .blocks-card--card {
     display: flex;
-    gap: var(--blocks-card--gap);
-    padding: var(--blocks-card--card-padding);
     flex-direction: var(--blocks-card--flex-direction, column);
-    text-decoration: none;
-    color: var(--blocks-card--text-color);
-    background-color: var(--blocks-card--background-color);
     height: 100%;
+    padding: var(--blocks-card--card-padding);
+    background-color: var(--blocks-card--background-color);
+    color: var(--blocks-card--text-color);
+    text-decoration: none;
     transition: 0.1s background-color;
+    gap: var(--blocks-card--gap);
   }
 
   small {
@@ -49,16 +49,15 @@
   }
 
   .blocks-card--body {
-    flex: var(--blocks-card--body-flex);
     align-content: space-around;
+    flex: var(--blocks-card--body-flex);
     padding: var(--blocks-card--body-padding);
   }
 
   .blocks-card--image {
     display: flex;
+    place-content: center center;
     flex: var(--blocks-card--image-flex);
-    align-content: center;
-    justify-content: center;
 
     img:not([src$=".svg"]) {
       width: 100%;
@@ -68,14 +67,15 @@
     }
 
     img[src$=".svg"] {
-      padding: var(--blocks-card--svg-padding);
       width: var(--blocks-card--svg-width);
       height: 100%;
+      padding: var(--blocks-card--svg-padding);
     }
   }
 
   @supports selector(:has(+ *)) {
     /* If this is an image only card */
+
     .blocks-card--card:not(:has(.blocks-card--body)) {
       --blocks-card--image-flex: 1;
       --blocks-card--card-padding: 0;
@@ -85,6 +85,7 @@
 }
 
 /* Image positions for small cards (only supports vertical) */
+
 .blocks-card--image-left,
 .blocks-card--image-top {
   --blocks-card--flex-direction: column;
@@ -97,6 +98,7 @@
 
 /* Image positions for medium cards */
 @container (min-width: 420px) {
+
   .blocks-card--image-right .blocks-card--card {
     --blocks-card--flex-direction: row-reverse;
     --blocks-card--image-aspect-ratio: 3 / 2;
@@ -124,6 +126,7 @@
 
 /* Image positions for large cards (only supports horizontal) */
 @container (min-width: 750px) {
+
   .blocks-card--image-bottom .blocks-card--card,
   .blocks-card--image-right .blocks-card--card {
     --blocks-card--flex-direction: row-reverse;

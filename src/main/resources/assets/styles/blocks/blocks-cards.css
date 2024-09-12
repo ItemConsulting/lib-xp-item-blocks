@@ -17,6 +17,7 @@
   }
 
   @media (width > 620px) {
+
     &.blocks-card--cols-2 {
       --blocks-cards--card-grid-column: span 3;
     }
@@ -27,15 +28,19 @@
 
     @supports selector(:has(+ *)) {
       /* If one child extra */
+
       &.blocks-card--cols-2:has(.blocks-cards--cards > *:nth-child(2n + 1):last-child),
       &.blocks-card--cols-3:has(.blocks-cards--cards > *:nth-child(3n + 1):last-child) {
+
         .blocks-cards--cards > :nth-child(1) {
           --blocks-cards--card-grid-column: span 6;
         }
       }
 
-      /*If two children extra */
+      /* If two children extra */
+
       &.blocks-card--cols-3:has(.blocks-cards--cards > *:nth-child(3n + 2):last-child) {
+
         .blocks-cards--cards > :nth-child(1),
         .blocks-cards--cards > :nth-child(2) {
           --blocks-cards--card-grid-column: span 3;

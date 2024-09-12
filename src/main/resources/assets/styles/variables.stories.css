@@ -13,6 +13,7 @@
 }
 
 @media (width > 620px) {
+
   :root {
     /* Spacing desktop */
     --blocks-spacing-sm: 10px;

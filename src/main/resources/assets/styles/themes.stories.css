@@ -1,5 +1,6 @@
 :root {
   color-scheme: light dark;
+
   --color-accent-background-default: #fefeff;
   --color-accent-background-subtle: #eef4fa;
   --color-accent-surface-default: #d4e5f3;
@@ -15,7 +16,6 @@
   --color-accent-text-default: #00315c;
   --color-accent-contrast-default: #fefeff;
   --color-accent-contrast-subtle: #dbe9f5;
-
   --color-neutral-background-default: #fefefe;
   --color-neutral-background-subtle: #f3f4f5;
   --color-neutral-surface-default: #e1e3e5;
@@ -124,6 +124,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
+
   :root:not(.mode-light) {
     --color-accent-background-default: #001c36;
     --color-accent-background-subtle: #002445;
@@ -140,7 +141,6 @@
     --color-accent-text-default: #cee1f2;
     --color-accent-contrast-default: #000000;
     --color-accent-contrast-subtle: #0d1823;
-
     --color-neutral-background-default: #131c27;
     --color-neutral-background-subtle: #192433;
     --color-neutral-surface-default: #243142;

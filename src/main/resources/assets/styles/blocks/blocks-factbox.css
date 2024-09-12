@@ -3,9 +3,9 @@
   --blocks-factbox--text-color: var(--color-neutral-text-default);
   --blocks-factbox--padding: var(--blocks-spacing-xl) 0;
 
+  padding: var(--blocks-factbox--padding);
   background-color: var(--blocks-factbox--background-color);
   color: var(--blocks-factbox--text-color);
-  padding: var(--blocks-factbox--padding);
 
   &.content-grid--breakout {
     display: grid;
@@ -18,6 +18,7 @@
 }
 
 @media only screen and (width < 840px) {
+
   .blocks-factbox.content-grid--breakout {
     grid-column: full;
   }

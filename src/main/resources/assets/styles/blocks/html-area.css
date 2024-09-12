@@ -1,4 +1,5 @@
 .html-area.flow {
+
   h2 {
     --flow-space: var(--blocks-spacing-lg);
   }
