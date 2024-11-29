@@ -1,6 +1,7 @@
 import id from "./blocks.ftl";
 import textId from "../blocks-text/blocks-text.ftl";
 import factboxId from "../blocks-factbox/blocks-factbox.ftl";
+import cardId from "../blocks-card/blocks-card.ftl";
 import cardsId from "../blocks-cards/blocks-cards.ftl";
 import accordionId from "../blocks-accordion/blocks-accordion.ftl";
 import imagesId from "../blocks-images/blocks-images.ftl";
@@ -62,8 +63,16 @@ export default {
           [#assign cards]
             [#-- Cards --]
             [#assign title=cardsTitle]
+            [#assign kicker=cardsKicker]
+            [#assign text=cardsText]
+            [#assign image=cardsImage]
             [#assign classes="\${imageClass} \${themeClass} \${cardsColumnsClass}" /]
-            [#assign items=cardsCards]
+
+            [#assign card]
+              [#include "${cardId}"]
+            [/#assign]
+            [#assign items=[card, card, card] /]
+
             [#assign link=cardsLink]
             [#include "${cardsId}"]
           [/#assign]
@@ -122,8 +131,10 @@ export const blocks: StoryObj = {
     cardsColumnsClass: Cards.args?.columnsClass,
     imageClass: Cards.args?.imageClass,
     themeClass: Cards.args?.themeClass,
+    cardsKicker: Cards.args?.kicker,
+    cardsImage: Cards.args?.image,
+    cardsText: Cards.args?.text,
     cardsLink: Cards.args?.link,
-    cardsCards: Cards.args?.items,
     factboxTitle: factbox.args?.title,
     factboxText: factbox.args?.text,
     factboxThemeClass: factbox.args?.classes,
