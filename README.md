@@ -1,5 +1,21 @@
 # Item Blocks
 
+[![](https://repo.itemtest.no/api/badge/latest/releases/no/item/lib-xp-item-blocks)](https://repo.itemtest.no/#/releases/no/item/lib-xp-item-blocks)
+
+## Gradle
+
+To install this library you may need to add some new dependencies to your app's build.gradle file.
+
+```groovy
+repositories {
+  maven { url "https://repo.itemtest.no/releases" }
+}
+
+dependencies {
+  include "no.item:lib-xp-item-blocks:0.0.3"
+}
+```
+
 ## Config
 
 ```
