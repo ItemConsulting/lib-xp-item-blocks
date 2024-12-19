@@ -75,3 +75,9 @@ design system.
 To use the translations included in this project you need to copy the contents of 
 [phrases.properties](src/main/resources/i18n/phrases.properties) and
 [phrases_no.properties](src/main/resources/i18n/phrases_no.properties) in files with the same names in your project.
+
+## Deploy to Maven
+
+```bash
+./gradlew publish -P com.enonic.xp.app.production=true
+```
