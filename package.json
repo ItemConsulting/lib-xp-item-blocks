@@ -32,9 +32,12 @@
     "prepublish:types": "tsc --declaration true --emitDeclarationOnly true --declarationDir build/types && cp -r build/types/src/main/resources/site dist",
     "prepublish:styles": "mkdir -p dist && cp src/main/resources/assets/styles/blocks/*.css dist",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "release": "npm run build",
+    "versioning": "npx changeset version && npm i --package-lock-only && NEW_VERSION=$(node -p \"require('./package.json').version\") && sed -i \"s/version.*/version = ${NEW_VERSION}/\" gradle.properties"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.27.10",
     "@enonic-types/core": "^7",
     "@enonic-types/global": "^7",
     "@enonic-types/lib-auth": "^7",
