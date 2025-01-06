@@ -1,5 +1,6 @@
 import { pageUrl, attachmentUrl, type Content } from "/lib/xp/portal";
 import { findOne } from "/lib/item-blocks/contents";
+import { startsWith } from "/lib/item-blocks/utils";
 import type { BlocksLink } from ".";
 import type { ContentMedia, PickSelectedValue } from "/lib/item-blocks/types";
 
@@ -84,5 +85,5 @@ function processInternalLink(internal: RawLinkInternal): Link | undefined {
 }
 
 function isContentMedia(content: Content<unknown>): content is ContentMedia {
-  return content.type.startsWith("media:");
+  return startsWith(content.type, "media:");
 }

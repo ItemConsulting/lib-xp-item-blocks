@@ -42,3 +42,7 @@ export function toSnakeCase(nonSnake?: string): string | undefined {
 
   return;
 }
+
+export function startsWith(str: string, prefix: string): boolean {
+  return str.indexOf(prefix) === 0;
+}
