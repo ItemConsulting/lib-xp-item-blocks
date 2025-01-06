@@ -6,6 +6,9 @@ plugins {
   id "no.item.xp.codegen" version "2.6.1"
 }
 
+sourceCompatibility = JavaVersion.VERSION_17
+targetCompatibility = JavaVersion.VERSION_17
+
 dependencies {
   implementation "com.github.tineikt:xp-lib-freemarker:2.0.3"
 }
