@@ -1,11 +1,16 @@
 .blocks-images {
   --block-images--figcaption-color: white;
   --block-images--gallery-gap: var(--blocks-spacing-md, 1rem);
+  --block-images--columns: 1fr;
 
   display: grid;
   place-items: start stretch;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: var(--block-images--columns);
   gap: var(--block-images--gallery-gap);
+
+  &:has(.popover-gallery--button:nth-child(2)) {
+    --block-images--columns: 1fr 1fr;
+  }
 }
 
 .popover-gallery--button img {
