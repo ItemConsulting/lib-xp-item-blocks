@@ -1,9 +1,9 @@
 plugins {
-	id "java"
+  id "java"
   id "maven-publish"
-  id "com.enonic.xp.base" version "3.4.0"
-	id "com.github.node-gradle.node" version "7.0.2"
-  id "no.item.xp.codegen" version "2.6.1"
+  id "com.enonic.xp.base" version "3.5.2"
+  id "com.github.node-gradle.node" version "7.1.0"
+  id "no.item.xp.codegen" version "2.6.3"
 }
 
 sourceCompatibility = JavaVersion.VERSION_17
@@ -14,48 +14,48 @@ dependencies {
 }
 
 repositories {
-	mavenLocal()
-	mavenCentral()
-	xp.enonicRepo()
+  mavenLocal()
+  mavenCentral()
+  xp.enonicRepo()
   maven { url "https://jitpack.io" }
 }
 
 node {
-	// Whether to download and install a specific Node.js version or not
-	// If false, it will use the globally installed Node.js
-	// If true, it will download node using above parameters
-	// Note that npm is bundled with Node.js
-	download = true
+  // Whether to download and install a specific Node.js version or not
+  // If false, it will use the globally installed Node.js
+  // If true, it will download node using above parameters
+  // Note that npm is bundled with Node.js
+  download = true
 
-	// Version of node to download and install (only used if download is true)
-	// It will be unpacked in the workDir
-  version = "20.13.1"
+  // Version of node to download and install (only used if download is true)
+  // It will be unpacked in the workDir
+  version = "22.12.0"
 }
 
 tasks.withType(Copy).configureEach {
-	includeEmptyDirs = false
+  includeEmptyDirs = false
 }
 
 tasks.register("dev", NpmTask) {
-	args = [
-		"run",
-		"watch"
-	]
-	dependsOn npmInstall
-	environment = [
-		"FORCE_COLOR": "true",
-	]
+  args = [
+    "run",
+    "watch"
+  ]
+  dependsOn npmInstall
+  environment = [
+    "FORCE_COLOR": "true",
+  ]
 }
 
 tasks.register("npmCheck", NpmTask) {
-	dependsOn npmInstall
-	args = [
-		"run",
-		"check"
-	]
-	environment = [
-		"FORCE_COLOR": "true",
-	]
+  dependsOn npmInstall
+  args = [
+    "run",
+    "check"
+  ]
+  environment = [
+    "FORCE_COLOR": "true",
+  ]
 }
 
 // If you ALWAYS want to SKIP `test` and `check` tasks on development build, wrap this inside an "if..."
@@ -64,28 +64,28 @@ check.dependsOn npmCheck
 // }
 
 tasks.register("npmBuild", NpmTask) {
-	args = [
-		"run",
-		"--silent",
-		project.hasProperty("dev") || project.hasProperty("development") ? "build" : "minify"
-	]
-	dependsOn npmInstall
-	environment = [
-		"FORCE_COLOR": "true",
-		"LOG_LEVEL_FROM_GRADLE": gradle.startParameter.logLevel.toString(),
-		"NODE_ENV": project.hasProperty("dev") || project.hasProperty("development") ? "development" : "production"
-	]
-	inputs.dir "src/main/resources"
-	outputs.dir "build/resources/main"
+  args = [
+    "run",
+    "--silent",
+    project.hasProperty("dev") || project.hasProperty("development") ? "build" : "minify"
+  ]
+  dependsOn npmInstall
+  environment = [
+    "FORCE_COLOR": "true",
+    "LOG_LEVEL_FROM_GRADLE": gradle.startParameter.logLevel.toString(),
+    "NODE_ENV": project.hasProperty("dev") || project.hasProperty("development") ? "development" : "production"
+  ]
+  inputs.dir "src/main/resources"
+  outputs.dir "build/resources/main"
 }
 
 jar.dependsOn npmBuild
 
 processResources {
-	exclude "**/.gitkeep"
-	exclude "**/*.json"
-	exclude "**/*.png"
-	exclude "**/*.ts"
+  exclude "**/.gitkeep"
+  exclude "**/*.json"
+  exclude "**/*.png"
+  exclude "**/*.ts"
 }
 
 jar {
