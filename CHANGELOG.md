@@ -1,5 +1,11 @@
 # @item-enonic-types/lib-blocks
 
+## 0.1.1
+
+### Patch Changes
+
+- fa3b5ca: Update "popover-gallery" WebComponent to 0.3.0
+
 ## 0.1.0
 
 ### Minor Changes
