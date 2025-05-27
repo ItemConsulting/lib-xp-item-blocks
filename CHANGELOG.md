@@ -1,5 +1,11 @@
 # @item-enonic-types/lib-blocks
 
+## 0.1.2
+
+### Patch Changes
+
+- 221e689: Update popovergallery
+
 ## 0.1.1
 
 ### Patch Changes
