@@ -19,11 +19,15 @@ export function process(block: RawBlocksImages, { component, locale, blockIndex 
   });
 }
 
-function getImage(item: BlocksImagesItemRaw, index: number, arr: BlocksImagesItemRaw[]): GalleryImage {
+function getImage(item: BlocksImagesItemRaw, _: number, arr: BlocksImagesItemRaw[]): GalleryImage {
+  const isSingleImage = arr.length === 1;
+  const width = isSingleImage ? 640 : 400;
+  const height = isSingleImage ? 384 : 240;
+
   return {
     src: imageUrl({
       id: item.imageId,
-      scale: arr.length === 1 ? "block(640, 384)" : "block(400, 240)",
+      scale: `block(${width}, ${height})`,
     }),
     fullSizeSrc: imageUrl({
       id: item.imageId,
@@ -33,5 +37,7 @@ function getImage(item: BlocksImagesItemRaw, index: number, arr: BlocksImagesIte
     srcset: "",
     altText: item.altText,
     caption: item.caption,
+    width,
+    height,
   };
 }
