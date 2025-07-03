@@ -26,10 +26,12 @@
       [#else]
         <picture>
           <img
-            srcset="${image.srcset}"
-            sizes="${image.sizes}"
             src="${image.src}"
-            alt="${image.altText!""}">
+            alt="${image.altText!""}"
+            [#if image.srcset?has_content]srcset="${image.srcset}"[/#if]
+            [#if image.sizes?has_content]sizes="${image.sizes}"[/#if]
+            [#if image.width?has_content]width="${image.width}"[/#if]
+            [#if image.height?has_content]height="${image.height}"[/#if]>
         </picture>
       [/#if]
     </a>

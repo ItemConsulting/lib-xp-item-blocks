@@ -11,4 +11,6 @@ export type GalleryImage = {
   caption?: string;
   sizes: string;
   srcset: string;
+  width: number;
+  height: number;
 };
