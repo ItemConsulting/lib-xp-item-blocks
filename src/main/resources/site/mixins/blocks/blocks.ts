@@ -9,8 +9,7 @@ import { process as processBlocksCards } from "/site/mixins/blocks-cards/blocks-
 import { process as processBlocksFactbox } from "/site/mixins/blocks-factbox/blocks-factbox";
 import { process as processBlocksImages } from "/site/mixins/blocks-images/blocks-images";
 import { process as processBlocksQuote } from "/site/mixins/blocks-quote/blocks-quote";
-import type { Request } from "@item-enonic-types/global/controller";
-import type { Component } from "@enonic-types/core";
+import type { Component, Request } from "@enonic-types/core";
 import type { Blocks as BlocksRaw } from ".";
 import type { BlocksReuse as BlocksReuseRaw } from "/site/mixins/blocks-reuse";
 import type { Blocks } from "/site/mixins/blocks/blocks.freemarker";
@@ -55,10 +54,14 @@ const REGISTERED_BLOCK_PROCESSORS: Record<string, BlockProcessor<unknown>> = {
 
 const view = resolve("blocks.ftl");
 
-export function process(
-  config: BlocksParams,
-  params: Optional<BlockProcessorParams, "content" | "component" | "locale" | "classes" | "blockIndex">,
-): string {
+export type ProcessParams = Optional<
+  BlockProcessorParams,
+  "content" | "component" | "locale" | "classes" | "blockIndex"
+> & {
+  blocksClasses?: string;
+};
+
+export function process(config: BlocksParams, params: ProcessParams): string {
   const component = params.component ?? getComponent();
   const content = params.content ?? getContent();
   const locale = params.locale ?? content?.language ?? app.config.defaultLocale ?? "no";
@@ -71,6 +74,7 @@ export function process(
   }
 
   return render<Blocks>(view, {
+    classes: params.blocksClasses,
     blocks: processBlocks(config.blocks ?? [], {
       content,
       component,
@@ -78,6 +82,7 @@ export function process(
       classes: params.classes ?? "",
       req: params.req,
     }),
+    blockTypes: forceArray(config.blocks).map((block) => block._selected),
   });
 }
 
