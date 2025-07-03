@@ -12,7 +12,7 @@ repositories {
 }
 
 dependencies {
-  include "no.item:lib-xp-item-blocks:0.0.3"
+  include "no.item:lib-xp-item-blocks:0.1.3"
 }
 ```
 

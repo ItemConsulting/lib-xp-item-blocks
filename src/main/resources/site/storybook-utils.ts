@@ -1,4 +1,4 @@
-import type { InputType } from "@storybook/types";
+import type { InputType } from "storybook/internal/types";
 
 export const controlRadioTheme: InputType = {
   name: "Theme",
