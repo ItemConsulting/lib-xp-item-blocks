@@ -1,5 +1,12 @@
 # @item-enonic-types/lib-blocks
 
+## 0.2.0
+
+### Minor Changes
+
+- 4d95402: Add configurable classes to blocks process
+- 2f797d8: Add width and height attributes to imgs im blocks-images
+
 ## 0.1.2
 
 ### Patch Changes
