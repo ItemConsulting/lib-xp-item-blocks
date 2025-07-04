@@ -1,5 +1,11 @@
 # @item-enonic-types/lib-blocks
 
+## 0.2.1
+
+### Patch Changes
+
+- 149190c: Throw an error when a block type is not found
+
 ## 0.2.0
 
 ### Minor Changes
