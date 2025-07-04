@@ -100,7 +100,12 @@ function processBlocks(blocks: ProcessableBlock[], params: Optional<BlockProcess
 
 export function processBlock(selected: string, block: unknown, params: BlockProcessorParams): string[] {
   const processor = REGISTERED_BLOCK_PROCESSORS[selected];
-  return processor ? forceArray(processor(block, params)) : [];
+
+  if (processor) {
+    return forceArray(processor(block, params));
+  } else {
+    throw new Error(`No processor registered for block type "${selected}"`);
+  }
 }
 
 export function registerBlockProcessor<Block>(selected: string, processor: BlockProcessor<Block>): void {
