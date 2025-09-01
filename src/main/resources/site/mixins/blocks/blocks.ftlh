@@ -3,6 +3,6 @@
 [#-- @ftlvariable name="blockTypes" type="java.util.List<String>" --]
 <div class="${classes!"blocks content-grid"}">
   [#list blocks![] as block]
-    ${block}
+    ${block?no_esc}
   [/#list]
 </div>

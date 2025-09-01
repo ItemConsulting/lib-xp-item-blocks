@@ -58,7 +58,7 @@ export function process(link: RawLink): Link | undefined {
 }
 
 function processInternalLink(internal: RawLinkInternal): Link | undefined {
-  const content = findOne<Content<unknown>>({
+  const content = findOne({
     key: internal.internalLink,
   });
 

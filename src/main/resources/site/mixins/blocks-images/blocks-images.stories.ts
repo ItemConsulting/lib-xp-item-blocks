@@ -1,4 +1,4 @@
-import id from "./blocks-images.ftl";
+import id from "./blocks-images.ftlh";
 import "../../../assets/styles/blocks/blocks-images.css";
 import PopoverGallery from "@itemconsulting/popover-gallery";
 import { renderOnServer, type StoryObj, type Meta } from "@itemconsulting/xp-storybook-utils";

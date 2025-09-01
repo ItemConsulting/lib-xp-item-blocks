@@ -8,7 +8,7 @@ import type { BlocksAccordion } from "./blocks-accordion.freemarker";
 
 type RawBlocksAccordionAndTheme = RawBlocksAccordion & BlocksTheme;
 
-const view = resolve("blocks-accordion.ftl");
+const view = resolve("blocks-accordion.ftlh");
 
 export function process(block: RawBlocksAccordionAndTheme): string {
   return render<BlocksAccordion>(view, {

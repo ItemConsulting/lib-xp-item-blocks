@@ -9,7 +9,7 @@ import type { Unarray } from "/lib/item-blocks/types";
 
 type BlocksImagesItemRaw = Unarray<RawBlocksImages["items"]>;
 
-const view = resolve("blocks-images.ftl");
+const view = resolve("blocks-images.ftlh");
 
 export function process(block: RawBlocksImages, { component, locale, blockIndex }: BlockProcessorParams): string {
   return render<Images>(view, {

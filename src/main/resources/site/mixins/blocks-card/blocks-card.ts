@@ -21,7 +21,7 @@ const WIDTH_CONTAINER = 676; // At 620 multi column layouts will become single c
 const WIDTH_LARGEST_IN_CARD = 431; // Largest common width in multi column layouts
 const IMAGE_PROPORTION_16_9 = 9 / 16;
 
-const view = resolve("blocks-card.ftl");
+const view = resolve("blocks-card.ftlh");
 
 export function process(block: BlocksCardRawWithOptionalFields): string {
   const image = block.imageId

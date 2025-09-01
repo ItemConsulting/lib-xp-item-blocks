@@ -1,4 +1,4 @@
-import id from "./blocks-text.ftl";
+import id from "./blocks-text.ftlh";
 import type { Meta, StoryObj } from "@itemconsulting/xp-storybook-utils";
 
 const meta: Meta = {

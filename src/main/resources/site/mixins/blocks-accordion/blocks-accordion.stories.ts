@@ -1,4 +1,4 @@
-import id from "./blocks-accordion.ftl";
+import id from "./blocks-accordion.ftlh";
 import "../../../assets/styles/blocks/blocks-accordion.css";
 import { controlRadioTheme } from "../../storybook-utils";
 import DetailsAnimated from "@itemconsulting/details-animated";

@@ -4,7 +4,7 @@ import { toSnakeCase } from "/lib/item-blocks/utils";
 import type { BlocksText as RawBlocksText } from ".";
 import type { BlocksText } from "/site/mixins/blocks-text/blocks-text.freemarker";
 
-const view = resolve("blocks-text.ftl");
+const view = resolve("blocks-text.ftlh");
 
 export function process(block: RawBlocksText): string {
   return render<BlocksText>(view, {

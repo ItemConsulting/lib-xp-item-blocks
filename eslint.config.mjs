@@ -1,15 +1,20 @@
 import tseslint from "typescript-eslint";
-import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
+import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
 
-export default [
+export default tseslint.config(
+  tseslint.configs.strictTypeChecked,
+  eslintPluginPrettierRecommended,
   {
-    files: ["**/*.{ts}"],
-    ignores: ["build/**/*.*"],
-    rules: {
-      "no-unused-vars": "off",
-      "no-use-before-define": "off",
+    languageOptions: {
+      parserOptions: {
+        projectService: true,
+        tsconfigRootDir: import.meta.dirname
+      }
     },
-  },
-  ...tseslint.configs.recommended,
-  eslintPluginPrettierRecommended
-];
+    rules: {
+      "@typescript-eslint/no-unnecessary-condition": "off",
+      "@typescript-eslint/restrict-template-expressions": "off",
+      "@typescript-eslint/no-dynamic-delete": "off"
+    }
+  }
+);

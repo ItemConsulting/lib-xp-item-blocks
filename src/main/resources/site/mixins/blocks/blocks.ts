@@ -52,7 +52,7 @@ const REGISTERED_BLOCK_PROCESSORS: Record<string, BlockProcessor<unknown>> = {
   ...BLOCK_PROCESSORS_BUILT_IN,
 };
 
-const view = resolve("blocks.ftl");
+const view = resolve("blocks.ftlh");
 
 export type ProcessParams = Optional<
   BlockProcessorParams,

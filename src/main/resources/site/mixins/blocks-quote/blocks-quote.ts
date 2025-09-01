@@ -4,7 +4,7 @@ import { getImageParamsById } from "/lib/item-blocks/images";
 import type { BlocksQuote as RawBlocksQuote } from ".";
 import type { BlocksQuote } from "./blocks-quote.freemarker";
 
-const view = resolve("blocks-quote.ftl");
+const view = resolve("blocks-quote.ftlh");
 
 export function process(block: RawBlocksQuote): string {
   return render<BlocksQuote>(view, {

@@ -6,7 +6,7 @@ import type { BlocksFactbox } from "./blocks-factbox.freemarker";
 
 type RawBlocksFactboxAndTheme = RawBlocksFactbox & BlocksTheme;
 
-const view = resolve("blocks-factbox.ftl");
+const view = resolve("blocks-factbox.ftlh");
 
 export function process(block: RawBlocksFactboxAndTheme): string {
   return render<BlocksFactbox>(view, {

@@ -1,10 +1,10 @@
-import id from "./blocks.ftl";
-import textId from "../blocks-text/blocks-text.ftl";
-import factboxId from "../blocks-factbox/blocks-factbox.ftl";
-import cardId from "../blocks-card/blocks-card.ftl";
-import cardsId from "../blocks-cards/blocks-cards.ftl";
-import accordionId from "../blocks-accordion/blocks-accordion.ftl";
-import imagesId from "../blocks-images/blocks-images.ftl";
+import id from "./blocks.ftlh";
+import textId from "../blocks-text/blocks-text.ftlh";
+import factboxId from "../blocks-factbox/blocks-factbox.ftlh";
+import cardId from "../blocks-card/blocks-card.ftlh";
+import cardsId from "../blocks-cards/blocks-cards.ftlh";
+import accordionId from "../blocks-accordion/blocks-accordion.ftlh";
+import imagesId from "../blocks-images/blocks-images.ftlh";
 import "../../../assets/styles/blocks/blocks-content-grid.css";
 import "../../../assets/styles/blocks/blocks-accordion.css";
 import "../../../assets/styles/blocks/blocks-factbox.css";

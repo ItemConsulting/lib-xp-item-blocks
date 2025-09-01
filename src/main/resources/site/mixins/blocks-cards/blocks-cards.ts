@@ -10,7 +10,7 @@ type BlocksCardsRawWithOptionalFields = BlocksCardsRaw & {
   theme?: string;
 };
 
-const view = resolve("blocks-cards.ftl");
+const view = resolve("blocks-cards.ftlh");
 
 export function process(block: BlocksCardsRawWithOptionalFields): string {
   return render<BlocksCards>(view, {

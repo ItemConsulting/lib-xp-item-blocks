@@ -6,5 +6,5 @@
     <h2>${title}</h2>
   [/#if]
 
-  ${text}
+  ${text?no_esc}
 </aside>

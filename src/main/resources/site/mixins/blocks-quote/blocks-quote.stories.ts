@@ -1,4 +1,4 @@
-import id from "./blocks-quote.ftl";
+import id from "./blocks-quote.ftlh";
 import "../../../assets/styles/blocks/blocks-quote.css";
 import "./blocks-quote.stories.css";
 import { type StoryObj, type Meta } from "@itemconsulting/xp-storybook-utils";
