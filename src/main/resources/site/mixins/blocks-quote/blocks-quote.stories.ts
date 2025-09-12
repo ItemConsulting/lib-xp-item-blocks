@@ -14,6 +14,7 @@ export default {
 
 export const quote: StoryObj<BlocksQuote> = {
   args: {
+    locale: "no_NB",
     text: "Storybook works really well with XP...",
     author: "Tom Arild Jakobsen",
     publicationTitle: "Aftenposten 12.04.24",

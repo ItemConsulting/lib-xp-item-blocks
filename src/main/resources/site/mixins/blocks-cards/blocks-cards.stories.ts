@@ -6,6 +6,7 @@ import { controlRadioTheme } from "../../storybook-utils";
 import { renderOnServer, type Meta, type StoryObj } from "@itemconsulting/xp-storybook-utils";
 
 type CardsStory = {
+  locale: string;
   themeClass: string;
   imageClass: string;
   columnsClass: string;
@@ -74,6 +75,7 @@ export default {
 
 export const Cards: StoryObj = {
   args: {
+    locale: "no_NB",
     themeClass: "theme-accent",
     imageClass: "blocks-card--image-left",
     count: 5,

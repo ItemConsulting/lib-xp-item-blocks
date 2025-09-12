@@ -10,7 +10,7 @@
 [#-- @ftlvariable name="image.height" type="Integer" --]
 [#-- @ftlvariable name="locale" type="String" --]
 
-[#setting locale="${locale}"]
+[#setting locale=locale]
 
 <popover-gallery
   lang="${.lang}"

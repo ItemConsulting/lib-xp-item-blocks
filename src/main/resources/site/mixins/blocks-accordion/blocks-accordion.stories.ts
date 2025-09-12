@@ -24,6 +24,7 @@ export default {
 export const accordion: StoryObj<BlocksAccordion> = {
   args: {
     classes: "theme-neutral",
+    locale: "no_NB",
     items: [
       {
         title: "Overskrift 1",

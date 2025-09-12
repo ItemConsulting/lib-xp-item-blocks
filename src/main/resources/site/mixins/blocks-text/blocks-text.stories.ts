@@ -13,6 +13,7 @@ export default meta;
 
 export const text: StoryObj = {
   args: {
+    locale: "no_NB",
     title: "This is the title",
     text: `
       <p>Ipsum Lorem</p>

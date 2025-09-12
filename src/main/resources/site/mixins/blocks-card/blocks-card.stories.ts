@@ -5,6 +5,7 @@ import { controlRadioTheme } from "../../storybook-utils";
 import type { Meta, StoryObj } from "@itemconsulting/xp-storybook-utils";
 
 type CardsStory = {
+  locale: string;
   themeClass: string;
   imageClass: string;
   sizeClass: string;
@@ -50,6 +51,9 @@ export default {
         },
       },
     },
+  },
+  args: {
+    locale: "no_NB",
   },
   parameters: {
     server: {
