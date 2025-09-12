@@ -3,7 +3,7 @@ import { processHtml } from "/lib/xp/portal";
 import { process as processLink } from "/site/mixins/blocks-link/blocks-link";
 import { isEmptyOrUndefined, notNullOrUndefined } from "/lib/item-blocks/utils";
 import { getImageParams, type ImageParams } from "/lib/item-blocks/images";
-import { render } from "/lib/tineikt/freemarker";
+import { render } from "/lib/freemarker";
 import type { ContentImage, ContentVector } from "/lib/item-blocks/types";
 import type { BlocksCard as BlocksCardRaw } from ".";
 import type { BlocksCard } from "/site/mixins/blocks-card/blocks-card.freemarker";

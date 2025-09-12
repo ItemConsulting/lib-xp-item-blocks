@@ -10,15 +10,14 @@ sourceCompatibility = JavaVersion.VERSION_11
 targetCompatibility = JavaVersion.VERSION_11
 
 dependencies {
-  implementation "com.github.tineikt:xp-lib-freemarker:2.0.3"
+  implementation "no.item:lib-xp-freemarker:3.0.0-SNAPSHOT"
 }
 
 repositories {
-  mavenLocal()
   mavenCentral()
   xp.enonicRepo()
   maven { url "https://repo.itemtest.no/releases" }
-  maven { url "https://jitpack.io" }
+  maven { url "https://repo.itemtest.no/snapshots" }
 }
 
 node {

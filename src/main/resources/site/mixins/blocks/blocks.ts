@@ -1,7 +1,7 @@
 import { get as getOne, type Content } from "/lib/xp/content";
 import { flatMap, forceArray } from "/lib/item-blocks/arrays";
 import { getComponent, getContent } from "/lib/xp/portal";
-import { render } from "/lib/tineikt/freemarker";
+import { render } from "/lib/freemarker";
 import { process as processBlocksAccordion } from "/site/mixins/blocks-accordion/blocks-accordion";
 import { process as processBlocksText } from "/site/mixins/blocks-text/blocks-text";
 import { process as processBlocksCard } from "/site/mixins/blocks-card/blocks-card";
@@ -13,7 +13,7 @@ import type { Component, Request } from "@enonic-types/core";
 import type { Blocks as BlocksRaw } from ".";
 import type { BlocksReuse as BlocksReuseRaw } from "/site/mixins/blocks-reuse";
 import type { Blocks } from "/site/mixins/blocks/blocks.freemarker";
-import { Optional, Unarray } from "/lib/item-blocks/types";
+import type { Optional, Unarray } from "/lib/item-blocks/types";
 
 export type BlockProcessor<Block> = (block: Block, params: BlockProcessorParams) => string | string[];
 
@@ -64,7 +64,7 @@ export type ProcessParams = Optional<
 export function process(config: BlocksParams, params: ProcessParams): string {
   const component = params.component ?? getComponent();
   const content = params.content ?? getContent();
-  const locale = params.locale ?? content?.language ?? app.config.defaultLocale ?? "no";
+  const locale = params.locale ?? content?.language ?? "no";
 
   if (!content) {
     throw new Error("Content not found in scope");

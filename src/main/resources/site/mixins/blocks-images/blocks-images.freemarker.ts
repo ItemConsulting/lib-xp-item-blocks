@@ -9,8 +9,6 @@ export type GalleryImage = {
   fullSizeSrc: string;
   altText?: string;
   caption?: string;
-  sizes: string;
-  srcset: string;
   width: number;
   height: number;
 };

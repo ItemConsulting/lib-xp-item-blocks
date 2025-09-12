@@ -10,9 +10,12 @@
 [#-- @ftlvariable name="image.height" type="Integer" --]
 [#-- @ftlvariable name="locale" type="String" --]
 
+[#setting locale="${locale}"]
+
 <popover-gallery
+  lang="${.lang}"
   class="blocks-images blocks-images-size-${(images![])?size}"
-  data-popover-close-aria-label="[@localize key="mixin.blocks-images.close" locale=locale /]">
+  data-popover-close-aria-label="${portal.localize("mixin.blocks-images.close")}">
 
   [#list images![] as image]
     <a
@@ -25,10 +28,10 @@
       <figure>
         <picture>
           <img
-            srcset="${image.srcset}"
-            sizes="${image.sizes}"
             src="${image.src}"
-            alt="${image.altText!}">
+            alt="${image.altText!}"
+            [#if image.width??]width="${image.width}"[/#if]
+            [#if image.height??]height="${image.height}"[/#if]>
         </picture>
         <figcaption>${image.caption}</figcaption>
       </figure>
@@ -37,8 +40,6 @@
           <img
             src="${image.src}"
             alt="${image.altText!}"
-            [#if image.srcset?has_content]srcset="${image.srcset}"[/#if]
-            [#if image.sizes?has_content]sizes="${image.sizes}"[/#if]
             [#if image.width??]width="${image.width}"[/#if]
             [#if image.height??]height="${image.height}"[/#if]>
         </picture>

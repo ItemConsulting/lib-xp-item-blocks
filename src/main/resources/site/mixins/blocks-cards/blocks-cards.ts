@@ -1,4 +1,4 @@
-import { render } from "/lib/tineikt/freemarker";
+import { render } from "/lib/freemarker";
 import { forceArray } from "/lib/item-blocks/arrays";
 import { notNullOrUndefined } from "/lib/item-blocks/utils";
 import { process as processCard } from "/site/mixins/blocks-card/blocks-card";

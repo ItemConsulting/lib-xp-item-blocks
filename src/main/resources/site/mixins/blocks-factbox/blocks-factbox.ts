@@ -1,5 +1,5 @@
 import { processHtml } from "/lib/xp/portal";
-import { render } from "/lib/tineikt/freemarker";
+import { render } from "/lib/freemarker";
 import type { BlocksFactbox as RawBlocksFactbox } from ".";
 import type { BlocksTheme } from "../blocks-theme";
 import type { BlocksFactbox } from "./blocks-factbox.freemarker";
