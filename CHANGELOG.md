@@ -1,5 +1,11 @@
 # @item-enonic-types/lib-blocks
 
+## 0.3.1
+
+### Patch Changes
+
+- c946b48: Add missing locale to cards block
+
 ## 0.3.0
 
 ### Minor Changes
