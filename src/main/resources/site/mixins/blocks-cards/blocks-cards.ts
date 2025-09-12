@@ -15,6 +15,7 @@ const view = resolve("blocks-cards.ftlh");
 
 export function process(block: BlocksCardsRawWithOptionalFields, params: BlockProcessorParams): string {
   return render<BlocksCards>(view, {
+    locale: params.locale,
     title: block.title,
     classes: [
       block.columnsClass ?? "blocks-card--cols-3",
