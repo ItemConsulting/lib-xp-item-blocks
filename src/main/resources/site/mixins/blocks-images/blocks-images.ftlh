@@ -8,8 +8,12 @@
 [#-- @ftlvariable name="image.altText" type="String" --]
 [#-- @ftlvariable name="image.width" type="Integer" --]
 [#-- @ftlvariable name="image.height" type="Integer" --]
+[#-- @ftlvariable name="locale" type="String" --]
+
+[#setting locale="${locale}"]
 
 <popover-gallery
+  lang="${.lang}"
   class="blocks-images blocks-images-size-${(images![])?size}"
   data-popover-close-aria-label="${portal.localize("mixin.blocks-images.close")}">
 

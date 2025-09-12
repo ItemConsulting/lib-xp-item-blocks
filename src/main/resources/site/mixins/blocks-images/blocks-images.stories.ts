@@ -22,6 +22,7 @@ export default meta;
 export const images: StoryObj<Images> = {
   args: {
     id: "block-id",
+    locale: "no_NB",
     images: [
       {
         src: "eggman-thumb.jpg",

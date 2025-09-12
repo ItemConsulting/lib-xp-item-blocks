@@ -1,5 +1,6 @@
 export type Images = {
   id: string;
+  locale: string;
   images: GalleryImage[];
 };
 
