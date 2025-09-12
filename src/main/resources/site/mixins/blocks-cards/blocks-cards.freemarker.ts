@@ -1,4 +1,5 @@
 export type BlocksCards = {
+  locale: string;
   title?: string;
   items: string[];
   classes?: string;
