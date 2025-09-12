@@ -3,7 +3,7 @@ import { render } from "/lib/freemarker";
 import { getImageParamsById } from "/lib/item-blocks/images";
 import type { BlocksQuote as RawBlocksQuote } from ".";
 import type { BlocksQuote } from "./blocks-quote.freemarker";
-import { BlockProcessorParams } from "/site/mixins/blocks/blocks";
+import type { BlockProcessorParams } from "/site/mixins/blocks/blocks";
 
 const view = resolve("blocks-quote.ftlh");
 
