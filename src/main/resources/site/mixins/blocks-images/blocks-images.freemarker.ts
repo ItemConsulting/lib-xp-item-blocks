@@ -1,6 +1,5 @@
 export type Images = {
   id: string;
-  locale: string;
   images: GalleryImage[];
 };
 
@@ -9,8 +8,6 @@ export type GalleryImage = {
   fullSizeSrc: string;
   altText?: string;
   caption?: string;
-  sizes: string;
-  srcset: string;
   width: number;
   height: number;
 };

@@ -1,5 +1,5 @@
 import { processHtml } from "/lib/xp/portal";
-import { render } from "/lib/tineikt/freemarker";
+import { render } from "/lib/freemarker";
 import { getImageParamsById } from "/lib/item-blocks/images";
 import type { BlocksQuote as RawBlocksQuote } from ".";
 import type { BlocksQuote } from "./blocks-quote.freemarker";

@@ -99,7 +99,7 @@ export default function buildServerConfig(): Options {
     external: [
       "/lib/sentry",
       "/lib/time",
-      "/lib/tineikt/freemarker",
+      "/lib/freemarker",
       "/lib/http-client",
       "/lib/text-encoding",
       "/lib/http-client",

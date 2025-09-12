@@ -1,7 +1,7 @@
 import id from "./blocks-images.ftlh";
 import "../../../assets/styles/blocks/blocks-images.css";
 import PopoverGallery from "@itemconsulting/popover-gallery";
-import { renderOnServer, type StoryObj, type Meta } from "@itemconsulting/xp-storybook-utils";
+import type { Meta, StoryObj } from "@itemconsulting/xp-storybook-utils";
 import type { Images } from "./blocks-images.freemarker";
 
 if (!window.customElements.get("popover-gallery")) {
@@ -11,10 +11,10 @@ if (!window.customElements.get("popover-gallery")) {
 const meta: Meta<Images> = {
   title: "Blocks/Images",
 
-  parameters: renderOnServer({
-    id,
+  parameters: {
     layout: "centered",
-  }),
+    server: { id },
+  },
 };
 
 export default meta;
@@ -22,37 +22,36 @@ export default meta;
 export const images: StoryObj<Images> = {
   args: {
     id: "block-id",
-    locale: "no",
     images: [
       {
         src: "eggman-thumb.jpg",
         altText: "I am the eggman!",
         fullSizeSrc: "eggman.jpg",
-        sizes: "",
-        srcset: "",
         caption: "Eggman",
+        width: 400,
+        height: 240
       },
       {
         src: "legoman-thumb.jpg",
         altText: "We are the eggmen!",
         fullSizeSrc: "legoman.jpg",
-        sizes: "",
-        srcset: "",
         caption: "Legoman",
+        width: 400,
+        height: 240
       },
       {
         src: "capman-thumb.jpg",
         altText: "I am the walrus!",
         fullSizeSrc: "capman.jpg",
-        sizes: "",
-        srcset: "",
+        width: 400,
+        height: 240
       },
       {
         src: "wall-thumb.jpg",
         altText: "I am the wall!",
         fullSizeSrc: "wall.jpg",
-        sizes: "",
-        srcset: "",
+        width: 400,
+        height: 240
       },
     ],
   },

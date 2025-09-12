@@ -1,5 +1,5 @@
 import { processHtml } from "/lib/xp/portal";
-import { render } from "/lib/tineikt/freemarker";
+import { render } from "/lib/freemarker";
 import { forceArray } from "/lib/item-blocks/arrays";
 import { toSnakeCase } from "/lib/item-blocks/utils";
 import type { BlocksAccordion as RawBlocksAccordion } from ".";

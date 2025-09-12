@@ -1,4 +1,4 @@
-import { render } from "/lib/tineikt/freemarker";
+import { render } from "/lib/freemarker";
 import { imageUrl } from "/lib/xp/portal";
 import { partPathToId } from "/lib/item-blocks/utils";
 import { forceArray } from "/lib/item-blocks/arrays";
@@ -11,10 +11,9 @@ type BlocksImagesItemRaw = Unarray<RawBlocksImages["items"]>;
 
 const view = resolve("blocks-images.ftlh");
 
-export function process(block: RawBlocksImages, { component, locale, blockIndex }: BlockProcessorParams): string {
+export function process(block: RawBlocksImages, { component, blockIndex }: BlockProcessorParams): string {
   return render<Images>(view, {
     id: `${partPathToId(component.path)}-${blockIndex}`,
-    locale: locale,
     images: forceArray(block.items).map(getImage),
   });
 }
@@ -33,8 +32,6 @@ function getImage(item: BlocksImagesItemRaw, _: number, arr: BlocksImagesItemRaw
       id: item.imageId,
       scale: "full",
     }),
-    sizes: "",
-    srcset: "",
     altText: item.altText,
     caption: item.caption,
     width,

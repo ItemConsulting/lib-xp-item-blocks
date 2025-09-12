@@ -1,6 +1,9 @@
 # Item Blocks
 
+![Build badge](https://github.com/ItemConsulting/lib-xp-item-blocks/actions/workflows/main.yml/badge.svg)
 [![](https://repo.itemtest.no/api/badge/latest/releases/no/item/lib-xp-item-blocks)](https://repo.itemtest.no/#/releases/no/item/lib-xp-item-blocks)
+[![](https://img.shields.io/npm/types/%40item-enonic-types%2Flib-blocks)](https://www.npmjs.com/package/@item-enonic-types/lib-blocks)
+
 
 ## Gradle
 
@@ -9,17 +12,12 @@ To install this library you may need to add some new dependencies to your app's 
 ```groovy
 repositories {
   maven { url "https://repo.itemtest.no/releases" }
+  maven { url "https://repo.itemtest.no/snapshots" }
 }
 
 dependencies {
-  include "no.item:lib-xp-item-blocks:0.1.3"
+  include "no.item:lib-xp-item-blocks:0.3.0-SNAPSHOT"
 }
-```
-
-## Config
-
-```
-defaultLocale=no
 ```
 
 ## Add types to tsconfig.json
