@@ -1,3 +1,4 @@
+<#-- @ftlvariable name="locale" type="String" -->
 <#-- @ftlvariable name="id" type="String" -->
 <#-- @ftlvariable name="title" type="String" -->
 <#-- @ftlvariable name="classes" type="String" -->
@@ -5,7 +6,7 @@
 <#-- @ftlvariable name="item.title" type="String" -->
 <#-- @ftlvariable name="item.text" type="String" -->
 
-}">
+<#setting locale="${locale}">
 
 <div
   class="blocks-accordion ${classes!}"
