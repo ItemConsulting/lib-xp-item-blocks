@@ -1,5 +1,13 @@
 # @item-enonic-types/lib-blocks
 
+## 0.3.0
+
+### Minor Changes
+
+- 26a9910: All blocks should have lang attribute
+- 26a9910: When using the "reuse" block the locale of the importent content should be used on its blocks
+- 5f76a4d: Use new Freemarker library
+
 ## 0.2.1
 
 ### Patch Changes
