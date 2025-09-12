@@ -1,3 +1,4 @@
+<#-- @ftlvariable name="locale" type="String" -->
 <#-- @ftlvariable name="classes" type="String" -->
 <#-- @ftlvariable name="url" type="String" -->
 <#-- @ftlvariable name="image" type="Object" -->
@@ -9,7 +10,9 @@
 <#-- @ftlvariable name="title" type="String" -->
 <#-- @ftlvariable name="text" type="String" -->
 
-<div class="blocks-card ${classes!}">
+<#setting locale=locale>
+
+<div lang="${.lang}" class="blocks-card ${classes!}">
   <@linkOrDiv href=url!"" class="blocks-card--card">
     <#if image??>
       <figure class="blocks-card--image">

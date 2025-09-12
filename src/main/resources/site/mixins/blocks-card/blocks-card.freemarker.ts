@@ -1,6 +1,7 @@
 import type { ImageParams } from "/lib/item-blocks/images";
 
 export type BlocksCard = {
+  locale: string;
   url?: string;
   classes?: string;
   image?: ImageParams;

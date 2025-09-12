@@ -5,8 +5,11 @@
 <#-- @ftlvariable name="item.title" type="String" -->
 <#-- @ftlvariable name="item.text" type="String" -->
 
+}">
+
 <div
   class="blocks-accordion ${classes!}"
+  lang="${.lang}"
   <#if id??>id="${id}"</#if>
 >
   <#if title?has_content>

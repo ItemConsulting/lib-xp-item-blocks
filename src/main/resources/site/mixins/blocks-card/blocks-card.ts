@@ -11,6 +11,7 @@ import {
   isBlocksImagePlacement,
   process as processImagePlacement,
 } from "/site/mixins/blocks-image-placement/blocks-image-placement";
+import type { BlockProcessorParams } from "/site/mixins/blocks/blocks";
 
 type BlocksCardRawWithOptionalFields = BlocksCardRaw & {
   theme?: string;
@@ -23,7 +24,7 @@ const IMAGE_PROPORTION_16_9 = 9 / 16;
 
 const view = resolve("blocks-card.ftlh");
 
-export function process(block: BlocksCardRawWithOptionalFields): string {
+export function process(block: BlocksCardRawWithOptionalFields, { locale }: BlockProcessorParams): string {
   const image = block.imageId
     ? (getOne<ContentImage | ContentVector>({
         key: block.imageId,
@@ -35,6 +36,7 @@ export function process(block: BlocksCardRawWithOptionalFields): string {
     block.imageId !== undefined && [link?.url, block.kicker, block.title, block.text].every(isEmptyOrUndefined);
 
   return render<BlocksCard>(view, {
+    locale,
     url: link?.url,
     classes: [
       block.theme ? `theme-${block.theme}` : undefined,
@@ -70,7 +72,7 @@ function getImageMaxWidth(): number {
   try {
     return app.config.cardImageMaxWidth ? parseInt(app.config.cardImageMaxWidth) : WIDTH_LARGEST_IN_CARD;
   } catch {
-    log.error(`"cardImageMaxWidth" in configuration does not contain a valid value`);
+    log.error('"cardImageMaxWidth" in configuration does not contain a valid value');
   }
 
   return WIDTH_LARGEST_IN_CARD;

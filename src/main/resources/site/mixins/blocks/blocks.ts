@@ -121,7 +121,10 @@ export function unregisterBlockProcessor(selected: string): void {
 export function processBlocksReuse(block: BlocksReuseRaw, params: BlockProcessorParams): string[] {
   const content = block.contentId ? getOne<Content<BlocksRaw>>({ key: block.contentId }) : undefined;
   /* Use language of the imported content to add content with different [lang] in block list */
-  params.locale = content?.language ?? params.locale;
+  const localizedParams: BlockProcessorParams = {
+    ...params,
+    locale: content?.language ?? params.locale,
+  };
 
-  return processBlocks(forceArray(content?.data.blocks), params);
+  return processBlocks(forceArray(content?.data.blocks), localizedParams);
 }

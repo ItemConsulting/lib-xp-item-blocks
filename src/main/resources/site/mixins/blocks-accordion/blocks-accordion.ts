@@ -5,15 +5,17 @@ import { toSnakeCase } from "/lib/item-blocks/utils";
 import type { BlocksAccordion as RawBlocksAccordion } from ".";
 import type { BlocksTheme } from "../blocks-theme";
 import type { BlocksAccordion } from "./blocks-accordion.freemarker";
+import type { BlockProcessorParams } from "/site/mixins/blocks/blocks";
 
 type RawBlocksAccordionAndTheme = RawBlocksAccordion & BlocksTheme;
 
 const view = resolve("blocks-accordion.ftlh");
 
-export function process(block: RawBlocksAccordionAndTheme): string {
+export function process(block: RawBlocksAccordionAndTheme, { locale }: BlockProcessorParams): string {
   return render<BlocksAccordion>(view, {
     id: toSnakeCase(block.title),
     title: block.title,
+    locale,
     classes: block.theme ? `theme-${block.theme}` : undefined,
     items: forceArray(block.items).map((item) => ({
       title: item.title,

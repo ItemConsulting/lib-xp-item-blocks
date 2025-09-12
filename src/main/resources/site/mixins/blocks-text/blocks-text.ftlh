@@ -1,7 +1,11 @@
+[#-- @ftlvariable name="locale" type="String" --]
 [#-- @ftlvariable name="id" type="String" --]
 [#-- @ftlvariable name="title" type="String" --]
 [#-- @ftlvariable name="text" type="String" --]
+[#setting locale=locale]
+
 <div
+  lang="${.lang}"
   class="blocks-text html-area flow"
   [#if id??]id="${id}"[/#if]>
 
