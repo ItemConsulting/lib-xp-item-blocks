@@ -3,13 +3,13 @@
 [#-- @ftlvariable name="lng" type="java.lang.String" --]
 [#-- @ftlvariable name="lat" type="java.lang.String" --]
 [#-- @ftlvariable name="zoom" type="java.lang.String" --]
+[#-- @ftlvariable name="markers" type="java.util.List" --]
 [#setting locale=locale]
 
 <div class="blocks-map ${classes!}" lang="${.lang}">
   <script type="module" src="${assetBaseUrl}/blocks/maplibre-gl.mjs"></script>
 
   <maplibre-gl
-    style="color: black;"
     lng="${lng}"
     lat="${lat}"
     zoom="${zoom}"
