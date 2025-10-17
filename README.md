@@ -12,11 +12,10 @@ To install this library you may need to add some new dependencies to your app's 
 ```groovy
 repositories {
   maven { url "https://repo.itemtest.no/releases" }
-  maven { url "https://repo.itemtest.no/snapshots" }
 }
 
 dependencies {
-  include "no.item:lib-xp-item-blocks:0.3.0-SNAPSHOT"
+  include "no.item:lib-xp-item-blocks:0.3.1"
 }
 ```
 

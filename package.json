@@ -41,6 +41,7 @@
     "@changesets/cli": "^2.29.7",
     "@enonic-types/core": "^7",
     "@enonic-types/global": "^7",
+    "@enonic-types/lib-asset": "^1.0.3",
     "@enonic-types/lib-auth": "^7",
     "@enonic-types/lib-common": "^7",
     "@enonic-types/lib-content": "^7",
@@ -66,6 +67,7 @@
     "@itemconsulting/preset-enonic-xp": "^0.3.0",
     "@itemconsulting/xp-storybook-utils": "^0.1.0",
     "@storybook/addon-a11y": "^9.1.13",
+    "@storybook/addon-docs": "^9.1.13",
     "@storybook/addon-links": "^9.1.13",
     "@storybook/addon-webpack5-compiler-swc": "^4.0.1",
     "@storybook/server-webpack5": "^9.1.13",
@@ -79,6 +81,7 @@
     "eslint-plugin-prettier": "^5.5.4",
     "glob": "^11.0.3",
     "globals": "^16.4.0",
+    "maplibre-gl": "^5.9.0",
     "postcss": "^8.5.6",
     "postcss-cli": "^11.0.1",
     "postcss-import": "^16.1.1",
@@ -96,8 +99,7 @@
     "stylelint-order": "^7.0.0",
     "tsup": "^8.5.0",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.46.2",
-    "@storybook/addon-docs": "^9.1.13"
+    "typescript-eslint": "^8.46.2"
   },
   "dependencies": {
     "@itemconsulting/details-animated": "^0.0.6",
