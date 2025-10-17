@@ -59,6 +59,14 @@
           </items>
         </option>
 
+        <option name="blocks-map">
+          <label i18n="mixin.blocks-map.displayName">Map</label>
+          <help-text i18n="mixin.blocks-map.description">An interactive map that can contain markers</help-text>
+          <items>
+            <mixin name="blocks-map" />
+          </items>
+        </option>
+
         <option name="blocks-reuse">
           <label i18n="mixin.blocks-reuse.displayName">Reuse</label>
           <help-text i18n="mixin.blocks-reuse.description">Reuse all blocks inside another content</help-text>
