@@ -17,7 +17,7 @@ export default class MapLibreGl extends HTMLElement {
     }
 
     const text = document.createElement("div");
-    text.setAttribute("style", "width: 100%; height: 400px;");
+    text.setAttribute("style", "width: 400px; height: 400px;");
     const styles = document.createElement("link");
     styles.setAttribute("rel", "stylesheet");
 
