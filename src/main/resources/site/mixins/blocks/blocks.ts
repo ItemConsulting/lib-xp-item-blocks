@@ -1,7 +1,7 @@
 import { get as getOne, type Content } from "/lib/xp/content";
 import { forceArray } from "/lib/item-blocks/arrays";
 import { getComponent, getContent } from "/lib/xp/portal";
-import { concat as concatResponse } from "/lib/item-blocks/responses";
+import { concat as concatResponse, responseBodyToString } from "/lib/item-blocks/responses";
 import { render } from "/lib/freemarker";
 import { process as processBlocksAccordion } from "/site/mixins/blocks-accordion/blocks-accordion";
 import { process as processBlocksText } from "/site/mixins/blocks-text/blocks-text";
@@ -15,6 +15,8 @@ import type { Blocks as BlocksRaw } from ".";
 import type { BlocksReuse as BlocksReuseRaw } from "/site/mixins/blocks-reuse";
 import type { Blocks } from "/site/mixins/blocks/blocks.freemarker";
 import type { Optional, Unarray } from "/lib/item-blocks/types";
+
+export { responseBodyToString } from "/lib/item-blocks/responses";
 
 export type BlockProcessor<Block> = (block: Block, params: BlockProcessorParams) => Response;
 
@@ -74,7 +76,7 @@ export function process(config: BlocksParams, params: ProcessParams): Response {
     throw new Error("Component not found in scope");
   }
 
-  const processedBlocks = processBlocks(config.blocks ?? [], {
+  const { body, ...response } = processBlocks(forceArray(config.blocks), {
     content,
     component,
     locale,
@@ -83,10 +85,10 @@ export function process(config: BlocksParams, params: ProcessParams): Response {
   });
 
   return {
-    ...processedBlocks,
+    ...response,
     body: render<Blocks>(view, {
       classes: params.blocksClasses,
-      blocksMarkup: typeof processedBlocks.body === "string" ? processedBlocks.body : "",
+      blocksMarkup: responseBodyToString(body),
     }),
   };
 }
