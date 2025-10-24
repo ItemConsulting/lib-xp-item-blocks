@@ -6,17 +6,20 @@ import type { GalleryImage, Images } from "./blocks-images.freemarker";
 import type { BlocksImages as RawBlocksImages } from ".";
 import type { BlockProcessorParams } from "/site/mixins/blocks/blocks";
 import type { Unarray } from "/lib/item-blocks/types";
+import type { Response } from "@enonic-types/core";
 
 type BlocksImagesItemRaw = Unarray<RawBlocksImages["items"]>;
 
 const view = resolve("blocks-images.ftlh");
 
-export function process(block: RawBlocksImages, { component, locale, blockIndex }: BlockProcessorParams): string {
-  return render<Images>(view, {
-    id: `${partPathToId(component.path)}-${blockIndex}`,
-    locale,
-    images: forceArray(block.items).map(getImage),
-  });
+export function process(block: RawBlocksImages, { component, locale, blockIndex }: BlockProcessorParams): Response {
+  return {
+    body: render<Images>(view, {
+      id: `${partPathToId(component.path)}-${blockIndex}`,
+      locale,
+      images: forceArray(block.items).map(getImage),
+    }),
+  };
 }
 
 function getImage(item: BlocksImagesItemRaw, _: number, arr: BlocksImagesItemRaw[]): GalleryImage {

@@ -6,22 +6,25 @@ import type { BlocksAccordion as RawBlocksAccordion } from ".";
 import type { BlocksTheme } from "../blocks-theme";
 import type { BlocksAccordion } from "./blocks-accordion.freemarker";
 import type { BlockProcessorParams } from "/site/mixins/blocks/blocks";
+import type { Response } from "@enonic-types/core";
 
 type RawBlocksAccordionAndTheme = RawBlocksAccordion & BlocksTheme;
 
 const view = resolve("blocks-accordion.ftlh");
 
-export function process(block: RawBlocksAccordionAndTheme, { locale }: BlockProcessorParams): string {
-  return render<BlocksAccordion>(view, {
-    id: toSnakeCase(block.title),
-    title: block.title,
-    locale,
-    classes: block.theme ? `theme-${block.theme}` : undefined,
-    items: forceArray(block.items).map((item) => ({
-      title: item.title,
-      text: processHtml({
-        value: item.text ?? "",
-      }),
-    })),
-  });
+export function process(block: RawBlocksAccordionAndTheme, { locale }: BlockProcessorParams): Response {
+  return {
+    body: render<BlocksAccordion>(view, {
+      id: toSnakeCase(block.title),
+      title: block.title,
+      locale,
+      classes: block.theme ? `theme-${block.theme}` : undefined,
+      items: forceArray(block.items).map((item) => ({
+        title: item.title,
+        text: processHtml({
+          value: item.text ?? "",
+        }),
+      })),
+    }),
+  };
 }
