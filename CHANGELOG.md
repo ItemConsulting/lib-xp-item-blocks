@@ -1,5 +1,11 @@
 # @item-enonic-types/lib-blocks
 
+## 0.4.0
+
+### Minor Changes
+
+- a16743a: Make all processors return Response instead of string
+
 ## 0.3.1
 
 ### Patch Changes
