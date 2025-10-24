@@ -13,12 +13,14 @@ type BlocksImagesItemRaw = Unarray<RawBlocksImages["items"]>;
 const view = resolve("blocks-images.ftlh");
 
 export function process(block: RawBlocksImages, { component, locale, blockIndex }: BlockProcessorParams): Response {
+  const model: Images = {
+    id: `${partPathToId(component.path)}-${blockIndex}`,
+    locale,
+    images: forceArray(block.items).map(getImage),
+  };
+
   return {
-    body: render<Images>(view, {
-      id: `${partPathToId(component.path)}-${blockIndex}`,
-      locale,
-      images: forceArray(block.items).map(getImage),
-    }),
+    body: render<Images>(view, model),
   };
 }
 

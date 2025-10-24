@@ -36,27 +36,29 @@ export function process(block: BlocksCardRawWithOptionalFields, { locale }: Bloc
   const imageOnly =
     block.imageId !== undefined && [link?.url, block.kicker, block.title, block.text].every(isEmptyOrUndefined);
 
+  const model: BlocksCard = {
+    locale,
+    url: link?.url,
+    classes: [
+      block.theme ? `theme-${block.theme}` : undefined,
+      `blocks-card--link-${link?.type ?? "none"}`,
+      isBlocksImagePlacement(block) ? processImagePlacement(block) : undefined,
+    ]
+      .filter(notNullOrUndefined)
+      .join(" "),
+    kicker: block.kicker,
+    title: block.title,
+    text: processHtml({ value: block.text ?? "" }),
+    image: image
+      ? getImage({
+          imageContent: image,
+          imageOnly,
+        })
+      : undefined,
+  };
+
   return {
-    body: render<BlocksCard>(view, {
-      locale,
-      url: link?.url,
-      classes: [
-        block.theme ? `theme-${block.theme}` : undefined,
-        `blocks-card--link-${link?.type ?? "none"}`,
-        isBlocksImagePlacement(block) ? processImagePlacement(block) : undefined,
-      ]
-        .filter(notNullOrUndefined)
-        .join(" "),
-      kicker: block.kicker,
-      title: block.title,
-      text: processHtml({ value: block.text ?? "" }),
-      image: image
-        ? getImage({
-            imageContent: image,
-            imageOnly,
-          })
-        : undefined,
-    }),
+    body: render<BlocksCard>(view, model),
   };
 }
 

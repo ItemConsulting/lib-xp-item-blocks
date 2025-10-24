@@ -20,19 +20,21 @@ export function process(block: BlocksCardsRawWithOptionalFields, params: BlockPr
     .map((item) => processCard(item, params))
     .reduce(concatResponse, {});
 
+  const model: BlocksCards = {
+    locale: params.locale,
+    title: block.title,
+    classes: [
+      block.columnsClass ?? "blocks-card--cols-3",
+      processImagePlacement(block),
+      block.theme ? `theme-${block.theme}` : undefined,
+      block.theme ? `theme-${block.theme}` : undefined,
+    ]
+      .filter(notNullOrUndefined)
+      .join(" "),
+    cardsMarkup: responseBodyToString(renderedCards.body),
+  };
+
   return {
-    body: render<BlocksCards>(view, {
-      locale: params.locale,
-      title: block.title,
-      classes: [
-        block.columnsClass ?? "blocks-card--cols-3",
-        processImagePlacement(block),
-        block.theme ? `theme-${block.theme}` : undefined,
-        block.theme ? `theme-${block.theme}` : undefined,
-      ]
-        .filter(notNullOrUndefined)
-        .join(" "),
-      cardsMarkup: responseBodyToString(renderedCards.body),
-    }),
+    body: render<BlocksCards>(view, model),
   };
 }

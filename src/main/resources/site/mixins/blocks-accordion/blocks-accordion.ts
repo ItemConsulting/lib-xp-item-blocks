@@ -13,18 +13,20 @@ type RawBlocksAccordionAndTheme = RawBlocksAccordion & BlocksTheme;
 const view = resolve("blocks-accordion.ftlh");
 
 export function process(block: RawBlocksAccordionAndTheme, { locale }: BlockProcessorParams): Response {
+  const model: BlocksAccordion = {
+    id: toSnakeCase(block.title),
+    title: block.title,
+    locale,
+    classes: block.theme ? `theme-${block.theme}` : undefined,
+    items: forceArray(block.items).map((item) => ({
+      title: item.title,
+      text: processHtml({
+        value: item.text ?? "",
+      }),
+    })),
+  };
+
   return {
-    body: render<BlocksAccordion>(view, {
-      id: toSnakeCase(block.title),
-      title: block.title,
-      locale,
-      classes: block.theme ? `theme-${block.theme}` : undefined,
-      items: forceArray(block.items).map((item) => ({
-        title: item.title,
-        text: processHtml({
-          value: item.text ?? "",
-        }),
-      })),
-    }),
+    body: render<BlocksAccordion>(view, model),
   };
 }

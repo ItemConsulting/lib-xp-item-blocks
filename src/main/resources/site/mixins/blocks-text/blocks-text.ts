@@ -9,12 +9,16 @@ import type { Response } from "@enonic-types/core";
 const view = resolve("blocks-text.ftlh");
 
 export function process(block: RawBlocksText, { locale }: BlockProcessorParams): Response {
-  return {
-    body: render<BlocksText>(view, {
-      locale,
-      id: toSnakeCase(block.title),
-      title: block.title,
-      text: processHtml({ value: block.text ?? "" }),
+  const model: BlocksText = {
+    locale,
+    id: toSnakeCase(block.title),
+    title: block.title,
+    text: processHtml({
+      value: block.text ?? "",
     }),
+  };
+
+  return {
+    body: render<BlocksText>(view, model),
   };
 }

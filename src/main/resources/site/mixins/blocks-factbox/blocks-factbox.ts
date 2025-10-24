@@ -11,12 +11,14 @@ type RawBlocksFactboxAndTheme = RawBlocksFactbox & BlocksTheme;
 const view = resolve("blocks-factbox.ftlh");
 
 export function process(block: RawBlocksFactboxAndTheme, { locale }: BlockProcessorParams): Response {
+  const model: BlocksFactbox = {
+    locale,
+    title: block.title,
+    text: processHtml({ value: block.text ?? "" }),
+    classes: block.theme ? `theme-${block.theme}` : undefined,
+  };
+
   return {
-    body: render<BlocksFactbox>(view, {
-      locale,
-      title: block.title,
-      text: processHtml({ value: block.text ?? "" }),
-      classes: block.theme ? `theme-${block.theme}` : undefined,
-    }),
+    body: render<BlocksFactbox>(view, model),
   };
 }
