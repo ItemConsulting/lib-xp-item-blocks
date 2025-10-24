@@ -1,6 +1,7 @@
 import { get as getOne, type Content } from "/lib/xp/content";
-import { flatMap, forceArray } from "/lib/item-blocks/arrays";
+import { forceArray } from "/lib/item-blocks/arrays";
 import { getComponent, getContent } from "/lib/xp/portal";
+import { concat as concatResponse, responseBodyToString } from "/lib/item-blocks/responses";
 import { render } from "/lib/freemarker";
 import { process as processBlocksAccordion } from "/site/mixins/blocks-accordion/blocks-accordion";
 import { process as processBlocksText } from "/site/mixins/blocks-text/blocks-text";
@@ -9,13 +10,15 @@ import { process as processBlocksCards } from "/site/mixins/blocks-cards/blocks-
 import { process as processBlocksFactbox } from "/site/mixins/blocks-factbox/blocks-factbox";
 import { process as processBlocksImages } from "/site/mixins/blocks-images/blocks-images";
 import { process as processBlocksQuote } from "/site/mixins/blocks-quote/blocks-quote";
-import type { Component, Request } from "@enonic-types/core";
+import type { Component, Request, Response } from "@enonic-types/core";
 import type { Blocks as BlocksRaw } from ".";
 import type { BlocksReuse as BlocksReuseRaw } from "/site/mixins/blocks-reuse";
 import type { Blocks } from "/site/mixins/blocks/blocks.freemarker";
 import type { Optional, Unarray } from "/lib/item-blocks/types";
 
-export type BlockProcessor<Block> = (block: Block, params: BlockProcessorParams) => string | string[];
+export { responseBodyToString } from "/lib/item-blocks/responses";
+
+export type BlockProcessor<Block> = (block: Block, params: BlockProcessorParams) => Response;
 
 export type BlockProcessorParams = {
   content: Content<unknown>;
@@ -61,7 +64,7 @@ export type ProcessParams = Optional<
   blocksClasses?: string;
 };
 
-export function process(config: BlocksParams, params: ProcessParams): string {
+export function process(config: BlocksParams, params: ProcessParams): Response {
   const component = params.component ?? getComponent();
   const content = params.content ?? getContent();
   const locale = params.locale ?? content?.language ?? "no";
@@ -73,36 +76,39 @@ export function process(config: BlocksParams, params: ProcessParams): string {
     throw new Error("Component not found in scope");
   }
 
-  return render<Blocks>(view, {
-    classes: params.blocksClasses,
-    blocks: processBlocks(config.blocks ?? [], {
-      content,
-      component,
-      locale,
-      classes: params.classes ?? "",
-      req: params.req,
+  const { body, ...response } = processBlocks(forceArray(config.blocks), {
+    content,
+    component,
+    locale,
+    classes: params.classes ?? "",
+    req: params.req,
+  });
+
+  return {
+    ...response,
+    body: render<Blocks>(view, {
+      classes: params.blocksClasses,
+      blocksMarkup: responseBodyToString(body),
     }),
-    blockTypes: forceArray(config.blocks).map((block) => block._selected),
-  });
+  };
 }
 
-function processBlocks(blocks: ProcessableBlock[], params: Optional<BlockProcessorParams, "blockIndex">): string[] {
-  return flatMap(forceArray(blocks), (block, blockIndex) => {
-    const value = block[block._selected];
-    return value
-      ? processBlock(block._selected, value, {
-          ...params,
-          blockIndex,
-        })
-      : [];
-  });
+function processBlocks(blocks: ProcessableBlock[], params: Optional<BlockProcessorParams, "blockIndex">): Response {
+  return forceArray(blocks)
+    .map((block, blockIndex) =>
+      processBlock(block._selected, block[block._selected], {
+        ...params,
+        blockIndex,
+      }),
+    )
+    .reduce<Response>(concatResponse, {});
 }
 
-export function processBlock(selected: string, block: unknown, params: BlockProcessorParams): string[] {
+export function processBlock(selected: string, block: unknown, params: BlockProcessorParams): Response {
   const processor = REGISTERED_BLOCK_PROCESSORS[selected];
 
   if (processor) {
-    return forceArray(processor(block, params));
+    return processor(block, params);
   } else {
     throw new Error(`No processor registered for block type "${selected}"`);
   }
@@ -118,7 +124,7 @@ export function unregisterBlockProcessor(selected: string): void {
   }
 }
 
-export function processBlocksReuse(block: BlocksReuseRaw, params: BlockProcessorParams): string[] {
+export function processBlocksReuse(block: BlocksReuseRaw, params: BlockProcessorParams): Response {
   const content = block.contentId ? getOne<Content<BlocksRaw>>({ key: block.contentId }) : undefined;
   /* Use language of the imported content to add content with different [lang] in block list */
   const localizedParams: BlockProcessorParams = {

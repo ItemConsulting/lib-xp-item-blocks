@@ -1,7 +1,7 @@
 [#-- @ftlvariable name="locale" type="String" --]
 [#-- @ftlvariable name="title" type="String" --]
 [#-- @ftlvariable name="classes" type="String" --]
-[#-- @ftlvariable name="items" type="java.util.ArrayList<String>" --]
+[#-- @ftlvariable name="cardsMarkup" type="String" --]
 [#-- @ftlvariable name="link.url" type="String" --]
 [#-- @ftlvariable name="link.text" type="String" --]
 
@@ -13,9 +13,7 @@
   [/#if]
 
   <div class="blocks-cards--cards">
-    [#list items as item]
-      ${item?no_esc}
-    [/#list]
+    ${cardsMarkup?no_esc}
   </div>
 
   [#if link?has_content]

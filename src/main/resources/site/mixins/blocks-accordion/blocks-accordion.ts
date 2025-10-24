@@ -6,13 +6,14 @@ import type { BlocksAccordion as RawBlocksAccordion } from ".";
 import type { BlocksTheme } from "../blocks-theme";
 import type { BlocksAccordion } from "./blocks-accordion.freemarker";
 import type { BlockProcessorParams } from "/site/mixins/blocks/blocks";
+import type { Response } from "@enonic-types/core";
 
 type RawBlocksAccordionAndTheme = RawBlocksAccordion & BlocksTheme;
 
 const view = resolve("blocks-accordion.ftlh");
 
-export function process(block: RawBlocksAccordionAndTheme, { locale }: BlockProcessorParams): string {
-  return render<BlocksAccordion>(view, {
+export function process(block: RawBlocksAccordionAndTheme, { locale }: BlockProcessorParams): Response {
+  const model: BlocksAccordion = {
     id: toSnakeCase(block.title),
     title: block.title,
     locale,
@@ -23,5 +24,9 @@ export function process(block: RawBlocksAccordionAndTheme, { locale }: BlockProc
         value: item.text ?? "",
       }),
     })),
-  });
+  };
+
+  return {
+    body: render<BlocksAccordion>(view, model),
+  };
 }

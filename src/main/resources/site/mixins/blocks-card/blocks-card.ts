@@ -4,14 +4,15 @@ import { process as processLink } from "/site/mixins/blocks-link/blocks-link";
 import { isEmptyOrUndefined, notNullOrUndefined } from "/lib/item-blocks/utils";
 import { getImageParams, type ImageParams } from "/lib/item-blocks/images";
 import { render } from "/lib/freemarker";
-import type { ContentImage, ContentVector } from "/lib/item-blocks/types";
-import type { BlocksCard as BlocksCardRaw } from ".";
-import type { BlocksCard } from "/site/mixins/blocks-card/blocks-card.freemarker";
 import {
   isBlocksImagePlacement,
   process as processImagePlacement,
 } from "/site/mixins/blocks-image-placement/blocks-image-placement";
+import type { ContentImage, ContentVector } from "/lib/item-blocks/types";
+import type { BlocksCard as BlocksCardRaw } from ".";
+import type { BlocksCard } from "/site/mixins/blocks-card/blocks-card.freemarker";
 import type { BlockProcessorParams } from "/site/mixins/blocks/blocks";
+import type { Response } from "@enonic-types/core";
 
 type BlocksCardRawWithOptionalFields = BlocksCardRaw & {
   theme?: string;
@@ -24,7 +25,7 @@ const IMAGE_PROPORTION_16_9 = 9 / 16;
 
 const view = resolve("blocks-card.ftlh");
 
-export function process(block: BlocksCardRawWithOptionalFields, { locale }: BlockProcessorParams): string {
+export function process(block: BlocksCardRawWithOptionalFields, { locale }: BlockProcessorParams): Response {
   const image = block.imageId
     ? (getOne<ContentImage | ContentVector>({
         key: block.imageId,
@@ -35,7 +36,7 @@ export function process(block: BlocksCardRawWithOptionalFields, { locale }: Bloc
   const imageOnly =
     block.imageId !== undefined && [link?.url, block.kicker, block.title, block.text].every(isEmptyOrUndefined);
 
-  return render<BlocksCard>(view, {
+  const model: BlocksCard = {
     locale,
     url: link?.url,
     classes: [
@@ -54,7 +55,11 @@ export function process(block: BlocksCardRawWithOptionalFields, { locale }: Bloc
           imageOnly,
         })
       : undefined,
-  });
+  };
+
+  return {
+    body: render<BlocksCard>(view, model),
+  };
 }
 
 function getImage({ imageContent, imageOnly }: GetImageSrcParams): ImageParams {

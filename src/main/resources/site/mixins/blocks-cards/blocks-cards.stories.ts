@@ -60,7 +60,7 @@ export default {
       [#assign card]
         [#include "${cardId}"]
       [/#assign]
-      [#assign items=[card, card, card, card, card]?chunk(count)[0] /]
+      [#assign cardsMarkup=[card, card, card, card, card]?chunk(count)[0]?join("") /]
 
       <div class="blocks-card-story--extra-large">
         [#assign title="Cards example"]
