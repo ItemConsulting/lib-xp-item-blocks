@@ -1,4 +1,3 @@
-// TODO When map exists a preload should be added to the page, to start loading the JS early
 import { render } from "/lib/freemarker";
 import { forceArray } from "/lib/item-blocks/arrays";
 import { notNullOrUndefined } from "/lib/item-blocks/utils";
@@ -28,12 +27,6 @@ export function process(block: RawBlocksMap, { locale }: BlockProcessorParams): 
     styleSrc: `${mapLibreBaseUrl}/maplibre-gl.css`,
   };
 
-  const importMap = {
-    imports: {
-      "maplibre-gl": `${mapLibreBaseUrl}/maplibre-gl.js`,
-    },
-  };
-
   return {
     body: render<BlocksMap>(view, model),
     pageContributions: {
@@ -41,10 +34,7 @@ export function process(block: RawBlocksMap, { locale }: BlockProcessorParams): 
         `<link rel="preload" href="${model.workerSrc}" as="script" />`,
         `<link rel="preload" href="${model.styleSrc}" as="style" />`,
       ],
-      headEnd: [
-        `<script type="importmap">${JSON.stringify(importMap)}</script>`,
-        `<script type="module" src="${assetBaseUrl}/blocks/maplibre-gl.mjs"></script>`,
-      ],
+      headEnd: [`<script type="module" src="${assetBaseUrl}/blocks/maplibre-gl.mjs"></script>`],
     },
   };
 }

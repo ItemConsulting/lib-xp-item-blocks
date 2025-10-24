@@ -11,7 +11,7 @@ import { process as processBlocksFactbox } from "/site/mixins/blocks-factbox/blo
 import { process as processBlocksImages } from "/site/mixins/blocks-images/blocks-images";
 import { process as processBlocksMap } from "/site/mixins/blocks-map/blocks-map";
 import { process as processBlocksQuote } from "/site/mixins/blocks-quote/blocks-quote";
-import type { Component, Request, Response } from "@enonic-types/core";
+import { Component, Request, Response } from "@enonic-types/core";
 import type { Blocks as BlocksRaw } from ".";
 import type { BlocksReuse as BlocksReuseRaw } from "/site/mixins/blocks-reuse";
 import type { Blocks } from "/site/mixins/blocks/blocks.freemarker";
