@@ -4,17 +4,17 @@
 [#-- @ftlvariable name="lat" type="java.lang.String" --]
 [#-- @ftlvariable name="zoom" type="java.lang.String" --]
 [#-- @ftlvariable name="markers" type="java.util.List" --]
+[#-- @ftlvariable name="workerSrc" type="java.lang.String" --]
+[#-- @ftlvariable name="styleSrc" type="java.lang.String" --]
 [#setting locale=locale]
 
 <div class="blocks-map ${classes!}" lang="${.lang}">
-  <script type="module" src="${assetBaseUrl}/blocks/maplibre-gl.mjs"></script>
-
   <maplibre-gl
     lng="${lng}"
     lat="${lat}"
     zoom="${zoom}"
-    workerSrc="${assetBaseUrl}/maplibre-gl/5.6.1/dist/maplibre-gl-csp-worker.js"
-    styleSrc="${assetBaseUrl}/maplibre-gl/5.6.1/dist/maplibre-gl.css">
+    workerSrc="${workerSrc}"
+    styleSrc="${styleSrc}">
 
     [#list markers as marker]
       <div

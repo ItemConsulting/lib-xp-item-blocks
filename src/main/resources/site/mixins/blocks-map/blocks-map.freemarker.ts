@@ -4,7 +4,8 @@ export type BlocksMap = {
   lat: string;
   zoom: number;
   markers: Marker[];
-  assetBaseUrl: string;
+  workerSrc: string;
+  styleSrc: string;
 };
 
 export type Marker = {
