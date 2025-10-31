@@ -9,14 +9,13 @@ import { process as processBlocksCard } from "/site/mixins/blocks-card/blocks-ca
 import { process as processBlocksCards } from "/site/mixins/blocks-cards/blocks-cards";
 import { process as processBlocksFactbox } from "/site/mixins/blocks-factbox/blocks-factbox";
 import { process as processBlocksImages } from "/site/mixins/blocks-images/blocks-images";
+import { process as processBlocksMap } from "/site/mixins/blocks-map/blocks-map";
 import { process as processBlocksQuote } from "/site/mixins/blocks-quote/blocks-quote";
-import type { Component, Request, Response } from "@enonic-types/core";
+import { Component, Request, Response } from "@enonic-types/core";
 import type { Blocks as BlocksRaw } from ".";
 import type { BlocksReuse as BlocksReuseRaw } from "/site/mixins/blocks-reuse";
 import type { Blocks } from "/site/mixins/blocks/blocks.freemarker";
 import type { Optional, Unarray } from "/lib/item-blocks/types";
-
-export { responseBodyToString } from "/lib/item-blocks/responses";
 
 export type BlockProcessor<Block> = (block: Block, params: BlockProcessorParams) => Response;
 
@@ -47,6 +46,7 @@ const BLOCK_PROCESSORS_BUILT_IN: Record<BlocksName, BlockProcessor<unknown>> = {
   "blocks-factbox": processBlocksFactbox as BlockProcessor<unknown>,
   "blocks-card": processBlocksCard as BlockProcessor<unknown>,
   "blocks-cards": processBlocksCards as BlockProcessor<unknown>,
+  "blocks-map": processBlocksMap as BlockProcessor<unknown>,
   "blocks-reuse": processBlocksReuse as BlockProcessor<unknown>,
   "blocks-quote": processBlocksQuote as BlockProcessor<unknown>,
 };

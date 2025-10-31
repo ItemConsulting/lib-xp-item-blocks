@@ -28,7 +28,7 @@ export default function buildAssetConfig(): Options {
 
     // TIP: Command to check if there are any bad requires left behind
     // grep -r 'require("' build/resources/main | grep -v 'require("/'|grep -v chunk
-    noExternal: [/^@itemconsulting\/.*$/],
+    noExternal: [/^@itemconsulting\/.*$/, "maplibre-gl"],
 
     platform: "browser",
     silent: ["QUIET", "WARN"].includes(process.env.LOG_LEVEL_FROM_GRADLE || ""),

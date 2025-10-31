@@ -12,11 +12,13 @@ To install this library you may need to add some new dependencies to your app's 
 ```groovy
 repositories {
   maven { url "https://repo.itemtest.no/releases" }
-  maven { url "https://repo.itemtest.no/snapshots" }
 }
 
 dependencies {
-  include "no.item:lib-xp-item-blocks:0.3.0-SNAPSHOT"
+  include "no.item:lib-xp-item-blocks:0.3.1"
+  // if you want to use the map block, include these too
+  include "com.enonic.lib:lib-asset:1.0.3"
+  webjar "org.webjars.npm:maplibre-gl:5.6.1"
 }
 ```
 
@@ -66,6 +68,16 @@ design system.
   --blocks-spacing-xl: 2rem;
   --blocks-spacing-xxl: 3rem;
 }
+```
+
+## Content Security Policy
+
+If you are using the Map Block, you need to open CSP to allow data to be fetched from **OpenFreeMap**. 
+
+_com.enonic.xp.admin.cfg_
+
+```ini
+site.preview.contentSecurityPolicy = default-src 'self'; base-uri 'self'; form-action 'self'; script-src 'self'; object-src 'none'; img-src * data: blob:; style-src * 'unsafe-inline'; font-src * data:; connect-src 'self' https://tiles.openfreemap.org; worker-src 'self' blob: ; child-src 'self' blob: ;
 ```
 
 ## Translations

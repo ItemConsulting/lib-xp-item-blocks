@@ -262,6 +262,54 @@ export type Blocks = {
         /**
          * Selected
          */
+        _selected: "blocks-map";
+
+        /**
+         * Map
+         */
+        "blocks-map": {
+          /**
+           * Center
+           */
+          center: string;
+
+          /**
+           * Zoom
+           */
+          zoom: number;
+
+          /**
+           * Markers
+           */
+          markers?: Array<
+            | {
+                /**
+                 * Selected
+                 */
+                _selected: "popup";
+
+                /**
+                 * Popup
+                 */
+                popup: {
+                  /**
+                   * Position
+                   */
+                  lngLat: string;
+
+                  /**
+                   * Text
+                   */
+                  text?: string;
+                };
+              }
+          >;
+        };
+      }
+    | {
+        /**
+         * Selected
+         */
         _selected: "blocks-reuse";
 
         /**

@@ -97,6 +97,7 @@ export default function buildServerConfig(): Options {
       // }) // ReferenceError: "navigator" is not defined
     ],
     external: [
+      "/lib/enonic/asset",
       "/lib/sentry",
       "/lib/time",
       "/lib/freemarker",
