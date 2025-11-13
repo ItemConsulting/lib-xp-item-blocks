@@ -38,13 +38,32 @@ dependencies {
 
 This will allow you to use functions deployed in the jar-file. 
 
-Example of how to register a new block processor in _main.ts_.
+Example of how to create a part _blocks-view.ts_ that renders out the blocks.
 
 ```typescript
-import { registerBlockProcessor } from "/site/mixins/blocks/blocks";
+import { process } from "/site/mixins/blocks/blocks";
 import { blockProcessor } from "/site/mixins/my-block/my-block"
 
-registerBlockProcessor("my-block", blockProcessor)
+const view = resolve("blocks-view.ftlh");
+
+export function get(req: Request): Response {
+  const content = getContent();
+  const component = getComponent();
+
+  ...
+  
+  const response = process({
+    blocks: forceArray(content.data.blocks),
+    component,
+    content,
+    req,
+    processors: {
+      "my-block": processMedia,
+    },
+  });
+
+  return response;
+}
 ```
 
 ## CSS custom properties
