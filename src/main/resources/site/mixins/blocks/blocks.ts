@@ -14,9 +14,9 @@ import type { Component, Request, Response } from "@enonic-types/core";
 import type { Blocks as BlocksRaw } from ".";
 import type { BlocksReuse as BlocksReuseRaw } from "/site/mixins/blocks-reuse";
 import type { Blocks } from "/site/mixins/blocks/blocks.freemarker";
-import type { Optional, Unarray } from "/lib/item-blocks/types";
+import type { Optional } from "/lib/item-blocks/types";
 
-export { responseBodyToString } from "/lib/item-blocks/responses";
+export { responseBodyToString, concat as concatResponse } from "/lib/item-blocks/responses";
 
 export type BlockProcessor<Block> = (block: Block, params: BlockProcessorParams) => Response;
 
@@ -27,10 +27,7 @@ export type BlockProcessorParams = {
   req: Request;
   classes: string;
   blockIndex: number;
-};
-
-export type BlocksParams = {
-  blocks?: ProcessableBlock[];
+  processors: BlockProcessorMap;
 };
 
 export type ProcessableBlock = {
@@ -38,9 +35,9 @@ export type ProcessableBlock = {
   [name: string]: unknown;
 };
 
-type BlocksName = Unarray<NonNullable<BlocksRaw["blocks"]>>["_selected"] & "blocks-card";
+type BlockProcessorMap = Record<string, BlockProcessor<unknown>>;
 
-const BLOCK_PROCESSORS_BUILT_IN: Record<BlocksName, BlockProcessor<unknown>> = {
+const BLOCK_PROCESSORS_BUILT_IN: BlockProcessorMap = {
   "blocks-accordion": processBlocksAccordion as BlockProcessor<unknown>,
   "blocks-text": processBlocksText as BlockProcessor<unknown>,
   "blocks-images": processBlocksImages as BlockProcessor<unknown>,
@@ -51,20 +48,17 @@ const BLOCK_PROCESSORS_BUILT_IN: Record<BlocksName, BlockProcessor<unknown>> = {
   "blocks-quote": processBlocksQuote as BlockProcessor<unknown>,
 };
 
-const REGISTERED_BLOCK_PROCESSORS: Record<string, BlockProcessor<unknown>> = {
-  ...BLOCK_PROCESSORS_BUILT_IN,
-};
-
 const view = resolve("blocks.ftlh");
 
 export type ProcessParams = Optional<
   BlockProcessorParams,
-  "content" | "component" | "locale" | "classes" | "blockIndex"
+  "content" | "component" | "locale" | "classes" | "blockIndex" | "processors"
 > & {
+  blocks?: ProcessableBlock[];
   blocksClasses?: string;
 };
 
-export function process(config: BlocksParams, params: ProcessParams): Response {
+export function process(params: ProcessParams): Response {
   const component = params.component ?? getComponent();
   const content = params.content ?? getContent();
   const locale = params.locale ?? content?.language ?? "no";
@@ -76,12 +70,16 @@ export function process(config: BlocksParams, params: ProcessParams): Response {
     throw new Error("Component not found in scope");
   }
 
-  const { body, ...response } = processBlocks(forceArray(config.blocks), {
+  const { body, ...response } = processBlocks(forceArray(params.blocks), {
     content,
     component,
     locale,
     classes: params.classes ?? "",
     req: params.req,
+    processors: {
+      ...BLOCK_PROCESSORS_BUILT_IN,
+      ...params.processors,
+    },
   });
 
   return {
@@ -105,22 +103,12 @@ function processBlocks(blocks: ProcessableBlock[], params: Optional<BlockProcess
 }
 
 export function processBlock(selected: string, block: unknown, params: BlockProcessorParams): Response {
-  const processor = REGISTERED_BLOCK_PROCESSORS[selected];
+  const processor = params.processors[selected];
 
   if (processor) {
     return processor(block, params);
   } else {
     throw new Error(`No processor registered for block type "${selected}"`);
-  }
-}
-
-export function registerBlockProcessor<Block>(selected: string, processor: BlockProcessor<Block>): void {
-  REGISTERED_BLOCK_PROCESSORS[selected] = processor as BlockProcessor<unknown>;
-}
-
-export function unregisterBlockProcessor(selected: string): void {
-  if (REGISTERED_BLOCK_PROCESSORS[selected]) {
-    delete REGISTERED_BLOCK_PROCESSORS[selected];
   }
 }
 
