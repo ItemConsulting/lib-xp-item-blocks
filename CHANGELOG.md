@@ -1,5 +1,11 @@
 # @item-enonic-types/lib-blocks
 
+## 0.5.0
+
+### Minor Changes
+
+- 37c5b09: Pass in processors to process function in blocks instead of registering them globally.
+
 ## 0.4.0
 
 ### Minor Changes
