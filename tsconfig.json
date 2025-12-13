@@ -6,7 +6,7 @@
 		"allowUmdGlobalAccess": true,
 		"baseUrl": "./",
     "module": "commonjs",
-		"moduleResolution": "node",
+		"moduleResolution": "bundler",
     "strict": true,
     "rootDirs": [
       "./src/main/resources",

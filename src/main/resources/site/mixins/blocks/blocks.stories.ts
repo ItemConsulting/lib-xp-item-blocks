@@ -71,7 +71,8 @@ export default {
             [#assign card]
               [#include "${cardId}"]
             [/#assign]
-            [#assign items=[card, card, card] /]
+
+            [#assign cardsMarkup=[card, card, card]?join("") /]
 
             [#assign link=cardsLink]
             [#include "${cardsId}"]
@@ -98,7 +99,7 @@ export default {
             [#include "${imagesId}"]
           [/#assign]
 
-          [#assign blocks=[text1, factbox, cards, text2, accordion, images] /]
+          [#assign blocksMarkup=[text1, factbox, cards, text2, accordion, images]?join("") /]
           [#assign classes=blockGap /]
           [#include "${id}"]
         `,
