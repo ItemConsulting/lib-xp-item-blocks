@@ -6,7 +6,7 @@
 		"allowUmdGlobalAccess": true,
 		"baseUrl": "./",
     "module": "commonjs",
-		"moduleResolution": "bundler",
+		"moduleResolution": "node",
     "strict": true,
     "rootDirs": [
       "./src/main/resources",
@@ -46,10 +46,7 @@
 		//──────────────────────────────────────────────────────────────────────
 		"skipLibCheck": true,
 	},
-	"exclude": [
-		"src/main/resources/assets/**/*.*",
-    "**/*.stories.ts"
-	],
+	"exclude": [".storybook/**/*", "src/main/resources/assets/**/*.*", "**/*.stories.ts"],
 	"include": [
 		// Make sure default types matches Nashorn
 		"node_modules/typescript/lib/lib.es5.d.ts",
