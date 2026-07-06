@@ -10,7 +10,9 @@ sourceCompatibility = JavaVersion.VERSION_11
 targetCompatibility = JavaVersion.VERSION_11
 
 dependencies {
+  implementation "com.enonic.lib:lib-asset:1.0.3"
   implementation "no.item:lib-xp-freemarker:3.0.0-SNAPSHOT"
+  implementation "org.webjars.npm:maplibre-gl:5.6.1"
 }
 
 repositories {
