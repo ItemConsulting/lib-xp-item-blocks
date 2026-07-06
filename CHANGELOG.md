@@ -1,5 +1,11 @@
 # @item-enonic-types/lib-blocks
 
+## 0.6.0
+
+### Minor Changes
+
+- a2352b6: Add map block
+
 ## 0.5.0
 
 ### Minor Changes
