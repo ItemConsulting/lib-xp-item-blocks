@@ -1,18 +1,18 @@
+import type { Response } from "@enonic-types/core";
+import { render } from "/lib/freemarker";
+import { getImageParams, type ImageParams } from "/lib/item-blocks/images";
+import type { ContentImage, ContentVector } from "/lib/item-blocks/types";
+import { isEmptyOrUndefined, notNullOrUndefined } from "/lib/item-blocks/utils";
 import { get as getOne } from "/lib/xp/content";
 import { processHtml } from "/lib/xp/portal";
-import { process as processLink } from "/site/mixins/blocks-link/blocks-link";
-import { isEmptyOrUndefined, notNullOrUndefined } from "/lib/item-blocks/utils";
-import { getImageParams, type ImageParams } from "/lib/item-blocks/images";
-import { render } from "/lib/freemarker";
+import type { BlockProcessorParams } from "/site/mixins/blocks/blocks";
+import type { BlocksCard } from "/site/mixins/blocks-card/blocks-card.freemarker";
 import {
   isBlocksImagePlacement,
   process as processImagePlacement,
 } from "/site/mixins/blocks-image-placement/blocks-image-placement";
-import type { ContentImage, ContentVector } from "/lib/item-blocks/types";
+import { process as processLink } from "/site/mixins/blocks-link/blocks-link";
 import type { BlocksCard as BlocksCardRaw } from ".";
-import type { BlocksCard } from "/site/mixins/blocks-card/blocks-card.freemarker";
-import type { BlockProcessorParams } from "/site/mixins/blocks/blocks";
-import type { Response } from "@enonic-types/core";
 
 type BlocksCardRawWithOptionalFields = BlocksCardRaw & {
   theme?: string;
@@ -75,7 +75,7 @@ function getImage({ imageContent, imageOnly }: GetImageSrcParams): ImageParams {
 
 function getImageMaxWidth(): number {
   try {
-    return app.config.cardImageMaxWidth ? parseInt(app.config.cardImageMaxWidth) : WIDTH_LARGEST_IN_CARD;
+    return app.config.cardImageMaxWidth ? parseInt(app.config.cardImageMaxWidth, 10) : WIDTH_LARGEST_IN_CARD;
   } catch {
     log.error('"cardImageMaxWidth" in configuration does not contain a valid value');
   }

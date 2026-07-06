@@ -9,7 +9,7 @@ export function forceArray<A>(data: A | Array<A> | undefined | null): ReadonlyAr
  * Takes an Array and flattens array one depth
  */
 export function flatten<A>(items: Array<Array<A>>): Array<A> {
-  return items.reduce((res, item) => [...res, ...item], []);
+  return items.reduce<A[]>((res, item) => res.concat(item), []);
 }
 
 export function flatMap<A, B>(arr: A[], f: (val: A, index: number) => B[]): B[] {
@@ -17,9 +17,7 @@ export function flatMap<A, B>(arr: A[], f: (val: A, index: number) => B[]): B[] 
 }
 
 export function unique(items: string[]): string[] {
-  return items.filter(function (value, index, array) {
-    return array.indexOf(value) === index;
-  });
+  return items.filter((value, index, array) => array.indexOf(value) === index);
 }
 
 /**

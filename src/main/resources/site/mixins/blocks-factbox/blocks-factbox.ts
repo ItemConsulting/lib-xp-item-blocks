@@ -1,10 +1,10 @@
-import { processHtml } from "/lib/xp/portal";
-import { render } from "/lib/freemarker";
-import type { BlocksFactbox as RawBlocksFactbox } from ".";
-import type { BlocksTheme } from "../blocks-theme";
-import type { BlocksFactbox } from "./blocks-factbox.freemarker";
-import type { BlockProcessorParams } from "/site/mixins/blocks/blocks";
 import type { Response } from "@enonic-types/core";
+import { render } from "/lib/freemarker";
+import { processHtml } from "/lib/xp/portal";
+import type { BlockProcessorParams } from "/site/mixins/blocks/blocks";
+import type { BlocksTheme } from "../blocks-theme";
+import type { BlocksFactbox as RawBlocksFactbox } from ".";
+import type { BlocksFactbox } from "./blocks-factbox.freemarker";
 
 type RawBlocksFactboxAndTheme = RawBlocksFactbox & BlocksTheme;
 

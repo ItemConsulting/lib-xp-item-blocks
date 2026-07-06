@@ -1,7 +1,7 @@
 import id from "./blocks-map.ftlh";
 import "../../../assets/styles/blocks/blocks-map.css";
 import "../../../assets/scripts/blocks/maplibre-gl";
-import type { StoryObj, Meta } from "@itemconsulting/xp-storybook-utils";
+import type { Meta, StoryObj } from "@itemconsulting/xp-storybook-utils";
 import type { BlocksMap } from "./blocks-map.freemarker";
 
 export default {
@@ -25,8 +25,8 @@ export const map: StoryObj<BlocksMap> = {
         type: "popup",
         lat: "59.912087",
         lng: "10.736717",
-        text: "<p>Dette er en test</p>"
-      }
-    ]
+        text: "<p>Dette er en test</p>",
+      },
+    ],
   },
 };

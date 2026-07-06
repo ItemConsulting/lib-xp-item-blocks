@@ -1,5 +1,5 @@
+import type { Response, ResponseBody } from "@enonic-types/core";
 import { forceArray } from "/lib/item-blocks/arrays";
-import { Response, ResponseBody } from "@enonic-types/core";
 
 export function concat(x: Response, y: Response): Response {
   return {

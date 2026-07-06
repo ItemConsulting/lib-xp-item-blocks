@@ -1,7 +1,7 @@
 import id from "./blocks-quote.ftlh";
 import "../../../assets/styles/blocks/blocks-quote.css";
 import "./blocks-quote.stories.css";
-import { type StoryObj, type Meta } from "@itemconsulting/xp-storybook-utils";
+import type { Meta, StoryObj } from "@itemconsulting/xp-storybook-utils";
 import type { BlocksQuote } from "./blocks-quote.freemarker";
 
 export default {

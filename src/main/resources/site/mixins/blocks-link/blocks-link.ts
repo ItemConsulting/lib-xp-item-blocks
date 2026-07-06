@@ -1,8 +1,8 @@
-import { pageUrl, attachmentUrl, type Content } from "/lib/xp/portal";
 import { findOne } from "/lib/item-blocks/contents";
-import { startsWith } from "/lib/item-blocks/utils";
-import type { BlocksLink } from ".";
 import type { ContentMedia, PickSelectedValue } from "/lib/item-blocks/types";
+import { startsWith } from "/lib/item-blocks/utils";
+import { attachmentUrl, type Content, pageUrl } from "/lib/xp/portal";
+import type { BlocksLink } from ".";
 
 const LINK_TYPE_INTERNAL = "internal";
 const LINK_TYPE_EXTERNAL = "external";

@@ -1,8 +1,8 @@
+import type { Response } from "@enonic-types/core";
 import type {
   CustomSelectorServiceResponseBody,
   CustomSelectorServiceResponseHit,
 } from "@item-enonic-types/global/controller";
-import type { Response } from "@enonic-types/core";
 
 const DEFAULT_THEME = "accent=#0062BA,neutral=#1E2B3C,brand1=#F45F63,brand2=#E5AA20,brand3=#1E98F5";
 

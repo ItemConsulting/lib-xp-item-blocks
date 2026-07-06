@@ -1,4 +1,4 @@
-import { BlocksConfig } from "/site/mixins";
+import type { BlocksConfig } from "/site/mixins";
 
 type BlockLayout = NonNullable<BlocksConfig["blockLayout"]>;
 

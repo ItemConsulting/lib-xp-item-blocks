@@ -1,9 +1,9 @@
 import id from "./blocks-accordion.ftlh";
 import "../../../assets/styles/blocks/blocks-accordion.css";
-import { controlRadioTheme } from "../../storybook-utils";
 import DetailsAnimated from "@itemconsulting/details-animated";
-import type { BlocksAccordion } from "./blocks-accordion.freemarker";
 import type { Meta, StoryObj } from "@itemconsulting/xp-storybook-utils";
+import { controlRadioTheme } from "../../storybook-utils";
+import type { BlocksAccordion } from "./blocks-accordion.freemarker";
 
 if (!window.customElements.get("details-animated")) {
   window.customElements.define("details-animated", DetailsAnimated);

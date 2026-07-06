@@ -1,7 +1,7 @@
 import id from "./blocks-factbox.ftlh";
 import "../../../assets/styles/blocks/blocks-factbox.css";
+import type { Meta, StoryObj } from "@itemconsulting/xp-storybook-utils";
 import { controlRadioTheme } from "../../storybook-utils";
-import type { StoryObj, Meta } from "@itemconsulting/xp-storybook-utils";
 import type { BlocksFactbox } from "./blocks-factbox.freemarker";
 
 export default {

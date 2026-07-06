@@ -1,4 +1,4 @@
-import { BlocksImagePlacement } from ".";
+import type { BlocksImagePlacement } from ".";
 
 export function process(block: BlocksImagePlacement): string {
   return block.imageClass ?? "blocks-card--image-left";

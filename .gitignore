@@ -102,8 +102,7 @@ crashlytics-build.properties
 # Jest
 /coverage
 
-# ES lint
-/.eslintcache
-
 *storybook.log
 .env
+# AI
+.claude

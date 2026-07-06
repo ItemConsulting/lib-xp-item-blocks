@@ -1,10 +1,10 @@
-import { processHtml } from "/lib/xp/portal";
+import type { Response } from "@enonic-types/core";
 import { render } from "/lib/freemarker";
 import { getImageParamsById } from "/lib/item-blocks/images";
+import { processHtml } from "/lib/xp/portal";
+import type { BlockProcessorParams } from "/site/mixins/blocks/blocks";
 import type { BlocksQuote as RawBlocksQuote } from ".";
 import type { BlocksQuote } from "./blocks-quote.freemarker";
-import type { BlockProcessorParams } from "/site/mixins/blocks/blocks";
-import type { Response } from "@enonic-types/core";
 
 const view = resolve("blocks-quote.ftlh");
 

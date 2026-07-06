@@ -1,12 +1,12 @@
-import { processHtml } from "/lib/xp/portal";
+import type { Response } from "@enonic-types/core";
 import { render } from "/lib/freemarker";
 import { forceArray } from "/lib/item-blocks/arrays";
 import { toSnakeCase } from "/lib/item-blocks/utils";
-import type { BlocksAccordion as RawBlocksAccordion } from ".";
-import type { BlocksTheme } from "../blocks-theme";
-import type { BlocksAccordion } from "./blocks-accordion.freemarker";
+import { processHtml } from "/lib/xp/portal";
 import type { BlockProcessorParams } from "/site/mixins/blocks/blocks";
-import type { Response } from "@enonic-types/core";
+import type { BlocksTheme } from "../blocks-theme";
+import type { BlocksAccordion as RawBlocksAccordion } from ".";
+import type { BlocksAccordion } from "./blocks-accordion.freemarker";
 
 type RawBlocksAccordionAndTheme = RawBlocksAccordion & BlocksTheme;
 

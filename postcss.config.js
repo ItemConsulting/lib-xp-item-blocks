@@ -1,3 +1,7 @@
+// CSS is minified in production only, mirroring the JS build (which skips
+// minification when NODE_ENV=development via Gradle's `-Pdev`).
+const isProduction = process.env.NODE_ENV !== "development";
+
 module.exports = (ctx) => ({
   map: ctx.options.map,
   plugins: {
@@ -5,13 +9,7 @@ module.exports = (ctx) => ({
     "postcss-url": {
       url: "copy",
     },
-    stylelint: {},
-    "postcss-reporter": {
-      clearReportedMessages: true,
-    },
-    "postcss-normalize": {},
-    "postcss-nesting": {},
     autoprefixer: {},
-    cssnano: {},
+    ...(isProduction ? { cssnano: {} } : {}),
   },
 });

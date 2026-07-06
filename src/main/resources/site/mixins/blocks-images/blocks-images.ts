@@ -1,12 +1,12 @@
-import { render } from "/lib/freemarker";
-import { imageUrl } from "/lib/xp/portal";
-import { partPathToId } from "/lib/item-blocks/utils";
-import { forceArray } from "/lib/item-blocks/arrays";
-import type { GalleryImage, Images } from "./blocks-images.freemarker";
-import type { BlocksImages as RawBlocksImages } from ".";
-import type { BlockProcessorParams } from "/site/mixins/blocks/blocks";
-import type { Unarray } from "/lib/item-blocks/types";
 import type { Response } from "@enonic-types/core";
+import { render } from "/lib/freemarker";
+import { forceArray } from "/lib/item-blocks/arrays";
+import type { Unarray } from "/lib/item-blocks/types";
+import { partPathToId } from "/lib/item-blocks/utils";
+import { imageUrl } from "/lib/xp/portal";
+import type { BlockProcessorParams } from "/site/mixins/blocks/blocks";
+import type { BlocksImages as RawBlocksImages } from ".";
+import type { GalleryImage, Images } from "./blocks-images.freemarker";
 
 type BlocksImagesItemRaw = Unarray<RawBlocksImages["items"]>;
 

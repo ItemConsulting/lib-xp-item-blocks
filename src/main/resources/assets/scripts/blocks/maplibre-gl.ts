@@ -1,4 +1,4 @@
-import { Map, Marker, Popup, setWorkerUrl } from "maplibre-gl";
+import { Map as MapLibreMap, Marker, Popup, setWorkerUrl } from "maplibre-gl";
 
 export default class MapLibreGl extends HTMLElement {
   connectedCallback() {
@@ -28,7 +28,7 @@ export default class MapLibreGl extends HTMLElement {
     shadow.appendChild(text);
     shadow.appendChild(styles);
 
-    const map = new Map({
+    const map = new MapLibreMap({
       container: text,
       style: "https://tiles.openfreemap.org/styles/liberty",
       center: [lng, lat],

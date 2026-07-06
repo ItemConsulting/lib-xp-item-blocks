@@ -1,12 +1,12 @@
+import type { Response } from "@enonic-types/core";
+import { assetUrl } from "/lib/enonic/asset";
 import { render } from "/lib/freemarker";
 import { forceArray } from "/lib/item-blocks/arrays";
 import { notNullOrUndefined } from "/lib/item-blocks/utils";
 import { processHtml } from "/lib/xp/portal";
-import { assetUrl } from "/lib/enonic/asset";
+import type { BlockProcessorParams } from "/site/mixins/blocks/blocks";
 import type { BlocksMap as RawBlocksMap } from ".";
 import type { BlocksMap, Marker } from "./blocks-map.freemarker";
-import type { BlockProcessorParams } from "/site/mixins/blocks/blocks";
-import type { Response } from "@enonic-types/core";
 
 const view = resolve("blocks-map.ftlh");
 
@@ -41,7 +41,7 @@ export function process(block: RawBlocksMap, { locale }: BlockProcessorParams): 
 
 function getSimpleMarker(markerRaw: MarkerRaw): Marker | undefined {
   switch (markerRaw._selected) {
-    case "popup":
+    case "popup": {
       const [lat, lng] = markerRaw.popup.lngLat.split(",");
 
       return {
@@ -52,6 +52,7 @@ function getSimpleMarker(markerRaw: MarkerRaw): Marker | undefined {
           value: markerRaw.popup.text ?? "",
         }),
       };
+    }
     default:
       return undefined;
   }

@@ -1,9 +1,9 @@
 import "../../../assets/styles/blocks/blocks-cards.css";
 import "../../../assets/styles/blocks/blocks-card.css";
-import id from "./blocks-cards.ftlh";
-import cardId from "../blocks-card/blocks-card.ftlh";
+import { type Meta, renderOnServer, type StoryObj } from "@itemconsulting/xp-storybook-utils";
 import { controlRadioTheme } from "../../storybook-utils";
-import { renderOnServer, type Meta, type StoryObj } from "@itemconsulting/xp-storybook-utils";
+import cardId from "../blocks-card/blocks-card.ftlh";
+import id from "./blocks-cards.ftlh";
 
 type CardsStory = {
   locale: string;

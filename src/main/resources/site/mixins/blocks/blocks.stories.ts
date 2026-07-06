@@ -1,22 +1,21 @@
-import id from "./blocks.ftlh";
-import textId from "../blocks-text/blocks-text.ftlh";
-import factboxId from "../blocks-factbox/blocks-factbox.ftlh";
+import accordionId from "../blocks-accordion/blocks-accordion.ftlh";
 import cardId from "../blocks-card/blocks-card.ftlh";
 import cardsId from "../blocks-cards/blocks-cards.ftlh";
-import accordionId from "../blocks-accordion/blocks-accordion.ftlh";
+import factboxId from "../blocks-factbox/blocks-factbox.ftlh";
 import imagesId from "../blocks-images/blocks-images.ftlh";
+import textId from "../blocks-text/blocks-text.ftlh";
+import id from "./blocks.ftlh";
 import "../../../assets/styles/blocks/blocks-content-grid.css";
 import "../../../assets/styles/blocks/blocks-accordion.css";
 import "../../../assets/styles/blocks/blocks-factbox.css";
 import "../../../assets/styles/blocks/blocks-cards.css";
-import type { StoryObj, Meta } from "@itemconsulting/xp-storybook-utils";
-
-import { factbox } from "../blocks-factbox/blocks-factbox.stories";
-import { accordion } from "../blocks-accordion/blocks-accordion.stories";
-import { text } from "../blocks-text/blocks-text.stories";
-import { Cards, default as cardsMeta } from "../blocks-cards/blocks-cards.stories";
-import { images } from "../blocks-images/blocks-images.stories";
+import type { Meta, StoryObj } from "@itemconsulting/xp-storybook-utils";
 import { controlRadioTheme } from "../../storybook-utils";
+import { accordion } from "../blocks-accordion/blocks-accordion.stories";
+import { Cards, default as cardsMeta } from "../blocks-cards/blocks-cards.stories";
+import { factbox } from "../blocks-factbox/blocks-factbox.stories";
+import { images } from "../blocks-images/blocks-images.stories";
+import { text } from "../blocks-text/blocks-text.stories";
 
 export default {
   title: "Blocks/Blocks",

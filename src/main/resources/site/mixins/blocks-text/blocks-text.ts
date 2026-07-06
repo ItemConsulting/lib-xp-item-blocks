@@ -1,10 +1,10 @@
-import { processHtml } from "/lib/xp/portal";
+import type { Response } from "@enonic-types/core";
 import { render } from "/lib/freemarker";
 import { toSnakeCase } from "/lib/item-blocks/utils";
-import type { BlocksText as RawBlocksText } from ".";
-import type { BlocksText } from "/site/mixins/blocks-text/blocks-text.freemarker";
+import { processHtml } from "/lib/xp/portal";
 import type { BlockProcessorParams } from "/site/mixins/blocks/blocks";
-import type { Response } from "@enonic-types/core";
+import type { BlocksText } from "/site/mixins/blocks-text/blocks-text.freemarker";
+import type { BlocksText as RawBlocksText } from ".";
 
 const view = resolve("blocks-text.ftlh");
 
