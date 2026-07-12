@@ -1,5 +1,8 @@
 <#-- @ftlvariable name="locale" type="String" -->
 <#-- @ftlvariable name="classes" type="String" -->
+<#-- @ftlvariable name="id" type="String" -->
+<#-- @ftlvariable name="variant" type="String" -->
+<#-- @ftlvariable name="color" type="String" -->
 <#-- @ftlvariable name="url" type="String" -->
 <#-- @ftlvariable name="image" type="Object" -->
 <#-- @ftlvariable name="image.src" type="String" -->
@@ -12,41 +15,53 @@
 
 <#setting locale=locale>
 
-<div lang="${.lang}" class="blocks-card ${classes!}">
-  <@linkOrDiv href=url!"" class="blocks-card--card">
-    <#if image??>
-      <figure class="blocks-card--image">
-        <img
-          src="${image.src}"
-          alt="${image.altText!}"
-          <#if image.width??>width="${image.width}"</#if>
-          <#if image.height??>height="${image.height}"</#if>
-        />
-      </figure>
-    </#if>
+<div
+  lang="${.lang}"
+  class="ds-card"
+  data-variant="${variant!"default"}"
+  data-color="${color!"neutral"}"
+  <#if url?has_content>data-clickdelegatefor="${id}-link"</#if>>
 
-    <#if kicker?has_content || title?has_content || text?has_content>
-      <div class="blocks-card--body html-area">
-        <#if kicker?has_content>
-          <small class="blocks-card--kicker">
-            ${kicker}
-          </small>
-        </#if>
+  <#if image??>
+    <figure class="ds-card__block">
+      <img
+        src="${image.src}"
+        alt="${image.altText!}"
+        <#if image.width??>width="${image.width}"</#if>
+        <#if image.height??>height="${image.height}"</#if>
+      />
+    </figure>
+  </#if>
 
-        <#if title?has_content>
-          <h3 class="blocks-card--title">
+  <#if kicker?has_content || title?has_content || text?has_content>
+    <div class="ds-card__block html-area">
+      <#if kicker?has_content>
+        <p class="ds-paragraph" data-size="sm">
+          ${kicker}
+        </p>
+      </#if>
+
+      <#if title?has_content && url?has_content>
+        <h3 class="ds-heading">
+          <a
+            id="${id}-link"
+            href="${url}"
+            class="ds-link">
+
             ${title}
-          </h3>
-        </#if>
+          </a>
+        </h3>
+      <#elseif title?has_content>
+        <h3 class="ds-heading">${title}</h3>
+      </#if>
 
-        <#if text?has_content>
-          <div class="blocks-card--text flow">
-            ${text?no_esc}
-          </div>
-        </#if>
-      </div>
-    </#if>
-  </@linkOrDiv>
+      <#if text?has_content>
+        <p class="ds-paragraph html-area">
+          ${text?no_esc}
+        </p>
+      </#if>
+    </div>
+  </#if>
 </div>
 
 <#macro linkOrDiv href class>

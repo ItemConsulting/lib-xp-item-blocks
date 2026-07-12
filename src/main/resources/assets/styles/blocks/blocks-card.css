@@ -1,13 +1,13 @@
 .blocks-card {
-  --blocks-card--background-color: var(--color-theme-surface-default);
-  --blocks-card--background-color-hover: var(--color-theme-surface-hover);
-  --blocks-card--background-color-active: var(--color-theme-surface-active);
-  --blocks-card--text-color: var(--color-theme-text-default, currentColor);
-  --blocks-card--heading-color: var(--color-neutral-text-default, currentColor);
-  --blocks-card--kicker-color: var(--color-accent-text-default, currentColor);
+  --blocks-card--background-color: var(--ds-color-surface-default);
+  --blocks-card--background-color-hover: var(--ds-color-surface-hover);
+  --blocks-card--background-color-active: var(--ds-color-surface-active);
+  --blocks-card--text-color: var(--ds-color-text-default, currentColor);
+  --blocks-card--heading-color: var(--ds-color-neutral-text-default, currentColor);
+  --blocks-card--kicker-color: var(--ds-color-accent-text-default, currentColor);
   --blocks-card--card-padding: 0;
-  --blocks-card--body-padding: var(--blocks-spacing-md);
-  --blocks-card--svg-padding: var(--blocks-spacing-sm);
+  --blocks-card--body-padding: var(--ds-size-5);
+  --blocks-card--svg-padding: var(--ds-size-2);
   --blocks-card--svg-width: 160px;
   --blocks-card--body-flex: 1 1 100%;
   --blocks-card--image-flex: 0 0 auto;
@@ -28,30 +28,12 @@
     gap: var(--blocks-card--gap);
   }
 
-  small {
-    color: var(--blocks-card--kicker-color);
-  }
-
-  h3 {
-    color: var(--blocks-card--heading-color);
-  }
-
   a.blocks-card--card:hover {
     --blocks-card--background-color: var(--blocks-card--background-color-hover);
 
     h3 {
       text-decoration: 2px solid underline;
     }
-  }
-
-  a.blocks-card--card:active {
-    --blocks-card--background-color: var(--blocks-card--background-color-active);
-  }
-
-  .blocks-card--body {
-    align-content: space-around;
-    flex: var(--blocks-card--body-flex);
-    padding: var(--blocks-card--body-padding);
   }
 
   .blocks-card--image {
@@ -70,16 +52,6 @@
       width: var(--blocks-card--svg-width);
       height: 100%;
       padding: var(--blocks-card--svg-padding);
-    }
-  }
-
-  @supports selector(:has(+ *)) {
-    /* If this is an image only card */
-
-    .blocks-card--card:not(:has(.blocks-card--body)) {
-      --blocks-card--image-flex: 1;
-      --blocks-card--card-padding: 0;
-      --blocks-card--svg-width: 100%;
     }
   }
 }

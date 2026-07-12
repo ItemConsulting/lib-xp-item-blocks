@@ -3,15 +3,14 @@ import type { InputType } from "storybook/internal/types";
 export const controlRadioTheme: InputType = {
   name: "Theme",
   description: "Chose a color theme for the component",
-  options: ["theme-accent", "theme-neutral", "theme-brand1", "theme-brand2", "theme-brand3"],
+  options: ["accent", "neutral", "brand1", "brand2"],
   control: {
     type: "inline-radio",
     labels: {
-      "theme-accent": "Accent",
-      "theme-neutral": "Neutral",
-      "theme-brand1": "Brand1",
-      "theme-brand2": "Brand2",
-      "theme-brand3": "Brand3",
+      accent: "Accent",
+      neutral: "Neutral",
+      brand1: "Brand1",
+      brand2: "Brand2",
     },
   },
 };

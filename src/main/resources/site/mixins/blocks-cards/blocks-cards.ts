@@ -23,12 +23,8 @@ export function process(block: BlocksCardsRawWithOptionalFields, params: BlockPr
   const model: BlocksCards = {
     locale: params.locale,
     title: block.title,
-    classes: [
-      block.columnsClass ?? "blocks-card--cols-3",
-      processImagePlacement(block),
-      block.theme ? `theme-${block.theme}` : undefined,
-      block.theme ? `theme-${block.theme}` : undefined,
-    ]
+    theme: block.theme,
+    classes: [block.columnsClass ?? "blocks-card--cols-3", processImagePlacement(block)]
       .filter(notNullOrUndefined)
       .join(" "),
     cardsMarkup: responseBodyToString(renderedCards.body),

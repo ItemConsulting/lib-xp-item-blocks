@@ -7,12 +7,12 @@
 
 <#setting locale=locale>
 
-<div lang="${.lang}" class="blocks-quote">
-  <blockquote
-    <#if publicationUrl??>cite="${publicationUrl}"</#if>
-  >
+<div
+  lang="${.lang}"
+  class="blocks-quote">
 
-    <div class="blocks-quote--text">
+  <blockquote <#if publicationUrl??>cite="${publicationUrl}"</#if>>
+    <div class="blocks-quote__text html-area">
       ${text?no_esc}
     </div>
 
@@ -33,7 +33,7 @@
     <figure>
       <img
         src="${image.src}"
-        class="blocks-quote--image"
+        class="blocks-quote__image"
         alt="${image.altText!""}"
         <#if image.width??>width="${image.width}"</#if>
         <#if image.height??>height="${image.height}"</#if>

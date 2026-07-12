@@ -15,7 +15,7 @@ export function process(block: RawBlocksFactboxAndTheme, { locale }: BlockProces
     locale,
     title: block.title,
     text: processHtml({ value: block.text ?? "" }),
-    classes: block.theme ? `theme-${block.theme}` : undefined,
+    color: block.theme,
   };
 
   return {

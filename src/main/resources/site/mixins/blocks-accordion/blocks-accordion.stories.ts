@@ -1,9 +1,8 @@
-import id from "./blocks-accordion.ftlh";
-import "../../../assets/styles/blocks/blocks-accordion.css";
 import DetailsAnimated from "@itemconsulting/details-animated";
 import type { Meta, StoryObj } from "@itemconsulting/xp-storybook-utils";
 import { controlRadioTheme } from "../../storybook-utils";
 import type { BlocksAccordion } from "./blocks-accordion.freemarker";
+import id from "./blocks-accordion.ftlh";
 
 if (!window.customElements.get("details-animated")) {
   window.customElements.define("details-animated", DetailsAnimated);
@@ -12,7 +11,7 @@ if (!window.customElements.get("details-animated")) {
 export default {
   title: "Blocks/Accordion",
   argTypes: {
-    classes: controlRadioTheme,
+    color: controlRadioTheme,
   },
   parameters: {
     server: {
@@ -23,8 +22,9 @@ export default {
 
 export const accordion: StoryObj<BlocksAccordion> = {
   args: {
-    classes: "theme-neutral",
+    color: "neutral",
     locale: "no_NB",
+    title: "Trekkspill",
     items: [
       {
         title: "Overskrift 1",

@@ -3,6 +3,7 @@ export type BlocksAccordion = {
   locale: string;
   title?: string;
   classes?: string;
+  color?: string;
   items: Disclosure[];
 };
 

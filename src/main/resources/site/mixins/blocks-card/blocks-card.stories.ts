@@ -3,12 +3,14 @@ import "./blocks-card.stories.css";
 import type { Meta, StoryObj } from "@itemconsulting/xp-storybook-utils";
 import { controlRadioTheme } from "../../storybook-utils";
 import id from "./blocks-card.ftlh";
+import "@digdir/designsystemet-web/clickdelegatefor";
 
 type CardsStory = {
   locale: string;
-  themeClass: string;
+  color: string;
   imageClass: string;
   sizeClass: string;
+  variant: string;
 };
 
 export default {
@@ -32,7 +34,18 @@ export default {
         },
       },
     },
-    themeClass: controlRadioTheme,
+    color: controlRadioTheme,
+    variant: {
+      name: "Variant",
+      options: ["default", "tinted"],
+      control: {
+        type: "inline-radio",
+        labels: {
+          default: "Default",
+          tinted: "Tinted",
+        },
+      },
+    },
     imageClass: {
       name: "Image Position",
       options: [
@@ -61,7 +74,8 @@ export default {
       params: {
         template: `
           <div class="\${sizeClass!''}">
-            [#assign classes="\${imageClass!''} \${themeClass!''}"]
+            [#assign classes="\${imageClass!''}"]
+            [#assign theme="\${themeClass!''}"]
             [#include "${id}"]
           </div>
         `,
@@ -72,8 +86,10 @@ export default {
 
 export const small: StoryObj = {
   args: {
+    id: "my-card",
     sizeClass: "blocks-card-story--small",
-    themeClass: "theme-accent",
+    color: "accent",
+    variant: "tinted",
     imageClass: "blocks-card--image-left",
     kicker: "Blogpost",
     title: "Overskrift 1",
@@ -92,8 +108,10 @@ export const small: StoryObj = {
 
 export const medium: StoryObj = {
   args: {
+    id: "my-card",
     sizeClass: "blocks-card-story--medium",
-    themeClass: "theme-accent",
+    themeClass: "accent",
+    variant: "tinted",
     imageClass: "blocks-card--image-left",
     kicker: "Blogpost",
     title: "Overskrift 1",
@@ -112,8 +130,10 @@ export const medium: StoryObj = {
 
 export const large: StoryObj = {
   args: {
+    id: "my-card",
     sizeClass: "blocks-card-story--large",
-    themeClass: "theme-accent",
+    themeClass: "accent",
+    variant: "tinted",
     imageClass: "blocks-card--image-left",
     kicker: "Blogpost",
     title: "Overskrift 1",
@@ -132,8 +152,10 @@ export const large: StoryObj = {
 
 export const extraLarge: StoryObj = {
   args: {
+    id: "my-card",
     sizeClass: "blocks-card-story--extra-large",
-    themeClass: "theme-accent",
+    themeClass: "accent",
+    variant: "tinted",
     imageClass: "blocks-card--image-left",
     kicker: "Blogpost",
     title: "Overskrift 1",
@@ -152,8 +174,10 @@ export const extraLarge: StoryObj = {
 
 export const imageOnly: StoryObj = {
   args: {
+    id: "my-card",
     sizeClass: "blocks-card-story--large",
-    themeClass: "theme-accent",
+    themeClass: "accent",
+    variant: "tinted",
     imageClass: "blocks-card--image-left",
     image: {
       src: "eggman-thumb.jpg",
@@ -163,8 +187,10 @@ export const imageOnly: StoryObj = {
 
 export const textOnly: StoryObj = {
   args: {
+    id: "my-card",
     sizeClass: "blocks-card-story--extra-large",
-    themeClass: "theme-accent",
+    themeClass: "accent",
+    variant: "tinted",
     imageClass: "blocks-card--image-left",
     kicker: "Blogpost",
     title: "Overskrift 1",
@@ -180,8 +206,10 @@ export const textOnly: StoryObj = {
 
 export const withSVGImage: StoryObj = {
   args: {
+    id: "my-card",
     sizeClass: "blocks-card-story--medium",
-    themeClass: "theme-accent",
+    themeClass: "accent",
+    variant: "tinted",
     imageClass: "blocks-card--image-left",
     kicker: "Blogpost",
     title: "Overskrift 1",
@@ -200,8 +228,10 @@ export const withSVGImage: StoryObj = {
 
 export const withSVGImageOnly: StoryObj = {
   args: {
+    id: "my-card",
     sizeClass: "blocks-card-story--large",
-    themeClass: "theme-accent",
+    themeClass: "accent",
+    variant: "tinted",
     imageClass: "blocks-card--image-left",
     image: {
       src: "profile.svg",

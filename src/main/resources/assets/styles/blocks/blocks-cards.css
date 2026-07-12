@@ -1,12 +1,12 @@
 .blocks-cards {
-  --blocks-cards--gap: var(--blocks-spacing-md);
+  --blocks-cards--gap: var(--ds-size-5);
   --blocks-cards--card-grid-column: span 6;
 
   display: flex;
   flex-direction: column;
-  gap: var(--blocks-spacing-md);
+  gap: var(--ds-size-5);
 
-  .blocks-cards--cards {
+  .blocks-cards__cards {
     display: grid;
     gap: var(--blocks-cards--gap);
     grid-template-columns: repeat(6, 1fr);
@@ -29,20 +29,20 @@
     @supports selector(:has(+ *)) {
       /* If one child extra */
 
-      &.blocks-card--cols-2:has(.blocks-cards--cards > *:nth-child(2n + 1):last-child),
-      &.blocks-card--cols-3:has(.blocks-cards--cards > *:nth-child(3n + 1):last-child) {
+      &.blocks-card--cols-2:has(.blocks-cards__cards > *:nth-child(2n + 1):last-child),
+      &.blocks-card--cols-3:has(.blocks-cards__cards > *:nth-child(3n + 1):last-child) {
 
-        .blocks-cards--cards > :nth-child(1) {
+        .blocks-cards__cards > :nth-child(1) {
           --blocks-cards--card-grid-column: span 6;
         }
       }
 
       /* If two children extra */
 
-      &.blocks-card--cols-3:has(.blocks-cards--cards > *:nth-child(3n + 2):last-child) {
+      &.blocks-card--cols-3:has(.blocks-cards__cards > *:nth-child(3n + 2):last-child) {
 
-        .blocks-cards--cards > :nth-child(1),
-        .blocks-cards--cards > :nth-child(2) {
+        .blocks-cards__cards > :nth-child(1),
+        .blocks-cards__cards > :nth-child(2) {
           --blocks-cards--card-grid-column: span 3;
         }
       }

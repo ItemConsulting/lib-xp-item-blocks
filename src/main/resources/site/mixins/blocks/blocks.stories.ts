@@ -5,7 +5,6 @@ import factboxId from "../blocks-factbox/blocks-factbox.ftlh";
 import imagesId from "../blocks-images/blocks-images.ftlh";
 import textId from "../blocks-text/blocks-text.ftlh";
 import id from "./blocks.ftlh";
-import "../../../assets/styles/blocks/blocks-content-grid.css";
 import "../../../assets/styles/blocks/blocks-accordion.css";
 import "../../../assets/styles/blocks/blocks-factbox.css";
 import "../../../assets/styles/blocks/blocks-cards.css";
@@ -100,6 +99,7 @@ export default {
 
           [#assign blocksMarkup=[text1, factbox, cards, text2, accordion, images]?join("") /]
           [#assign classes=blockGap /]
+
           [#include "${id}"]
         `,
       },
