@@ -1,5 +1,8 @@
 <#-- @ftlvariable name="locale" type="String" -->
 <#-- @ftlvariable name="classes" type="String" -->
+<#-- @ftlvariable name="id" type="String" -->
+<#-- @ftlvariable name="variant" type="String" -->
+<#-- @ftlvariable name="color" type="String" -->
 <#-- @ftlvariable name="url" type="String" -->
 <#-- @ftlvariable name="image" type="Object" -->
 <#-- @ftlvariable name="image.src" type="String" -->
@@ -13,9 +16,14 @@
 <#setting locale=locale>
 
 <div lang="${.lang}" class="blocks-card ${classes!}">
-  <@linkOrDiv href=url!"" class="blocks-card--card">
+  <div
+    class="ds-card"
+    data-variant="${variant!"default"}"
+    data-color="${color!"neutral"}"
+    data-clickdelegatefor="${id}-link">
+
     <#if image??>
-      <figure class="blocks-card--image">
+      <figure class="ds-card__block blocks-card__image">
         <img
           src="${image.src}"
           alt="${image.altText!}"
@@ -26,37 +34,23 @@
     </#if>
 
     <#if kicker?has_content || title?has_content || text?has_content>
-      <div class="blocks-card--body html-area">
+      <div class="ds-card__block html-area">
         <#if kicker?has_content>
-          <small class="blocks-card--kicker">
-            ${kicker}
-          </small>
+          <small>${kicker}</small>
         </#if>
 
-        <#if title?has_content>
-          <h3 class="blocks-card--title">
-            ${title}
-          </h3>
-        </#if>
+        <h3 class="ds-heading">
+          <a
+            id="${id}-link"
+            href="${url!}"
+            class="ds-link">
 
-        <#if text?has_content>
-          <div class="blocks-card--text flow">
-            ${text?no_esc}
-          </div>
-        </#if>
+            ${title!}
+          </a>
+        </h3>
+
+        ${text!?no_esc}
       </div>
     </#if>
-  </@linkOrDiv>
+  </div>
 </div>
-
-<#macro linkOrDiv href class>
-  <#if href?has_content>
-    <a href="${href}" class="${class}">
-      <#nested>
-    </a>
-  <#else>
-    <div class="${class}">
-      <#nested>
-    </div>
-  </#if>
-</#macro>

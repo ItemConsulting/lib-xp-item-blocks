@@ -6,11 +6,11 @@
 
 <div
   lang="${.lang}"
-  class="blocks-text html-area flow"
+  class="blocks-text html-area"
   [#if id??]id="${id}"[/#if]>
 
   [#if title?has_content]
-    <h2 class="blocks-text-title">${title}</h2>
+    <h2 class="ds-heading">${title}</h2>
   [/#if]
 
   [#if text?has_content]

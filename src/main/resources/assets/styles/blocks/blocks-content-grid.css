@@ -1,5 +1,5 @@
 .content-grid {
-  --content-grid--padding-inline: var(--blocks-spacing-md);
+  --content-grid--padding-inline: var(--ds-size-5);
   --content-grid--full: minmax(var(--content-grid--padding-inline), 1fr);
   --content-grid--content: min(var(--blocks-container-sm), 100% - var(--content-grid--padding-inline) * 2);
   --content-grid--breakout: minmax(0, calc((var(--blocks-container-md) - var(--blocks-container-sm)) / 2));
@@ -14,12 +14,11 @@
     var(--content-grid--breakout) [breakout-end]
     var(--content-grid--feature) [feature-end]
     var(--content-grid--full) [full-end];
-  row-gap: var(--content-grid--row-gap, var(--blocks-spacing-lg));
-
-  /* Don't double padding on nested content grids */
+  row-gap: var(--content-grid--row-gap, var(--ds-size-10));
 
   .content-grid {
-    --content-grid--padding-inline: 0;
+    grid-template-columns: subgrid;
+    grid-column: full;
   }
 }
 
@@ -27,18 +26,18 @@
   grid-column: var(--content-grid-grid-column, content);
 }
 
-.content-grid--content {
+.content-grid__content {
   --content-grid-grid-column: content;
 }
 
-.content-grid--breakout {
+.content-grid__breakout {
   --content-grid-grid-column: breakout;
 }
 
-.content-grid--feature {
+.content-grid__feature {
   --content-grid-grid-column: feature;
 }
 
-.content-grid--full {
+.content-grid__full {
   --content-grid-grid-column: full;
 }

@@ -14,14 +14,4 @@ export type BlocksQuote = {
    * Author Image
    */
   imageId?: string;
-
-  /**
-   * Title
-   */
-  publicationTitle?: string;
-
-  /**
-   * Url
-   */
-  publicationUrl?: string;
 };

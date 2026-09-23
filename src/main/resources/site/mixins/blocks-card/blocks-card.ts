@@ -2,7 +2,7 @@ import type { Response } from "@enonic-types/core";
 import { render } from "/lib/freemarker";
 import { getImageParams, type ImageParams } from "/lib/item-blocks/images";
 import type { ContentImage, ContentVector } from "/lib/item-blocks/types";
-import { isEmptyOrUndefined, notNullOrUndefined } from "/lib/item-blocks/utils";
+import { isEmptyOrUndefined, notNullOrUndefined, partPathToId } from "/lib/item-blocks/utils";
 import { get as getOne } from "/lib/xp/content";
 import { processHtml } from "/lib/xp/portal";
 import type { BlockProcessorParams } from "/site/mixins/blocks/blocks";
@@ -25,7 +25,11 @@ const IMAGE_PROPORTION_16_9 = 9 / 16;
 
 const view = resolve("blocks-card.ftlh");
 
-export function process(block: BlocksCardRawWithOptionalFields, { locale }: BlockProcessorParams): Response {
+export function process(
+  block: BlocksCardRawWithOptionalFields,
+  { locale, component, blockIndex }: BlockProcessorParams,
+  cardIndex?: number,
+): Response {
   const image = block.imageId
     ? (getOne<ContentImage | ContentVector>({
         key: block.imageId,
@@ -38,9 +42,10 @@ export function process(block: BlocksCardRawWithOptionalFields, { locale }: Bloc
 
   const model: BlocksCard = {
     locale,
+    id: `${partPathToId(component.path)}-${blockIndex}${cardIndex !== undefined ? `-${cardIndex}` : ""}`,
     url: link?.url,
+    color: block.theme,
     classes: [
-      block.theme ? `theme-${block.theme}` : undefined,
       `blocks-card--link-${link?.type ?? "none"}`,
       isBlocksImagePlacement(block) ? processImagePlacement(block) : undefined,
     ]

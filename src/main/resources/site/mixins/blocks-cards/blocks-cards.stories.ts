@@ -56,11 +56,20 @@ export default {
   parameters: renderOnServer({
     id,
     template: `
-      [#assign classes="\${imageClass} \${themeClass} \${columnsClass}" /]
-      [#assign card]
-        [#include "${cardId}"]
-      [/#assign]
-      [#assign cardsMarkup=[card, card, card, card, card]?chunk(count)[0]?join("") /]
+      [#assign classes="\${imageClass} \${columnsClass}" /]
+      [#assign theme="\${themeClass}" /]
+      [#assign color="\${themeClass}" /]
+      [#assign id="card1" /]
+      [#assign card1][#include "${cardId}"][/#assign]
+      [#assign id="card2" /]
+      [#assign card2][#include "${cardId}"][/#assign]
+      [#assign id="card3" /]
+      [#assign card3][#include "${cardId}"][/#assign]
+      [#assign id="card4" /]
+      [#assign card4][#include "${cardId}"][/#assign]
+      [#assign id="card5" /]
+      [#assign card5][#include "${cardId}"][/#assign]
+      [#assign cardsMarkup=[card1, card2, card3, card4, card5]?chunk(count)[0]?join("") /]
 
       <div class="blocks-card-story--extra-large">
         [#assign title="Cards example"]
@@ -76,7 +85,7 @@ export default {
 export const Cards: StoryObj = {
   args: {
     locale: "no_NB",
-    themeClass: "theme-accent",
+    themeClass: "accent",
     imageClass: "blocks-card--image-left",
     count: 5,
     columnsClass: "blocks-card--cols-3",
@@ -88,7 +97,7 @@ export const Cards: StoryObj = {
             <li>test</li>
             <li>test2</li>
           </ul>`,
-    url: "#",
+    url: "https://item.no",
     image: {
       src: "eggman-thumb.jpg",
     },

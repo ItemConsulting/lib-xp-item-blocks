@@ -1,3 +1,3 @@
-.blocks-map {
-  color: black; /* Affects marker popover */
+.blocks-map .maplibregl-popup-content {
+  color: black; /* The marker popover has a hard-coded white background */
 }

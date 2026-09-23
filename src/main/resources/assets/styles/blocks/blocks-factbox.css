@@ -1,13 +1,9 @@
 .blocks-factbox {
-  --blocks-factbox--background-color: var(--color-theme-background-subtle);
-  --blocks-factbox--text-color: var(--color-neutral-text-default);
-  --blocks-factbox--padding: var(--blocks-spacing-xl) 0;
+  padding: var(--ds-size-15) 0;
+  background-color: var(--ds-color-background-tinted);
+  color: var(--ds-color-neutral-text-default);
 
-  padding: var(--blocks-factbox--padding);
-  background-color: var(--blocks-factbox--background-color);
-  color: var(--blocks-factbox--text-color);
-
-  &.content-grid--breakout {
+  &.content-grid__breakout {
     display: grid;
     grid-template-columns: subgrid;
 
@@ -19,7 +15,7 @@
 
 @media only screen and (width < 840px) {
 
-  .blocks-factbox.content-grid--breakout {
+  .blocks-factbox.content-grid__breakout {
     grid-column: full;
   }
 }

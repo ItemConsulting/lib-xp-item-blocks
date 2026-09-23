@@ -1,6 +1,6 @@
 .blocks-images {
   --block-images--figcaption-color: white;
-  --block-images--gallery-gap: var(--blocks-spacing-md, 1rem);
+  --block-images--gallery-gap: var(--ds-size-5, 1rem);
   --block-images--columns: 1fr;
 
   display: grid;

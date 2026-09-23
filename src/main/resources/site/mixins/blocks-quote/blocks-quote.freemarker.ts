@@ -4,7 +4,5 @@ export type BlocksQuote = {
   locale: string;
   text?: string;
   author?: string;
-  publicationTitle?: string;
-  publicationUrl?: string;
   image?: ImageParams;
 };

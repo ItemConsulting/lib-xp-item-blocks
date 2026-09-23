@@ -22,18 +22,5 @@
       <label i18n="mixin.blocks-quote.image">Author Image</label>
       <occurrences minimum="0" maximum="1"/>
     </input>
-
-    <input name="publicationTitle" type="TextLine">
-      <label i18n="mixin.blocks-quote.publicationTitle">Title</label>
-      <occurrences minimum="0" maximum="1"/>
-    </input>
-
-    <input name="publicationUrl" type="TextLine">
-      <label i18n="mixin.blocks-quote.publicationUrl">Url</label>
-      <occurrences minimum="0" maximum="1"/>
-      <config>
-        <regexp>https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()!@:%_\+.~#?&amp;\/\/=]*)</regexp>
-      </config>
-    </input>
   </form>
 </mixin>

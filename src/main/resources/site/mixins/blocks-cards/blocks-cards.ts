@@ -17,18 +17,14 @@ const view = resolve("blocks-cards.ftlh");
 
 export function process(block: BlocksCardsRawWithOptionalFields, params: BlockProcessorParams): Response {
   const renderedCards = forceArray(block.items)
-    .map((item) => processCard(item, params))
+    .map((item, cardIndex) => processCard(item, params, cardIndex))
     .reduce(concatResponse, {});
 
   const model: BlocksCards = {
     locale: params.locale,
     title: block.title,
-    classes: [
-      block.columnsClass ?? "blocks-card--cols-3",
-      processImagePlacement(block),
-      block.theme ? `theme-${block.theme}` : undefined,
-      block.theme ? `theme-${block.theme}` : undefined,
-    ]
+    theme: block.theme,
+    classes: [block.columnsClass ?? "blocks-card--cols-3", processImagePlacement(block)]
       .filter(notNullOrUndefined)
       .join(" "),
     cardsMarkup: responseBodyToString(renderedCards.body),

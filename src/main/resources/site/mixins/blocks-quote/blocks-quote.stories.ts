@@ -17,8 +17,6 @@ export const quote: StoryObj<BlocksQuote> = {
     locale: "no_NB",
     text: "Storybook works really well with XP...",
     author: "Tom Arild Jakobsen",
-    publicationTitle: "Aftenposten 12.04.24",
-    publicationUrl: "https://www.aftenposten.no/",
     image: {
       src: "tomaj.jpeg",
       width: 200,

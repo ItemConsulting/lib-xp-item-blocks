@@ -12,9 +12,7 @@ export function process(block: RawBlocksQuote, { locale }: BlockProcessorParams)
   const model: BlocksQuote = {
     locale,
     text: processHtml({ value: block.text ?? "" }),
-    publicationTitle: block.publicationTitle,
     author: block.author,
-    publicationUrl: block.publicationUrl,
     image: getImageParamsById({
       key: block.imageId,
       width: 200,

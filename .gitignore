@@ -103,6 +103,7 @@ crashlytics-build.properties
 /coverage
 
 *storybook.log
+storybook-static/
 .env
 # AI
 .claude

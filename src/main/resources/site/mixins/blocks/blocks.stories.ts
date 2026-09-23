@@ -5,9 +5,9 @@ import factboxId from "../blocks-factbox/blocks-factbox.ftlh";
 import imagesId from "../blocks-images/blocks-images.ftlh";
 import textId from "../blocks-text/blocks-text.ftlh";
 import id from "./blocks.ftlh";
-import "../../../assets/styles/blocks/blocks-content-grid.css";
 import "../../../assets/styles/blocks/blocks-accordion.css";
 import "../../../assets/styles/blocks/blocks-factbox.css";
+import "../../../assets/styles/blocks/blocks-card.css";
 import "../../../assets/styles/blocks/blocks-cards.css";
 import type { Meta, StoryObj } from "@itemconsulting/xp-storybook-utils";
 import { controlRadioTheme } from "../../storybook-utils";
@@ -65,13 +65,19 @@ export default {
             [#assign kicker=cardsKicker]
             [#assign text=cardsText]
             [#assign image=cardsImage]
-            [#assign classes="\${imageClass} \${themeClass} \${cardsColumnsClass}" /]
+            [#assign url=cardsUrl]
+            [#assign classes="\${imageClass} \${cardsColumnsClass}" /]
+            [#assign theme=themeClass /]
+            [#assign color=themeClass /]
 
-            [#assign card]
-              [#include "${cardId}"]
-            [/#assign]
+            [#assign id="card1" /]
+            [#assign card1][#include "${cardId}"][/#assign]
+            [#assign id="card2" /]
+            [#assign card2][#include "${cardId}"][/#assign]
+            [#assign id="card3" /]
+            [#assign card3][#include "${cardId}"][/#assign]
 
-            [#assign cardsMarkup=[card, card, card]?join("") /]
+            [#assign cardsMarkup=[card1, card2, card3]?join("") /]
 
             [#assign link=cardsLink]
             [#include "${cardsId}"]
@@ -100,6 +106,7 @@ export default {
 
           [#assign blocksMarkup=[text1, factbox, cards, text2, accordion, images]?join("") /]
           [#assign classes=blockGap /]
+
           [#include "${id}"]
         `,
       },
@@ -132,6 +139,7 @@ export const blocks: StoryObj = {
     imageClass: Cards.args?.imageClass,
     themeClass: Cards.args?.themeClass,
     cardsKicker: Cards.args?.kicker,
+    cardsUrl: Cards.args?.url,
     cardsImage: Cards.args?.image,
     cardsText: Cards.args?.text,
     cardsLink: Cards.args?.link,

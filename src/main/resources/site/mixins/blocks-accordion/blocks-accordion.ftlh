@@ -1,7 +1,7 @@
 <#-- @ftlvariable name="locale" type="String" -->
 <#-- @ftlvariable name="id" type="String" -->
 <#-- @ftlvariable name="title" type="String" -->
-<#-- @ftlvariable name="classes" type="String" -->
+<#-- @ftlvariable name="color" type="String" -->
 <#-- @ftlvariable name="items" type="java.util.ArrayList" -->
 <#-- @ftlvariable name="item.title" type="String" -->
 <#-- @ftlvariable name="item.text" type="String" -->
@@ -9,25 +9,26 @@
 <#setting locale="${locale}">
 
 <div
-  class="blocks-accordion ${classes!}"
+  class="blocks-accordion"
   lang="${.lang}"
   <#if id??>id="${id}"</#if>
 >
   <#if title?has_content>
-    <h2>${title}</h2>
+    <h2 class="ds-heading">${title}</h2>
   </#if>
 
-  <#list items as item>
-    <details-animated class="blocks-accordion-item">
-      <details>
-        <summary>
-          <h3>${item.title}</h3>
-        </summary>
+  <div class="blocks-accordion__items">
+    <#list items as item>
+      <details
+        class="ds-details"
+        data-color="${color!"neutral"}">
 
-        <div class="blocks-accordion--text flow html-area">
+        <summary>${item.title}</summary>
+
+        <div class="html-area">
           ${item.text?no_esc}
         </div>
       </details>
-    </details-animated>
-  </#list>
+    </#list>
+  </div>
 </div>
