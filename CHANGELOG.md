@@ -1,5 +1,16 @@
 # @item-enonic-types/lib-blocks
 
+## 0.6.0
+
+### Minor Changes
+
+- 96803ec: Remove publication from block-quote (it is not much used, and doesn't need to be included by default)
+- a2352b6: Add map block
+
+### Patch Changes
+
+- 96803ec: Fix nested content grids
+
 ## 0.5.0
 
 ### Minor Changes
