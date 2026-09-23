@@ -28,6 +28,7 @@ const view = resolve("blocks-card.ftlh");
 export function process(
   block: BlocksCardRawWithOptionalFields,
   { locale, component, blockIndex }: BlockProcessorParams,
+  cardIndex?: number,
 ): Response {
   const image = block.imageId
     ? (getOne<ContentImage | ContentVector>({
@@ -41,7 +42,7 @@ export function process(
 
   const model: BlocksCard = {
     locale,
-    id: `${partPathToId(component.path)}-${blockIndex}`,
+    id: `${partPathToId(component.path)}-${blockIndex}${cardIndex !== undefined ? `-${cardIndex}` : ""}`,
     url: link?.url,
     color: block.theme,
     classes: [

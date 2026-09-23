@@ -16,10 +16,9 @@
     var(--content-grid--full) [full-end];
   row-gap: var(--content-grid--row-gap, var(--ds-size-10));
 
-  /* Don't double padding on nested content grids */
-
   .content-grid {
-    --content-grid--padding-inline: 0;
+    grid-template-columns: subgrid;
+    grid-column: full;
   }
 }
 

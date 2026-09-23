@@ -39,9 +39,6 @@
     // If types is specified, only packages listed will be included in the global scope.
     // This feature differs from typeRoots in that it is about specifying only the exact
     // types you want included, whereas typeRoots supports saying you want particular folders.
-    "types": [
-      "node",
-      "@itemconsulting/xp-storybook-utils/global.d.ts"
-    ]
+    "types": ["node", "@itemconsulting/xp-storybook-utils/global.d.ts"]
   }
 }

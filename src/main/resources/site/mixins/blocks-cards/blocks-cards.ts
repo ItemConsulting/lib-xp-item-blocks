@@ -17,7 +17,7 @@ const view = resolve("blocks-cards.ftlh");
 
 export function process(block: BlocksCardsRawWithOptionalFields, params: BlockProcessorParams): Response {
   const renderedCards = forceArray(block.items)
-    .map((item) => processCard(item, params))
+    .map((item, cardIndex) => processCard(item, params, cardIndex))
     .reduce(concatResponse, {});
 
   const model: BlocksCards = {

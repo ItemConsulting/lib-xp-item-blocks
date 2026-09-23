@@ -17,7 +17,7 @@ export function process(block: RawBlocksAccordionAndTheme, { locale }: BlockProc
     id: toSnakeCase(block.title),
     title: block.title,
     locale,
-    theme: block.theme,
+    color: block.theme,
     items: forceArray(block.items).map((item) => ({
       title: item.title,
       text: processHtml({
