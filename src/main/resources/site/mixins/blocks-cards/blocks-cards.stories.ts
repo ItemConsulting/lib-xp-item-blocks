@@ -58,6 +58,7 @@ export default {
     template: `
       [#assign classes="\${imageClass} \${columnsClass}" /]
       [#assign theme="\${themeClass}" /]
+      [#assign color="\${themeClass}" /]
       [#assign id="card1" /]
       [#assign card1][#include "${cardId}"][/#assign]
       [#assign id="card2" /]

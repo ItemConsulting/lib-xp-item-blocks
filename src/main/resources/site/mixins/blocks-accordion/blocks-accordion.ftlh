@@ -17,7 +17,7 @@
     <h2 class="ds-heading">${title}</h2>
   </#if>
 
-  <div class="blocks-accordion__content">
+  <div class="blocks-accordion__items">
     <#list items as item>
       <details
         class="ds-details"

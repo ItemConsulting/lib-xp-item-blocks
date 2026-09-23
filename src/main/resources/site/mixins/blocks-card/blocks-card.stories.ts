@@ -75,7 +75,6 @@ export default {
         template: `
           <div class="\${sizeClass!''}">
             [#assign classes="\${imageClass!''}"]
-            [#assign theme="\${themeClass!''}"]
             [#include "${id}"]
           </div>
         `,
@@ -110,7 +109,7 @@ export const medium: StoryObj = {
   args: {
     id: "my-card",
     sizeClass: "blocks-card-story--medium",
-    themeClass: "accent",
+    color: "accent",
     variant: "tinted",
     imageClass: "blocks-card--image-left",
     kicker: "Blogpost",
@@ -132,7 +131,7 @@ export const large: StoryObj = {
   args: {
     id: "my-card",
     sizeClass: "blocks-card-story--large",
-    themeClass: "accent",
+    color: "accent",
     variant: "tinted",
     imageClass: "blocks-card--image-left",
     kicker: "Blogpost",
@@ -154,7 +153,7 @@ export const extraLarge: StoryObj = {
   args: {
     id: "my-card",
     sizeClass: "blocks-card-story--extra-large",
-    themeClass: "accent",
+    color: "accent",
     variant: "tinted",
     imageClass: "blocks-card--image-left",
     kicker: "Blogpost",
@@ -176,7 +175,7 @@ export const imageOnly: StoryObj = {
   args: {
     id: "my-card",
     sizeClass: "blocks-card-story--large",
-    themeClass: "accent",
+    color: "accent",
     variant: "tinted",
     imageClass: "blocks-card--image-left",
     image: {
@@ -189,7 +188,7 @@ export const textOnly: StoryObj = {
   args: {
     id: "my-card",
     sizeClass: "blocks-card-story--extra-large",
-    themeClass: "accent",
+    color: "accent",
     variant: "tinted",
     imageClass: "blocks-card--image-left",
     kicker: "Blogpost",
@@ -208,7 +207,7 @@ export const withSVGImage: StoryObj = {
   args: {
     id: "my-card",
     sizeClass: "blocks-card-story--medium",
-    themeClass: "accent",
+    color: "accent",
     variant: "tinted",
     imageClass: "blocks-card--image-left",
     kicker: "Blogpost",
@@ -230,7 +229,7 @@ export const withSVGImageOnly: StoryObj = {
   args: {
     id: "my-card",
     sizeClass: "blocks-card-story--large",
-    themeClass: "accent",
+    color: "accent",
     variant: "tinted",
     imageClass: "blocks-card--image-left",
     image: {

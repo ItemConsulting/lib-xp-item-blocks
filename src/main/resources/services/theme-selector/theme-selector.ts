@@ -4,7 +4,7 @@ import type {
   CustomSelectorServiceResponseHit,
 } from "@item-enonic-types/global/controller";
 
-const DEFAULT_THEME = "accent=#0062BA,neutral=#1E2B3C,brand1=#F45F63,brand2=#E5AA20,brand3=#1E98F5";
+const DEFAULT_THEME = "accent=#0062BA,neutral=#1E2B3C,brand1=#F45F63,brand2=#E5AA20";
 
 export function get(): Response<{ body: CustomSelectorServiceResponseBody }> {
   const hits = parseThemeString(app.config.themes ?? DEFAULT_THEME);

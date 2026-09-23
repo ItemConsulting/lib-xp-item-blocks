@@ -98,7 +98,6 @@
   "dependencies": {
     "@digdir/designsystemet-css": "^1.18.0",
     "@digdir/designsystemet-web": "^1.18.0",
-    "@itemconsulting/details-animated": "^0.0.6",
     "@itemconsulting/popover-gallery": "^0.4.0"
   },
   "browserslist": [
